@@ -28,7 +28,8 @@ public class ProductMasterServiceImpl implements ProductMasterService{
 
 	@Override
 	public ProductMaster getProductByCode(String code) {
-		return productMasterRepository.getCode(code);
+		return null;
+//		return productMasterRepository.getCode(code);
 	}
 
 	

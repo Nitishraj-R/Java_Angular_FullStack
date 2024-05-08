@@ -3,25 +3,23 @@ package com.wms.model;
 import java.util.List;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-@Setter
-@Getter
 public class ConfigBOMProductMaster {
-	
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
-	List<BOMProductMaster> products;
 	
 	private String code;
 	
@@ -37,6 +35,8 @@ public class ConfigBOMProductMaster {
 
 	private Long lowStockThreshold;
 	
+	@OneToMany(mappedBy = "configMaster")
+	private List<BOMProductMaster> bomProductsList;
 	
 
 }

@@ -1,8 +1,13 @@
 package com.wms.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,12 +15,20 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-public class BOMProductMaster {
+public class BOMProductMaster  {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	ProductMaster product;
-	Integer qty;
+	
+	private Integer qty;
+	
+	@OneToOne
+	private ProductMaster productMaster;
+	
+	@ManyToOne
+	@JoinColumn
+	private ConfigBOMProductMaster configMaster;
 	
 
 }

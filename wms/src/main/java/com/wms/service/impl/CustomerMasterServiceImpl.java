@@ -28,7 +28,8 @@ public class CustomerMasterServiceImpl implements CustomerMasterService{
 
 	@Override
 	public CustomerMaster getCustomerByCode(String code) {
-		return customerMasterRepository.getCode(code);
+		return null;
+//		return customerMasterRepository.getCode(code);
 	}
 	
 	

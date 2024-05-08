@@ -15,8 +15,8 @@ public class BOMProductMasterServiceImpl implements BOMProductMasterService{
 	@Autowired
 	private BOMProductMasterRepository bomProductMasterRepository;
 	@Override
-	public void createBOMProduct(ConfigBOMProductMaster bomProduct) {
-		bomProductMasterRepository.save(bomProduct);
+	public ConfigBOMProductMaster createBOMProduct(ConfigBOMProductMaster bomProduct) {
+		return bomProductMasterRepository.save(bomProduct);
 		
 	}
 
@@ -27,7 +27,8 @@ public class BOMProductMasterServiceImpl implements BOMProductMasterService{
 
 	@Override
 	public ConfigBOMProductMaster getConfigBonProductByCode(String code) {
-		return bomProductMasterRepository.getCode(code);
+//		return bomProductMasterRepository.getCode(code);
+		return null;
 	}
 
 	

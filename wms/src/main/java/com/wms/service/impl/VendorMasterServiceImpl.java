@@ -29,7 +29,8 @@ public class VendorMasterServiceImpl implements VendorMasterService{
 	
 	@Override
 	public VendorMaster getVendorbyCode(String code) {
-		return vendorMasterRepository.getVendorCode(code);
+		return null;
+//		return vendorMasterRepository.getVendorCode(code);
 	}
 
 }
