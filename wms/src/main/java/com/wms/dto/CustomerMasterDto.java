@@ -1,24 +1,16 @@
-package com.wms.model;
+package com.wms.dto;
 
 import java.util.Date;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class CustomerMaster {
+@NoArgsConstructor
+public class CustomerMasterDto {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
 	private String customerCode;
@@ -56,5 +48,4 @@ public class CustomerMaster {
 	private String modifiedBy;
 	
 	private Date lastmodifiedDate;
-
 }

@@ -2,14 +2,19 @@ package com.wms.service;
 
 import java.util.List;
 
+import com.wms.dto.VendorMasterDto;
 import com.wms.model.VendorMaster;
 
 public interface VendorMasterService {
 
-	void createVendor(VendorMaster vendorMaster);
+	VendorMasterDto createVendor(VendorMasterDto vendorMasterDto);
+	
+	VendorMasterDto updateVendor(VendorMasterDto vendorMasterDto);
 
-	List<VendorMaster> getVendors();
+	List<VendorMasterDto> getVendors();
 
-	VendorMaster getVendorbyCode(String code);
+	VendorMasterDto getVendorbyCode(String code);
+
+	String deleteVendor(String vendorCode);
 
 }

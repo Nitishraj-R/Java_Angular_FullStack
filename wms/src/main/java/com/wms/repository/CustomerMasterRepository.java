@@ -1,13 +1,17 @@
 package com.wms.repository;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
 
 import com.wms.model.CustomerMaster;
 
 
 public interface CustomerMasterRepository extends CrudRepository<CustomerMaster, Long> {
 	
-//	CustomerMaster getCode(String code);
+	Optional<List<CustomerMaster>> findByStatus(boolean status);
+
+	Optional<CustomerMaster> findByCustomerCode(String customerCode);
 
 }
