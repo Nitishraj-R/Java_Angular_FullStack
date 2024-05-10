@@ -16,8 +16,8 @@ public class ProductMasterServiceImpl implements ProductMasterService{
 	private ProductMasterRepository productMasterRepository;
 
 	@Override
-	public void createProduct(ProductMaster productMaster) {
-		productMasterRepository.save(productMaster);
+	public ProductMaster createProduct(ProductMaster productMaster) {
+	   return productMasterRepository.save(productMaster);
 		
 	}
 

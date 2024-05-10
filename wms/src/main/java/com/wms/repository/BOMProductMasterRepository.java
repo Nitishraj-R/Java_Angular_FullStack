@@ -1,12 +1,9 @@
 package com.wms.repository;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.wms.model.ConfigBOMProductMaster;
+import com.wms.model.BOMProductMaster;
 
-
-public interface BOMProductMasterRepository extends CrudRepository<ConfigBOMProductMaster, Long> {
-	
-//	ConfigBOMProductMaster getCode(String code);
+public interface BomProductMasterRepository extends JpaRepository<BOMProductMaster,Long> {
 
 }
