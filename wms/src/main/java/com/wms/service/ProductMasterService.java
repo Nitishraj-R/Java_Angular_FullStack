@@ -6,7 +6,7 @@ import com.wms.model.ProductMaster;
 
 public interface ProductMasterService {
 
-	void createProduct(ProductMaster productMaster);
+	ProductMaster createProduct(ProductMaster productMaster);
 
 	List<ProductMaster> getProducts();
 

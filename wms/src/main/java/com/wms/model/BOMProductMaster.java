@@ -1,5 +1,7 @@
 package com.wms.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -28,6 +30,7 @@ public class BOMProductMaster  {
 	
 	@ManyToOne
 	@JoinColumn
+	@JsonIgnore
 	private ConfigBOMProductMaster configMaster;
 	
 
