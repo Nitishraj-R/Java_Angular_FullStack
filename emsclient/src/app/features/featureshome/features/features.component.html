@@ -1,0 +1,108 @@
+<div class="outerLoaderParent" *ngIf="loading; else nonloading">
+  <div class="loaderParent" >
+    <div  class="loader" style=" align-items: center; justify-content: center;"></div>
+  
+  </div>
+</div>
+
+<ng-template #nonloading>
+<section class="mainSection" >
+    <section class="headerSection">
+      <div class="headerListContainer">
+        <ul class="headerList">
+          <li >
+            <div class="logoContainer">
+              <img width="48" height="48" src="https://img.icons8.com/pulsar-color/48/garage-closed.png" alt="garage-closed"/>
+            </div>
+          </li>
+          <li>
+            <div class="dashboardContainer">
+              <a (click)="navigateToChild('child1')">
+             
+            <div class="dashboardContent">
+                <article class="dashboardIcon"><img src=	"https://app.kladana.in/app/cdn/r1349/images/menu/indicators.svg" > </article> 
+                <a class="dashboardAnchor"> Dashboard </a>
+              </div>
+            </a>
+            </div>
+          </li>
+          <li>
+            <div class="customerContainer">
+            <a (click)="navigateToChild('child2')">
+              <div class="customerContent">
+                <article class="customerIcon"><img src=	"	https://app.kladana.in/app/cdn/r1349/images/menu/contragents.svg" > </article> 
+              <a class="customerAnchor">Customer</a>
+
+              </div>
+              </a>
+            </div>
+              
+            
+          </li>
+          <li>
+            <div class="productContainer">
+              <a (click)="navigateToChild('child3')" >
+              <div class="productContent">
+                <article class="productIcon"><img src=	"https://app.kladana.in/app/cdn/r1349/images/menu/procurement.svg" > </article> 
+              <a class="productAnchor"> Product </a>
+
+              </div>
+            </a>
+            </div>
+         </li>
+          <li>
+            
+            <div class="bomContainer">
+              <a (click)="navigateToChild('child4')" >
+              <div class="bomContent">
+                <article class="bomIcon"><img src="https://app.kladana.in/app/cdn/r1349/images/menu/selling.svg" > </article> 
+              <a class="salesAnchor"> BOM_Config </a>
+
+              </div>
+            </a>
+            </div>
+          </li>
+          <li>
+            
+            <div class="supplierContainer">
+              <a (click)="navigateToChild('child5')" >
+              <div class="supplierContent">
+                <article class="supplierIcon"><i class="fa-solid fa-boxes-packing fa-2xl"></i></article> 
+              <a class="supplierAnchor"> Supplier </a>
+
+              </div>
+            </a>
+            </div>
+          </li>
+
+
+         </ul>
+         
+                
+    
+
+
+      </div>
+
+      <div class="userListContainer">
+         
+      </div>
+    </section>
+       
+    <section class="bodySection">
+      
+      <ng-container *ngComponentOutlet="currentChildComponent"><h1></h1></ng-container>
+      
+
+    </section>
+
+
+  
+</section>
+</ng-template>
+<!-- source for the logo icon -->
+<!-- <a  href="https://icons8.com/icon/WP39DvVIYgO2/warehouse">Warehouse</a> icon by <a href="https://icons8.com">Icons8</a> -->
+
+  
+
+

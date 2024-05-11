@@ -1,0 +1,48 @@
+.searchedListContainer{
+    /* border: 2px solid red; */
+
+    display: flex;
+    flex-direction: column;
+}
+.tableDiv{
+    /* border: 2px solid blue; */
+    flex-grow: 1;
+    background-color: #ffffff;
+    width: 100%;
+    height: calc(100vh - 200px);
+    overflow-y: auto;
+    overflow-x: hidden; 
+    /* margin-left: 100px; */
+    margin-top: 100px;
+
+}
+.table {
+   margin-top: 43px;
+    height: 88px;
+    background-color: #ffffff;
+   
+}
+table {
+    width: 100%;
+    text-indent: initial;
+    border-collapse: collapse;
+    border-spacing: 2px;
+    border-color: gray;
+}
+th, td {
+    padding: 8px; /* Add padding to cells */
+    text-align: left; /* Align text to the left */
+    border-bottom: 1px solid #ddd; /* Add bottom border to cells */
+}
+td {
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide overflow text */
+    text-overflow: ellipsis; /* Show ellipsis for overflow text */
+}
+th, td {
+    padding: 4px; /* Reduce padding */
+}
+
+table {
+    margin: 0; /* Remove any margin */
+}

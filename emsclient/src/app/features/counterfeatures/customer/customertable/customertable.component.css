@@ -1,0 +1,43 @@
+.createButton{
+
+    font-size: 15px;
+    font-family: var(--bs-body-font-family);
+    margin: 1%;
+    i{
+        color: aliceblue;
+    }
+    color: white;
+}
+
+td,th{
+    font-size: 15px;
+    font-family: var(--bs-body-font-family);
+    border-right: 1px solid #e8e8e8;
+    padding: 16px;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+tr:hover{
+
+    background-color: rgb(233, 233, 233);
+    cursor: pointer;
+}
+
+table{
+    width: 100%;
+    border: 1px solid #e8e8e8;
+}
+
+.pagination{
+    /* align-items: left; */
+    justify-content: left;
+}
+
+i{
+    color: rgb(43, 147, 182);
+}
+
+i:hover{
+    color: rgb(35, 101, 122);
+    transform: scale(1.1);
+}

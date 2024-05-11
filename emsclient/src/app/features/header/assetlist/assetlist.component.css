@@ -1,0 +1,48 @@
+
+.listofAssetsWithIcon{
+    /* border: 2px solid rgb(25, 0, 255); */
+    display: flex;
+    align-items: center;
+
+    
+}
+
+.listofAssetsWithIcon:hover{
+    text-decoration: none;
+    background-color: #f0f0f0;
+    border: 0.5px solid rgb(253, 252, 252);
+}
+
+a{
+    font-size: 17px;
+    letter-spacing: 0.02rem;
+    cursor: pointer;
+    list-style-type: none;
+    color: black;
+    padding-top: 7px ;
+    padding-left: 5px;
+    display: block;
+    color: #181C32;
+    background-color: transparent;
+    text-decoration: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    user-select: none;
+    transition: color 0.3s, background-color 0.3s; 
+    
+
+
+}
+.fa-list {
+   padding-left: 10px; /* Adjust margin as needed */
+   padding-top: 4px;
+   font-size: 20px
+   
+}
+ /* a:hover {
+
+    
+    text-decoration: none;
+    background-color: #f0f0f0;
+    border: 0.5px solid rgb(253, 252, 252);
+}  */

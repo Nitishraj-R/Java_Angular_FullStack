@@ -1,0 +1,22 @@
+<section class="tableSection">
+  <table class="table">
+ 
+    <thead>
+      <tr>
+  
+        <th *ngFor="let column of columns">{{ column.Head }}</th>
+      </tr>
+    </thead>
+    <tbody>
+     
+      <tr *ngFor="let item of data">
+       
+        <td *ngFor="let column of columns">{{ item[column.FieldValue] }}</td>
+       
+      </tr>
+    </tbody>
+  </table>
+
+</section>
+
+

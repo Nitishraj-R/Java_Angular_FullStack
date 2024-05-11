@@ -1,0 +1,98 @@
+/* Custom CSS for form and dynamic fieldsets */
+.container {
+    margin-top: 20px;
+}
+ 
+/* Style the card and its contents */
+.card {
+    margin-bottom: 20px;
+}
+ 
+form > div[formGroupName="codeGroup"] {
+    display: grid; /* Enable grid layout */
+    grid-template-columns: repeat(4, 1fr); /* Define four equal columns */
+    gap: 20px; /* Add space between fields */
+    margin-bottom: 15px;
+}
+ 
+/* Styling for the form and controls */
+form {
+    padding: 20px;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+}
+ 
+/* Styling for the product code section */
+form > div[formGroupName="codeGroup"] {
+    margin-bottom: 15px;
+}
+ 
+/* Styling for dynamic student fieldsets */
+form > div[formArrayName="studentList"] {
+    margin-bottom: 15px;
+}
+ 
+/* Style each student fieldset */
+form > div[formArrayName="studentList"] > div {
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #fff;
+}
+ 
+/* Style the remove student button */
+button[type="button"] {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+ 
+/* Styling for the Add New Student and Submit buttons */
+button[type="button"], button[type="submit"] {
+    margin-top: 20px;
+    margin-right: 10px;
+}
+ 
+button[type="submit"] {
+    background-color: rgba(0, 98, 255, 0.908);
+    border: none;
+}
+ 
+button[type="submit"]:active{
+    background-color: rgba(0, 98, 255, 0.908);
+ 
+}
+ 
+/* Add some spacing around input elements */
+input, select {
+    width: 100%;
+    margin-bottom: 10px;
+}
+ 
+/* Custom table styles */
+table {
+    width: 100%;
+    margin-top: 10px;
+    border-collapse: collapse;
+}
+ 
+table th, table td {
+    padding: 8px 12px;
+    border: 1px solid #dee2e6;
+}
+ 
+/* Add some space between rows */
+table tr {
+    margin-bottom: 5px;
+}
+ 
+table thead {
+    background-color: #f1f1f1;
+    font-weight: bold;
+}
+ 
+table tbody tr:hover {
+    background-color: #f8f9fa;
+}

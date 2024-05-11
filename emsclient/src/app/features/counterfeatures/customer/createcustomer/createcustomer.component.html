@@ -1,0 +1,103 @@
+<!-- <h1>createcustomer</h1> -->
+<div>
+    <div class="container" *ngIf="saveToggle">
+  
+      <div class="headingdiv">
+        <br><br><h1>Customer Creation</h1><br><br>
+      </div>
+        <form [formGroup]="createForm" (ngSubmit)="onSubmit()"  >
+            
+            
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="customerCode">Customer Code</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="customerCode" formControlName="customerCode"  placeholder="customer Code">
+              </div>
+            </div><br>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="title">Title</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="title" formControlName="title" placeholder="title">
+                </div>
+              </div><br>
+              <!-- <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="status">Status</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="status" formControlName="status" readonly>
+                </div>
+              </div><br> -->
+              
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="firstName">firstName</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="firstName" formControlName="firstName" placeholder="firstName">
+                </div>
+              </div><br>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="lastName">last Name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="lastName" formControlName="lastName" placeholder="lastName">
+                </div>
+              </div><br>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="midddleName">midddleName</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="midddleName" formControlName="midddleName"placeholder="midddleName">
+                </div>
+              </div><br>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="gender">gender</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="gender" formControlName="gender" placeholder="Shipping Cost">
+                </div>
+              </div><br>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="email">email</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="email" formControlName="email" placeholder="email">
+                </div>
+              </div><br>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="mobileNum">mobile Number</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="mobileNum" formControlName="mobileNum" placeholder="mobileNumber">
+                </div>
+              </div><br>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="phoneNum">phone Number</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="phoneNum" formControlName="phoneNum" placeholder="phone Number">
+                </div>
+              </div><br>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="dob">dob</label>
+                <div class="col-sm-10">
+                    <input type="date" class="form-control" id="dob" formControlName="dob" placeholder="dob">
+                </div>
+              </div><br>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="source">source</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="source" formControlName="source" placeholder="source">
+                </div>
+              </div><br>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="defaultPaymemetGateway">defaultPaymemetGateway</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="defaultPaymemetGateway" formControlName="defaultPaymemetGateway" placeholder="Primary ContactNumber">
+                </div>
+              </div><br>
+              
+    
+              <div class="submitEdit">
+                <button class="submit btn btn-primary">Submit</button>
+              </div>
+          </form>
+      </div>
+      <section class="bodySection">
+      
+        <ng-container *ngComponentOutlet="currentChildComponent"><h1></h1></ng-container>
+        
+  
+      </section>
+</div>

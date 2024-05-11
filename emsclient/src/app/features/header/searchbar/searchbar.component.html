@@ -1,0 +1,25 @@
+
+<div class="search-container">
+<div class="input-container">
+    <!-- <input type="text" placeholder="Search your asset" [(ngModel)]="searchTerm"> -->
+    <select [(ngModel)]="selectedCategory" (change)="onCategoryChange()">
+      <option value="" disabled selected hidden>Search Your Assets</option>
+      <option value="asset" >Search By Asset Code</option>
+      <option value="employee">Search By Employee name</option>
+      <!-- <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option> -->
+    </select>
+    <div *ngIf="selectedCategory === 'asset'" class="asset-code-input">
+      <input type="text" placeholder="Enter Asset Code" [(ngModel)]="assetCode">
+    </div>
+   
+    <div *ngIf="selectedCategory === 'employee'" class="employee-name-input">
+      <input  type="text" placeholder="Enter employee name" [(ngModel)]="employeeName">
+    
+    </div>
+    <i class="fas fa-search-plus" (click)="onSearchClicked(assetCode, employeeName)"></i>
+    
+  </div>
+</div>
+
+
+

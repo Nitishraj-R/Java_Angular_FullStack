@@ -1,0 +1,42 @@
+<div class="table-responsive mb-3 searchedListContainer"  *ngIf="responseDataAsList && responseDataAsList.length > 0">
+    <div class="tableDiv">
+    <table class="table table-bordered table-sm mb-0 vertical_middle" aria-label="List Of Assets" id="list_of_assets">
+                      <thead class="thead-light tableHead">
+                       <tr>
+                
+                        <th  >S.No </th>
+                        <th  >Asset Name</th>
+                        <th   >Asset Code</th>
+                        <th  >Description</th>
+                        <th  >Model No</th>
+                        <th   >Serial No</th>
+                        <th  >Purchase Date</th>
+                        <th  >Asset Status</th>
+                        <th  >Cost</th>
+                        <th   >Assigned Status</th>
+                        <th  >Asset Type</th>
+            </tr>
+        </thead>
+        <tbody>
+           
+                
+                <tr *ngFor="let item of responseDataAsList; let i = index">
+                    <td class="text-center">{{ i + 1 }}</td>
+                    <td class="text-center">{{ item.asset.assetName }}</td>
+                    <td class="text-center">{{ item.asset.assetCode }}</td>
+                    <td class="text-center">{{ item.asset.description }}</td>
+                    <td class="text-center">{{ item.asset.modelNumber }}</td>
+                    <td class="text-center">{{ item.asset.serialNumber }}</td>
+                    <td class="text-center">{{ item.asset.purchaseDate }}</td>
+                    <td class="text-center">{{ item.asset.assetStatus }}</td>
+                    <td class="text-center">{{ item.asset.cost }}</td>
+                    <td class="text-center">{{ item.asset.assignedStatus }}</td>
+                    <td class="text-center">{{ item.asset.assetType }}</td>
+                
+                    
+                 </tr>
+           
+        </tbody>
+    </table> 
+</div>
+</div>

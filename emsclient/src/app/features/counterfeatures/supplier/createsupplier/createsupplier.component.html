@@ -1,0 +1,108 @@
+<!-- <p>createsupplier works!</p> -->
+<div>
+    <div class="container" *ngIf="saveToggle">
+  
+      <div class="headingdiv">
+        <br><br><h1>Supplier Creation</h1><br><br>
+      </div>
+        <form [formGroup]="createForm" (ngSubmit)="onSubmit()"  >
+            
+            
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="vendorName">Vendor Name</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="vendorName" formControlName="vendorName"  placeholder="Vendor Name">
+              </div>
+            </div><br>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="registrationNo">Registration No</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="registrationNo" formControlName="registrationNo" placeholder="Registration No">
+                </div>
+              </div><br>
+              <!-- <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="status">Status</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="status" formControlName="status" readonly>
+                </div>
+              </div><br> -->
+              
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="address">Address</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="address" formControlName="address" placeholder="Address">
+                </div>
+              </div><br>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="phoneNumber">Phone Number</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="phoneNumber" formControlName="phoneNumber" placeholder="Phone Number">
+                </div>
+              </div><br>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="emailAddress">Email Address</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="emailAddress" formControlName="emailAddress"placeholder="Email Address">
+                </div>
+              </div><br>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="shippingCost">Shipping Cost</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="shippingCost" formControlName="shippingCost" placeholder="Shipping Cost">
+                </div>
+              </div><br>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="tax">Tax</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="tax" formControlName="tax" placeholder="Tax">
+                </div>
+              </div><br>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="vendorCode">Vendor Code</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="vendorCode" formControlName="vendorCode" placeholder="Vendor Code">
+                </div>
+              </div><br>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="paymentTerm">Payment Term</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="paymentTerm" formControlName="paymentTerm" placeholder="Payment Term">
+                </div>
+              </div><br>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="rmaPolicy">RMA Policy</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="rmaPolicy" formControlName="rmaPolicy" placeholder="RMA Policy">
+                </div>
+              </div><br>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="adminEmailId">Admin EmailId</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="adminEmailId" formControlName="adminEmailId" placeholder="Admin EmailId">
+                </div>
+              </div><br>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="primaryContactNumber">Primary ContactNumber</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="primaryContactNumber" formControlName="primaryContactNumber" placeholder="Primary ContactNumber">
+                </div>
+              </div><br>
+              <div class="form-group  row">
+                <label class="col-sm-2 col-form-label" for="secondaryContactNumber">Secondary ContactNumber</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="secondaryContactNumber" formControlName="secondaryContactNumber" placeholder="Secondary ContactNumber">
+                </div>
+              </div>
+    
+              <div class="submitEdit">
+                <button class="submit btn btn-primary">Submit</button>
+              </div>
+          </form>
+      </div>
+      <section class="bodySection">
+      
+        <ng-container *ngComponentOutlet="currentChildComponent"><h1></h1></ng-container>
+        
+  
+      </section>
+</div>

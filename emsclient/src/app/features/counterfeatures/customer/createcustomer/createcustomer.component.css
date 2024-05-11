@@ -1,0 +1,28 @@
+.form-group,input, .submit{
+    font-size: 15px;
+    font-family: var(--bs-body-font-family);
+}
+
+.submitEdit{
+    margin: 4%;
+    text-align: center;
+}
+
+.headingdiv{
+    height: 10vh;
+    display: flex;
+    /* justify-content: center; */
+    margin-left: 30%;
+}
+
+.form-group,form{
+    display: flex;
+    flex-wrap: wrap;
+}
+input,label{
+    width: 50%;
+}
+
+.form-group{
+    width: 50%;
+}

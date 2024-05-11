@@ -1,0 +1,344 @@
+<!-- <p>detail-page works!</p> -->
+<div *ngIf="currentChildComponent===null">
+<div class="container" *ngIf="update; else editDetails">
+    <div class="main">
+      <div class="headingdiv">
+        <br><br><h1>Editing Details</h1><br><br>
+      </div>
+      <div class="user-details">
+       
+        <div class="editdetails" >
+          <div class="edit btn btn-primary" title="Edit" (click)="onEdit()" ><i class="fa-solid fa-pen-to-square"></i>Edit</div>
+          <div class="edit btn btn-primary" title="Delete" (click)="onDelete()"><i class="fa-solid fa-trash"></i>Delete</div>
+          </div>
+         
+      </div>
+  
+      <div class="about">
+        <ul class="about-list">
+          <li>
+            <div class="valuepair">
+              <p>Vendor ID</p>
+              <p>{{data.id}}</p>
+            </div>
+          </li>
+  
+          <li>
+            <div class="valuepair">
+              <p>Vendor Name</p>
+              <p>{{data.vendorName}} </p>
+            </div>
+          </li>
+          <li>
+            <div class="valuepair">
+              <p>Registration No</p>
+              <p>{{data.registrationNo}}</p>
+            </div>
+          </li>
+          <li>
+            <div class="valuepair">
+              <p>Status</p>
+              <p>{{data.status}}</p>
+            </div>
+          </li>
+          <li>
+            <div class="valuepair">
+              <p>Address</p>
+              <p>{{data.address}}</p>
+            </div>
+          </li>
+          <li>
+            <div class="valuepair">
+              <p>phone Number</p>
+              <p>{{data.phoneNumber}}</p>
+            </div>
+          </li>
+          <li>
+            <div class="valuepair">
+              <p>Email Address</p>
+              <p>{{data.emailAddress}}</p>
+            </div>
+          </li>
+          <li>
+            <div class="valuepair">
+              <p>Shipping Cost</p>
+              <p>{{data.shippingCost}}</p>
+            </div>
+          </li>
+          <li>
+            <div class="valuepair">
+              <p>Tax</p>
+              <p>{{data.tax}}</p>
+            </div>
+          </li>
+          <li>
+            <div class="valuepair">
+              <p>Vendor Code</p>
+              <p>{{data.vendorCode}}</p>
+            </div>
+          </li>
+          <li>
+            <div class="valuepair">
+              <p>Payment Term</p>
+              <p>{{data.paymentTerm}}</p>
+            </div>
+          </li>
+          <li>
+            <div class="valuepair">
+              <p>RMA Policy</p>
+              <p>{{data.rmaPolicy}}</p>
+            </div>
+          </li>
+          <li>
+            <div class="valuepair">
+              <p>Admin EmailId</p>
+              <p>{{data.adminEmailId}}</p>
+            </div>
+          </li>
+          <li>
+            <div class="valuepair">
+              <p>Primary ContactNumber</p>
+              <p>{{data.primaryContactNumber}}</p>
+            </div>
+          </li>
+          <li>
+            <div class="valuepair">
+              <p>Secondary ContactNumber</p>
+              <p>{{data.secondaryContactNumber}}</p>
+            </div>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    <!-- <div class="main">
+      <div class="user-details">
+        <div class="username">
+          
+        </div>
+        <div class="editprofile" (click)="onEditProfile()">
+          <div class="edit">edit profile</div>
+        </div>
+      </div>
+  
+      <div class="about">
+        <ul>
+          <li *ngFor="let item of data; let column; of: columns">
+            <div class="valuepair">
+              <p>{{ item[column] }}</p>
+              <p>{{ item }}</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div> -->
+  </div>
+  <ng-template #editDetails>
+    <!-- <div class="container">
+      <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+        <table>
+          <tr class="form-group">
+            <td><label for="formGroupExampleInput">Id</label></td>
+            <td><input type="text" id="formGroupExampleInput" class="form-control" formControlName="id" readonly /></td>
+          </tr>
+  
+          <tr>
+            <td><label for="">Vendor Name</label></td>
+            <td><input type="text" formControlName="vendorName" /></td>
+          </tr>
+          <tr>
+            <td><label for="">Registration No</label></td>
+            <td><input type="text" formControlName="registrationNo" /></td>
+          </tr>
+          <tr>
+            <td><label for="">Status</label></td>
+            <td><input type="text" formControlName="status" /></td>
+          </tr>
+          <tr>
+            <td><label for="">Email Id</label></td>
+            <td><input type="text" formControlName="emailAddress" /></td>
+          </tr>
+  
+          <tr>
+            <td><label for="">Date Of Birth</label></td>
+            <td><input type="text" formControlName="dateOfBirth" readonly /></td>
+          </tr>
+          <tr>
+              <td><label for="">Email Id</label></td>
+              <td><input type="text" formControlName="emailId" /></td>
+            </tr><tr>
+              <td><label for="">Email Id</label></td>
+              <td><input type="text" formControlName="emailId" /></td>
+            </tr><tr>
+              <td><label for="">Email Id</label></td>
+              <td><input type="text" formControlName="emailId" /></td>
+            </tr><tr>
+              <td><label for="">Email Id</label></td>
+              <td><input type="text" formControlName="emailId" /></td>
+            </tr><tr>
+              <td><label for="">Email Id</label></td>
+              <td><input type="text" formControlName="emailId" /></td>
+            </tr><tr>
+              <td><label for="">Email Id</label></td>
+              <td><input type="text" formControlName="emailId" /></td>
+            </tr><tr>
+              <td><label for="">Email Id</label></td>
+              <td><input type="text" formControlName="emailId" /></td>
+            </tr><tr>
+              <td><label for="">Email Id</label></td>
+              <td><input type="text" formControlName="emailId" /></td>
+            </tr><tr>
+              <td><label for="">Email Id</label></td>
+              <td><input type="text" formControlName="emailId" /></td>
+            </tr><tr>
+              <td><label for="">Email Id</label></td>
+              <td><input type="text" formControlName="emailId" /></td>
+            </tr><tr>
+              <td><label for="">Email Id</label></td>
+              <td><input type="text" formControlName="emailId" /></td>
+            </tr><tr>
+              <td><label for="">Email Id</label></td>
+              <td><input type="text" formControlName="emailId" /></td>
+            </tr><tr>
+              <td><label for="">Email Id</label></td>
+              <td><input type="text" formControlName="emailId" /></td>
+            </tr><tr>
+              <td><label for="">Email Id</label></td>
+              <td><input type="text" formControlName="emailId" /></td>
+            </tr><tr>
+              <td><label for="">Email Id</label></td>
+              <td><input type="text" formControlName="emailId" /></td>
+            </tr><tr>
+              <td><label for="">Email Id</label></td>
+              <td><input type="text" formControlName="emailId" /></td>
+            </tr><tr>
+              <td><label for="">Email Id</label></td>
+              <td><input type="text" formControlName="emailId" /></td>
+            </tr><tr>
+              <td><label for="">Email Id</label></td>
+              <td><input type="text" formControlName="emailId" /></td>
+            </tr><tr>
+              <td><label for="">Email Id</label></td>
+              <td><input type="text" formControlName="emailId" /></td>
+            </tr>
+          <tr>
+            <td></td>
+            <td><input type="submit" /></td>
+          </tr>
+        </table>
+      </form>
+    </div>  -->
+
+    <div class="headingdiv">
+      <br><br><h1>Update Supplier</h1><br>
+    </div>
+    <div class="container">
+     
+      <form [formGroup]="updateForm" (ngSubmit)="onSubmit()" (change)="formChange()" >
+          <!-- <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="id">Id</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="id" formControlName="id"  readonly>
+            </div>
+            
+          </div><br> -->
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="vendorName">Vendor Name</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="vendorName" formControlName="vendorName"  placeholder="Vendor Name">
+            </div>
+          </div><br>
+          <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="registrationNo">Registration No</label>
+              <div class="col-sm-10">
+                  <input type="text" class="form-control" id="registrationNo" formControlName="registrationNo">
+              </div>
+            </div><br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="status">Status</label>
+              <div class="col-sm-10">
+                  <input type="text" class="form-control" id="status" formControlName="status">
+              </div>
+            </div><br>
+            
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="address">Address</label>
+              <div class="col-sm-10">
+                  <input type="text" class="form-control" id="address" formControlName="address">
+              </div>
+            </div><br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="phoneNumber">Phone Number</label>
+              <div class="col-sm-10">
+                  <input type="text" class="form-control" id="phoneNumber" formControlName="phoneNumber">
+              </div>
+            </div><br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="emailAddress">Email Address</label>
+              <div class="col-sm-10">
+                  <input type="text" class="form-control" id="emailAddress" formControlName="emailAddress">
+              </div>
+            </div><br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="shippingCost">Shipping Cost</label>
+              <div class="col-sm-10">
+                  <input type="text" class="form-control" id="shippingCost" formControlName="shippingCost">
+              </div>
+            </div><br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="tax">Tax</label>
+              <div class="col-sm-10">
+                  <input type="text" class="form-control" id="tax" formControlName="tax">
+              </div>
+            </div><br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="vendorCode">Vendor Code</label>
+              <div class="col-sm-10">
+                  <input type="text" class="form-control" id="vendorCode" formControlName="vendorCode" readonly>
+              </div>
+            </div><br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="paymentTerm">Payment Term</label>
+              <div class="col-sm-10">
+                  <input type="text" class="form-control" id="paymentTerm" formControlName="paymentTerm">
+              </div>
+            </div><br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="rmaPolicy">RMA Policy</label>
+              <div class="col-sm-10">
+                  <input type="text" class="form-control" id="rmaPolicy" formControlName="rmaPolicy">
+              </div>
+            </div><br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="adminEmailId">Admin EmailId</label>
+              <div class="col-sm-10">
+                  <input type="text" class="form-control" id="adminEmailId" formControlName="adminEmailId">
+              </div>
+            </div><br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="primaryContactNumber">Primary ContactNumber</label>
+              <div class="col-sm-10">
+                  <input type="text" class="form-control" id="primaryContactNumber" formControlName="primaryContactNumber">
+              </div>
+            </div><br>
+            <div class="form-group  row">
+              <label class="col-sm-2 col-form-label" for="secondaryContactNumber">Secondary ContactNumber</label>
+              <div class="col-sm-10">
+                  <input type="text" class="form-control" id="secondaryContactNumber" formControlName="secondaryContactNumber">
+              </div>
+            </div>
+  
+            <div class="submitEdit">
+              <button class="submit btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+    
+  </ng-template>
+</div>
+  <section class="bodySection">
+      
+    <ng-container *ngComponentOutlet="currentChildComponent"><h1></h1></ng-container>
+    
+
+  </section>
