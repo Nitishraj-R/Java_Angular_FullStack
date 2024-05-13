@@ -45,7 +45,7 @@ public class CustomerMaster {
 	
 	private String source;
 	
-	private String defaultPaymemetGateway;
+	private String defaultPaymentGateway;
 	
 	private String taxExempt;
 	

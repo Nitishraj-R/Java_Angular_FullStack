@@ -27,7 +27,7 @@ import com.wms.service.CustomerMasterService;
 import jakarta.websocket.server.PathParam;
 
 @RestController
-@RequestMapping("/wms/customer/api/")
+@RequestMapping("/wms/customer/api")
 
 @CrossOrigin(originPatterns="*",methods = {RequestMethod.POST,RequestMethod.GET,RequestMethod.PUT,RequestMethod.PATCH,RequestMethod.DELETE},allowedHeaders = {"Content-type"})
 

@@ -45,15 +45,7 @@ public class BOMProductMasterServiceImpl implements BOMProductMasterService{
 	public ConfigBOMProductMaster createBOMProduct(ConfigBOMProductMaster bomProduct) {
 		
 		ConfigBOMProductMaster save = bomProductMasterRepository.save(bomProduct);
-//		for (BOMProductMaster bom : bomProduct.getBomProductsList()) {
-//			
-//			Long productId = bom.getProductMaster().getId();
-//			 ProductMaster productMaster = productRepo.findById(productId).get();
-//			 bom.setProductMaster(productMaster);   			
-//			 bom.setConfigMaster(save);
-//			 bomRepo.save(bom);	 
-//		}
-		
+
 		
 		bomProduct.getBomProductsList()
 		.stream()
@@ -66,21 +58,7 @@ public class BOMProductMasterServiceImpl implements BOMProductMasterService{
 
 		});
 		
-		return save;
-		
-		
-//	   Long id = bomProduct.getBomProductsList().get(0).getProductMaster().getId();
-//	   
-//	    ProductMaster productMaster = productRepo.findById(id).get();
-//	    
-//	    bomProduct.getBomProductsList().get(0).setProductMaster(productMaster);
-//	    
-//	    BOMProductMaster bomProductMaster = bomProduct.getBomProductsList().get(0);	    
-//		 ConfigBOMProductMaster save = bomProductMasterRepository.save(bomProduct);
-//		 bomProductMaster.setConfigMaster(save);
-//         bomRepo.save(bomProductMaster);
-         
-		
+		return save;	
 	}
 
 	@Override

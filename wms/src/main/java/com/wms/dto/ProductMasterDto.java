@@ -25,7 +25,7 @@ public class ProductMasterDto {
 
 	private Long parentSkuId;
 
-	private String status;
+	private Boolean status;
 
 	private Boolean isReturnable;
 

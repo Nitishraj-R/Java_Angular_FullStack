@@ -37,7 +37,7 @@ public class CustomerMasterDto {
 	
 	private String source;
 	
-	private String defaultPaymemetGateway;
+	private String defaultPaymentGateway;
 	
 	private String taxExempt;
 	

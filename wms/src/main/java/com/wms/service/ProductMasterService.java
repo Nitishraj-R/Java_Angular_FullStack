@@ -7,9 +7,12 @@ import com.wms.model.ProductMaster;
 public interface ProductMasterService {
 
 	ProductMaster createProduct(ProductMaster productMaster);
-
+	 
 	List<ProductMaster> getProducts();
-
-	ProductMaster getProductByCode(String code);
-
+ 
+	ProductMaster getProductByProductId(String productId);
+	
+	ProductMaster updateProduct(ProductMaster product);
+	
+	ProductMaster deleteProduct(String id);
 }
