@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProducthomeComponent } from '../producthome/producthome.component';
-import { FormBuilder, FormGroup } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-create-product',
@@ -16,7 +16,7 @@ export class CreateProductComponent implements OnInit{
   currentChildComponent: any = null;
  
   constructor(private builder:FormBuilder,private http:HttpClient){
-    this.createForm=builder.group({
+    this.createForm=this.builder.group({
       id:[''],
       skuNumber:[''],
       productId:[''],

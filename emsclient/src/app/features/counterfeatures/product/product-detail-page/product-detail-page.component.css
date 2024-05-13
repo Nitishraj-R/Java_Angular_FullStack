@@ -7,7 +7,7 @@
     justify-content: center;
 }
 .body{
- 
+
     height: 80vh;
     width: 80%;
     /* border: 2px solid blue; */
@@ -31,33 +31,44 @@
     align-items: center ;
     justify-content: center;
     gap: 50px;
- 
+
 }
 .main{
- 
+
     height: 80%;
     width: 100%;
     /* border: 2px solid green; */
 }
- 
+
 ul{
     display: flex;
     /* flex-direction: column; */
     flex-wrap: wrap;
 }
- 
+
 ul li{
     list-style-type: none;
     display: flex;
     height: 50px;
-   
+    
     /* border: 2px solid indigo; */
 }
- 
+
 .row1{
     width: 50%;
 }
- 
+
+.editmain{
+
+    height: 100%;
+    width: 100%;
+    /* border: 2px solid green; */
+}
+
+.row2{
+    width: 33.33%;
+}
+
 .key{
     height: 100%;
     width: 50%;
@@ -69,5 +80,40 @@ ul li{
     width: 50%;
     /* border: 2px solid orange; */
     font-size: 15px;
- 
+
+}
+
+.editkey{
+    height: 100%;
+    width: 33%;
+    /* border: 2px solid orange; */
+    font-size: 15px;
+}
+.editvalue{
+    height: 100%;
+    width: 33%;
+    /* border: 2px solid orange; */
+    font-size: 15px;
+
+}
+
+form{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-left: 30px;
+    .row{
+        width: 50%;
+        
+    }
+    .submitEdit{
+        width: 700px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        button{
+            width: 150px;
+        }
+    }
 }

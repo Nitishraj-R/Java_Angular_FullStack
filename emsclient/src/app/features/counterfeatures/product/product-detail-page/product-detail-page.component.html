@@ -1,10 +1,10 @@
 <div class="layout" *ngIf="currentChildComponent === null">
-    <div class="body" >
+    <div class="body" *ngIf="edit;else editForm">
      
         <div class="header">
             <div class="title"></div>
            <div class="action">
-            <button>Edit</button>
+            <button (click)="editRecord()">Edit</button>
             <button (click)="deleteRecord()">Delete</button>
            </div>
      
@@ -14,9 +14,9 @@
             <ul>
      
                 <div class="row1" #rowDiv *ngFor="let row of rowData | keyvalue" [style.display]="row.value!==null?'block':'none'"  >
-                    <li  *ngIf="row.value" >
+                    <li  *ngIf="row.value!==null" >
                         <div class="key">{{row.key}}</div>
-                        <div class="value" *ngIf="row.value">:{{row.value}}</div>
+                        <div class="value" *ngIf="row.value!==null">{{row.value}}</div>
                     </li>
                 </div>
                
@@ -27,6 +27,138 @@
         </div>
      
     </div>
+
+    <ng-template #editForm>
+    
+        <div class="editmain">
+            <form [formGroup]="editForm1" (ngSubmit)="onSubmit()"  >
+             <div class="form-group row">
+                <label class="col-sm-2 col-form-label " for="skuNumber">SKU Number</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control " id="skuNumber" formControlName="skuNumber">
+                </div>
+              </div><br>
+
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label " for="productShortDesc">Description</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control " id="productShortDesc" formControlName="productShortDesc" >
+                </div>
+              </div><br>
+              <div class="form-group row ">
+                <label class="col-sm-2 col-form-label " for="productId">Product ID</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control " id="productId" formControlName="productId">
+                </div>
+              </div><br>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label " for="productName">Product Name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control " id="productName" formControlName="productName">
+                </div>
+              </div><br>
+              <div class="form-group row ">
+                <label class="col-sm-2 col-form-label " for="manufacturer">Manufacturer</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control " id="manufacturer" formControlName="manufacturer">
+                </div>
+              </div><br>
+              <div class="form-group row ">
+                <label class="col-sm-2 col-form-label " for="category">Category</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control " id="category" formControlName="category">
+                </div>
+              </div><br>
+              <div class="form-group row ">
+                <label class="col-sm-2 col-form-label " for="subcategory">Sub Category</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control " id="subcategory" formControlName="subcategory" >
+                </div>
+              </div><br>
+              <div class="form-group row ">
+                <label class="col-sm-2 col-form-label " for="material">Material</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control " id="material" formControlName="material">
+                </div>
+              </div><br>
+              <div class="form-group row ">
+                <label class="col-sm-2 col-form-label " for="color">Color</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control " id="color" formControlName="color">
+                </div>
+              </div><br>
+              <div class="form-group row ">
+                <label class="col-sm-2 col-form-label " for="compatibilityNotes">Compatibility Notes</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control " id="compatibilityNotes" formControlName="compatibilityNotes">
+                </div>
+              </div><br>
+              <div class="form-group row ">
+                <label class="col-sm-2 col-form-label " for="warranty">Warranty</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control " id="warranty" formControlName="warranty">
+                </div>
+              </div><br>
+              <div class="form-group  row ">
+                <label class="col-sm-2 col-form-label " for="dimensions">Dimensions</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control " id="dimensions" formControlName="dimensions">
+                </div>
+              </div><br>
+              <div class="form-group  row ">
+                <label class="col-sm-2 col-form-label " for="vendor">Vendor</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control " id="vendor" formControlName="vendor">
+                </div>
+              </div><br>
+              <div class="form-group  row ">
+                <label class="col-sm-2 col-form-label " for="maxOrdQty">maxOrdQty</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control " id="maxOrdQty" formControlName="maxOrdQty">
+                </div>
+              </div><br>
+              <div class="form-group  row ">
+                <label class="col-sm-2 col-form-label " for="isPreOrderAllow">isPreOrderAllow</label>
+                <div class="col-sm-10">
+                    <input type="radio" id="isPreOrderAllow" value="true" formControlName="isPreOrderAllow">true
+                    <input type="radio" id="isPreOrderAllow" value="false" formControlName="isPreOrderAllow">false
+                </div>
+              </div><br>
+              <div class="form-group  row ">
+                <label class="col-sm-2 col-form-label " for="preOrdQty">preOrdQty</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control " id="preOrdQty" formControlName="preOrdQty">
+                </div>
+              </div><br>
+              <div class="form-group  row ">
+                <label class="col-sm-2 col-form-label " for="preOrdRelDt">preOrdRelDt</label>
+                <div class="col-sm-10">
+                    <input type="date" class="form-control " id="preOrdRelDt" formControlName="preOrdRelDt" >
+                </div>
+              </div><br>
+              <div class="form-group  row ">
+                <label class="col-sm-2 col-form-label " for="preOrdEndDt">preOrdEndDt</label>
+                <div class="col-sm-10">
+                    <input type="date" class="form-control " id="preOrdEndDt" formControlName="preOrdEndDt" >
+                </div>
+              </div><br>
+              <div class="form-group  row ">
+                <label class="col-sm-2 col-form-label " for="maxAggShipQty">maxAggShipQty</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control " id="maxAggShipQty" formControlName="maxAggShipQty">
+                </div>
+              </div><br>
+   
+              <div class="submitEdit">
+                <button class="submit btn btn-primary">Save</button>
+              </div>
+
+            </form>
+
+        </div>
+  
+   
+</ng-template>
      
      
      
@@ -34,4 +166,4 @@
     <section class="bodySection">
         <ng-container *ngComponentOutlet="currentChildComponent"
           ><h1>hii</h1></ng-container
-        >
+        ></section>

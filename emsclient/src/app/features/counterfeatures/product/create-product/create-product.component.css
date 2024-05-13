@@ -1,7 +1,7 @@
-.form-group,input, .submit{
+/* .form-group,input, .submit{
     font-size: 15px;
     font-family: var(--bs-body-font-family);
-}
+} */
  
 .submitEdit{
     margin: 4%;
@@ -11,5 +11,35 @@
 .headingdiv{
     height: 10vh;
     display: flex;
+    width: 100%;
     justify-content: center;
 }
+
+/* .form-group,form{
+    display: flex;
+    flex-wrap: wrap;
+}
+input,label{
+    width: 50%;
+} */
+ 
+.form-group{
+    width: 50%;
+}
+
+form{
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-left: 30px;
+
+
+    .row{
+        width: 50%;
+        
+    }
+
+}
+

@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
 import { ProducthomeComponent } from '../producthome/producthome.component';
 import { DataService } from '../../service/dataservice';
 import { HttpClient } from '@angular/common/http';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-product-detail-page',
@@ -13,12 +14,47 @@ export class ProductDetailPageComponent implements OnInit,AfterViewInit{
     @ViewChild('rowDiv') rowDiv!:ElementRef;
    
     currentChildComponent: any = null;
+
+    edit:Boolean=true;
+
+    editForm1:FormGroup;
    
-    constructor(private dataService:DataService,private http:HttpClient){}
+    constructor(private dataService:DataService,private http:HttpClient,
+                private formBuilder:FormBuilder){
+                  this.editForm1=this.formBuilder.group({
+                    id:[''],
+                    skuNumber:[''],
+                    productId:['',Validators.required],
+                    productName:[''],
+                    productShortDesc:[''],
+                    manufacturer:[''],
+                    category:[''],
+                    subcategory:[''],
+                    material:[''],
+                    color:[''],
+                    compatibilityNotes:[''],
+                    warranty:[''],
+                    dimensions:[''],
+                    status:true,
+                    vendor:[],
+                    maxOrdQty:[''],
+                    isPreOrderAllow:[''],
+                    preOrdQty:[''],
+                    preOrdRelDt:[''],
+                    preOrdEndDt:[''],
+                    maxAggShipQty:['']
+            
+            
+                  })
+                 
+                }
   ngOnInit(): void {
    
       this.rowData=this.dataService.getRowData();
       console.log("rowDataDetailComponent",this.rowData);
+      this.editForm1.patchValue(this.rowData);
+      console.log("EditForm",this.editForm1);
+
      
   }
    
@@ -46,6 +82,22 @@ export class ProductDetailPageComponent implements OnInit,AfterViewInit{
    
   }
 
+  editRecord(){
+    this.edit=false;
+    console.log(this.rowData);
+    
+  }
+  onSubmit(){
+    console.log("Inside save");
+    this.http.put('http://localhost:8080/wms/product/api/updateProduct',this.editForm1.value).subscribe(res=>{
+      console.log(res);
+      this.currentChildComponent=ProducthomeComponent;
+      // this.route.navigateByUrl('/features')
+      
+    })
+    
+    
+  }
   
    
    
