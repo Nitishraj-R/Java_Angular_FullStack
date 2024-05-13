@@ -1,0 +1,15 @@
+.form-group,input, .submit{
+    font-size: 15px;
+    font-family: var(--bs-body-font-family);
+}
+ 
+.submitEdit{
+    margin: 4%;
+    text-align: center;
+}
+ 
+.headingdiv{
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+}

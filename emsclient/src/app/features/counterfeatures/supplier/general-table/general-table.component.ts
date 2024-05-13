@@ -1,11 +1,12 @@
 import { Component, Input, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { Router } from '@angular/router';
 import { CommonService } from '../../service/common.service';
 import { SupplierhomeComponent } from '../supplierhome/supplierhome.component';
 import { CreatesupplierComponent } from '../createsupplier/createsupplier.component';
 import { DetailPageComponent } from '../detail-page/detail-page.component';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-general-table',
@@ -20,6 +21,7 @@ export class GeneralTableComponent {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
+  dataSource = new MatTableDataSource<any>(this.data);
   currentChildComponent: any = null;
 
   editable=false;
@@ -55,6 +57,16 @@ export class GeneralTableComponent {
     
     // console.log("this.editCache[item.id].edit",this.editCache[0].edit);
     // console.log("this.editCache[item.id].data",this.editCache[0].data);
+    
+  }
+
+  onPageChange(event: PageEvent) {
+    // Do something with the pagination event, e.g., fetch data from server
+    // You can access current page index, page size, etc., from the event object
+
+    console.log("onPageChange method is invoked");
+    this.dataSource.paginator = this.paginator;
+    console.log("this.dataSource.paginator",this.dataSource.paginator);
     
   }
 

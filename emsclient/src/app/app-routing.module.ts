@@ -11,6 +11,10 @@ import { LoginComponent } from './features/login/login.component';
 import { ConfigbomComponent } from './features/counterfeatures/configbom/configbom.component';
 import { DashboardComponent } from './features/counterfeatures/dashboard/dashboard.component';
 import { CustomerhomeComponent } from './features/counterfeatures/customer/customerhome/customerhome.component';
+import { ProducthomeComponent } from './features/counterfeatures/product/producthome/producthome.component';
+import { ProductdatatableComponent } from './features/counterfeatures/product/productdatatable/productdatatable.component';
+import { ProductDetailPageComponent } from './features/counterfeatures/product/product-detail-page/product-detail-page.component';
+import { CreateProductComponent } from './features/counterfeatures/product/create-product/create-product.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -30,6 +34,10 @@ const routes: Routes = [
     {path:'createsupplier',component:CreatesupplierComponent},
     {path:'dashboard',component:DashboardComponent},
     {path:'customerHome',component:CustomerhomeComponent},
+    {path:'producthome',component:ProducthomeComponent},
+    {path:'createProduct',component:CreateProductComponent},
+    {path:'productDatatable',component:ProductdatatableComponent},
+    {path:'productDetailPage',component:ProductDetailPageComponent},
 
 
 

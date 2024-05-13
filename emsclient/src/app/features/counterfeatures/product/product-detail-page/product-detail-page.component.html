@@ -1,0 +1,37 @@
+<div class="layout" *ngIf="currentChildComponent === null">
+    <div class="body" >
+     
+        <div class="header">
+            <div class="title"></div>
+           <div class="action">
+            <button>Edit</button>
+            <button (click)="deleteRecord()">Delete</button>
+           </div>
+     
+        </div>
+        <div class="main">
+     
+            <ul>
+     
+                <div class="row1" #rowDiv *ngFor="let row of rowData | keyvalue" [style.display]="row.value!==null?'block':'none'"  >
+                    <li  *ngIf="row.value" >
+                        <div class="key">{{row.key}}</div>
+                        <div class="value" *ngIf="row.value">:{{row.value}}</div>
+                    </li>
+                </div>
+               
+     
+     
+            </ul>
+     
+        </div>
+     
+    </div>
+     
+     
+     
+    </div>
+    <section class="bodySection">
+        <ng-container *ngComponentOutlet="currentChildComponent"
+          ><h1>hii</h1></ng-container
+        >

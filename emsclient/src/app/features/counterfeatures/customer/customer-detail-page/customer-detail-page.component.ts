@@ -28,9 +28,9 @@ export class CustomerDetailPageComponent {
       email:[''],
       mobileNum:[''],
       phoneNum:[''],
-      dob:[''],
+      dob:[],
       source:[''],
-      defaultPaymemetGateway:['']
+      defaultPaymentGateway:['']
     })
   }
   columns:string[]=["sd","sf"];

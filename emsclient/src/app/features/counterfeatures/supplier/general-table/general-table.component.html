@@ -41,12 +41,13 @@
           </tr>
       </tbody>
   </table>
-  <mat-paginator class="pagination" #paginator
+  <mat-paginator class="pagination" #paginator (page)="onPageChange($event)"
         [length]="data.length"
         [pageIndex]="0"
         [pageSize]="5"
         [pageSizeOptions]="[5, 10, 20]"
-        aria-label="Select page">
+        aria-label="Select page" showFirstLastButtons>
+        
     </mat-paginator>
 </div>
 

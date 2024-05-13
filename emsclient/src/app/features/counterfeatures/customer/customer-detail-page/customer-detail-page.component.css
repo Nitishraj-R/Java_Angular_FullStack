@@ -134,7 +134,7 @@ border: 2px solid black;
 .submitEdit{
     font-size: 15px;
     font-family: var(--bs-body-font-family); 
-    margin: 8%;
+    margin: 4%;
     text-align: center;
     .submit{
         font-size: 15px;

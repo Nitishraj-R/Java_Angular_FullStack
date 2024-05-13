@@ -33,6 +33,9 @@ import { ConfigbomComponent } from './features/counterfeatures/configbom/configb
 import { CustomerhomeComponent } from './features/counterfeatures/customer/customerhome/customerhome.component';
 import { CustomertableComponent } from './features/counterfeatures/customer/customertable/customertable.component';
 import { CustomerDetailPageComponent } from './features/counterfeatures/customer/customer-detail-page/customer-detail-page.component';
+import { CreateProductComponent } from './features/counterfeatures/product/create-product/create-product.component';
+import { ProductDetailPageComponent } from './features/counterfeatures/product/product-detail-page/product-detail-page.component';
+import { ProductdatatableComponent } from './features/counterfeatures/product/productdatatable/productdatatable.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +59,10 @@ import { CustomerDetailPageComponent } from './features/counterfeatures/customer
     ConfigbomComponent,
     CustomerhomeComponent,
     CustomertableComponent,
-    CustomerDetailPageComponent
+    CustomerDetailPageComponent,
+    CreateProductComponent,
+    ProductDetailPageComponent,
+    ProductdatatableComponent
   ],
   imports: [
     BrowserModule,
