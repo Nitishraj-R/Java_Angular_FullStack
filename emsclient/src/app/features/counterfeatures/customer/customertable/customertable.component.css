@@ -24,8 +24,9 @@ tr:hover{
 }
 
 table{
-    width: 100%;
+    width: 95%;
     border: 1px solid #e8e8e8;
+    margin-left: 20px;
 }
 
 .pagination{
@@ -40,4 +41,10 @@ i{
 i:hover{
     color: rgb(35, 101, 122);
     transform: scale(1.1);
+}
+
+.customer-table{
+    th{
+        text-transform: capitalize;
+    }
 }
