@@ -2,10 +2,13 @@
 <div>
     <div class="container" *ngIf="saveToggle">
   
-      <div class="headingdiv">
-        <br><br><h1>Customer Creation</h1><br><br>
-      </div>
-        <form [formGroup]="createForm" (ngSubmit)="onSubmit()"  >
+      <div class="card">
+        <div class="card-body bom-config">
+            <div>
+              <h1>Customer Creation</h1>
+            </div>
+      
+        <form [formGroup]="createForm" >
             
             
             <div class="form-group row">
@@ -83,9 +86,16 @@
               
     
               <div class="submitEdit">
-                <button class="submit btn btn-primary">Submit</button>
+                <div class="submitdiv">
+                  <button class="submit btn btn-primary" (click)="onSubmit()" >Submit</button>
+                </div>
+                <div class="submitdiv">
+                  <button class="cancel btn btn-danger" (click)="onCancel()">Cancel</button>
+                </div>
               </div>
           </form>
+          </div>
+          </div>
       </div>
       <section class="bodySection">
         <ng-container *ngComponentOutlet="currentChildComponent"><h1></h1></ng-container>

@@ -18,4 +18,8 @@ export class WmsService {
   getAllProducts(){
     return this.http.get(`${this.baseUrl}/wms/product/api/getAllProducts`);
   }
+
+  getAllConfigBom(){
+    return this.http.get(`${this.baseUrl}/wms/bomproduct/api/fetchAll`)
+  }
 }

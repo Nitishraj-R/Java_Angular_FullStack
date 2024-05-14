@@ -29,13 +29,14 @@ import { GeneralTableComponent } from './features/counterfeatures/supplier/gener
 import { DetailPageComponent } from './features/counterfeatures/supplier/detail-page/detail-page.component';
 import { LoginComponent } from './features/login/login.component';
 import { DashboardComponent } from './features/counterfeatures/dashboard/dashboard.component';
-import { ConfigbomComponent } from './features/counterfeatures/configbom/configbom.component';
 import { CustomerhomeComponent } from './features/counterfeatures/customer/customerhome/customerhome.component';
 import { CustomertableComponent } from './features/counterfeatures/customer/customertable/customertable.component';
 import { CustomerDetailPageComponent } from './features/counterfeatures/customer/customer-detail-page/customer-detail-page.component';
 import { CreateProductComponent } from './features/counterfeatures/product/create-product/create-product.component';
 import { ProductDetailPageComponent } from './features/counterfeatures/product/product-detail-page/product-detail-page.component';
 import { ProductdatatableComponent } from './features/counterfeatures/product/productdatatable/productdatatable.component';
+import { ConfigbomlistviewComponent } from './features/counterfeatures/configbom/configbomlistview/configbomlistview.component';
+import { ConfigbomcreationComponent } from './features/counterfeatures/configbomcreation/configbomcreation.component';
 
 @NgModule({
   declarations: [
@@ -56,13 +57,15 @@ import { ProductdatatableComponent } from './features/counterfeatures/product/pr
     DetailPageComponent,
     LoginComponent,
     DashboardComponent,
-    ConfigbomComponent,
+    ConfigbomcreationComponent,
     CustomerhomeComponent,
     CustomertableComponent,
     CustomerDetailPageComponent,
     CreateProductComponent,
     ProductDetailPageComponent,
-    ProductdatatableComponent
+    ProductdatatableComponent,
+    ConfigbomlistviewComponent,
+    ConfigbomcreationComponent
   ],
   imports: [
     BrowserModule,

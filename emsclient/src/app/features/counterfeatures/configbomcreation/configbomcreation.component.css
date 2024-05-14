@@ -96,14 +96,14 @@ table thead {
 table tbody tr:hover {
     background-color: #f8f9fa;
 }
-
+ 
 .bom-config {
-
+ 
     label{
         font-weight: 700;
         font-size: small;
     }
-
+ 
     input{
         font-weight: 500;
         font-size: small;

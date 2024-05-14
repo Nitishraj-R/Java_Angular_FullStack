@@ -1,0 +1,70 @@
+<div class="container">
+    <div class="card">
+        <div class="card-body bom-config">
+            <div>
+                <h1>BOM Configuration</h1>
+                <form [formGroup]="studentForm" (ngSubmit)="getFormData()">
+                    <!-- Product Code -->
+                    <div formGroupName="codeGroup">
+                        <label for="code">CPM Code</label>
+                        <input type="text" id="code" formControlName="code" class="form-control">
+
+                        <label for="productidType">ProductId Type</label>
+                        <input type="text" id="productidType" formControlName="productidType" class="form-control">
+
+                        <label for="productName">Product Name</label>
+                        <input type="text" id="productName" formControlName="productName" class="form-control">
+
+                        <label for="productShortDesc">Product Short Desc</label>
+                        <input type="text" id="productShortDesc" formControlName="productShortDesc" class="form-control">
+
+                        <label for="parentSkuId">Parent Sku Id</label>
+                        <input type="text" id="parentSkuId" formControlName="parentSkuId" class="form-control">
+
+                        <label for="status">Status</label>
+                        <input type="text" id="status" formControlName="status" class="form-control">
+                       
+                        <label for="lowStockThreshold">Low Stock Threshold</label>
+                        <input type="text" id="lowStockThreshold" formControlName="lowStockThreshold" class="form-control">
+                    </div>
+                    <!-- Dynamic Fieldsets as a Table -->
+                    <table class="table" formArrayName="bomProductsList">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Quantity</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let student of bomProductsListArray().controls; let i = index">
+                                <td [formGroupName]="i">
+                                    <!-- Select Product -->
+                                    <label for="product">Select the Products</label>
+                                    <select id="product" class="form-control" formControlName="productMasterDto">
+                                        <option *ngFor="let product of productArray" [value]="product.id">
+                                            {{ product.productName }}
+                                        </option>
+                                    </select>
+                                </td>
+                                <td [formGroupName]="i">
+                                    <!-- Quantity Input -->
+                                    <label for="quantity">Select the quantity</label>
+                                    <input type="number" aria-label="Small" aria-describedby="inputGroup-sizing-sm" id="quantity" formControlName="qty" class="form-control" />
+                                </td>
+                                <td>
+                                    <!-- Remove Button -->
+                                    <button type="button" class="btn btn-primary mt-4" *ngIf="bomProductsListArray().length >= 1" (click)="removeStudent(i)">
+                                        Remove
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button type="button" (click)="addStudent()" class="btn btn-primary btn-lg">Create Bom</button>
+                    <button type="submit" class="btn btn-primary btn-lg">Submit Bom</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

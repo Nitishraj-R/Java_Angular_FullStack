@@ -8,8 +8,8 @@ import { TablerenderComponent } from '../../counterfeatures/customer/tablerender
 import { ProducthomeComponent } from '../../counterfeatures/product/producthome/producthome.component';
 import { SupplierhomeComponent } from '../../counterfeatures/supplier/supplierhome/supplierhome.component';
 import { DashboardComponent } from '../../counterfeatures/dashboard/dashboard.component';
-import { ConfigbomComponent } from '../../counterfeatures/configbom/configbom.component';
 import { CustomerhomeComponent } from '../../counterfeatures/customer/customerhome/customerhome.component';
+import { ConfigbomlistviewComponent } from '../../counterfeatures/configbom/configbomlistview/configbomlistview.component';
 
 @Component({
   selector: 'features',
@@ -34,7 +34,7 @@ export class FeaturesComponent implements OnInit {
       
       this.loading=false;
       
-    }, 2800);
+    }, 1400);
   }
 
   
@@ -66,7 +66,7 @@ export class FeaturesComponent implements OnInit {
        
         break;
       case 'child4':
-        this.currentChildComponent = ConfigbomComponent;
+        this.currentChildComponent = ConfigbomlistviewComponent;
         console.log('inside child 4');
         console.log('currentchildcomponent',this.currentChildComponent);
         

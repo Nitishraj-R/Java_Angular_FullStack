@@ -8,13 +8,14 @@ import { SupplierhomeComponent } from './features/counterfeatures/supplier/suppl
 import { GeneralTableComponent } from './features/counterfeatures/supplier/general-table/general-table.component';
 import { CreatesupplierComponent } from './features/counterfeatures/supplier/createsupplier/createsupplier.component';
 import { LoginComponent } from './features/login/login.component';
-import { ConfigbomComponent } from './features/counterfeatures/configbom/configbom.component';
 import { DashboardComponent } from './features/counterfeatures/dashboard/dashboard.component';
 import { CustomerhomeComponent } from './features/counterfeatures/customer/customerhome/customerhome.component';
 import { ProducthomeComponent } from './features/counterfeatures/product/producthome/producthome.component';
 import { ProductdatatableComponent } from './features/counterfeatures/product/productdatatable/productdatatable.component';
 import { ProductDetailPageComponent } from './features/counterfeatures/product/product-detail-page/product-detail-page.component';
 import { CreateProductComponent } from './features/counterfeatures/product/create-product/create-product.component';
+import { ConfigbomlistviewComponent } from './features/counterfeatures/configbom/configbomlistview/configbomlistview.component';
+import { ConfigbomcreationComponent } from './features/counterfeatures/configbomcreation/configbomcreation.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -22,7 +23,7 @@ const routes: Routes = [
 
   {path:'customersignup',component:CreatecustomerComponent},
   {path:'tablerender',component:CreatecustomerComponent},
-  {path:'configbom',component:ConfigbomComponent},
+  {path:'configbom',component:ConfigbomcreationComponent},
   
   {path:'features',component:FeaturesComponent,children: [
     // { path: '', redirectTo: 'tablerender', pathMatch: 'full' },
@@ -38,6 +39,7 @@ const routes: Routes = [
     {path:'createProduct',component:CreateProductComponent},
     {path:'productDatatable',component:ProductdatatableComponent},
     {path:'productDetailPage',component:ProductDetailPageComponent},
+    {path:'listConfig',component:ConfigbomlistviewComponent}
 
 
 

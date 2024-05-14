@@ -54,8 +54,15 @@ export class CreatecustomerComponent {
  
     }
     })
-    
- 
    }
+
+   onCancel(){
+
+    console.log("Inside onCancel");
+    this.currentChildComponent=CustomerhomeComponent;
+
+    this.saveToggle=false;
+   }
+
 
 }

@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ConfigbomComponent } from '../configbom.component';
 import { WmsService } from '../../service/wms.service';
-
+import { ConfigbomcreationComponent } from '../../configbomcreation/configbomcreation.component';
+ 
 @Component({
   selector: 'app-configbomlistview',
   templateUrl: './configbomlistview.component.html',
   styleUrls: ['./configbomlistview.component.css']
 })
-
 export class ConfigbomlistviewComponent  implements OnInit{
  
   listConfigData:any[]=[];
@@ -36,7 +35,7 @@ export class ConfigbomlistviewComponent  implements OnInit{
   }
  
   createNewBom(){
-    this.currentChildComponent=ConfigbomComponent;
+    this.currentChildComponent=ConfigbomcreationComponent;
   }
  
  

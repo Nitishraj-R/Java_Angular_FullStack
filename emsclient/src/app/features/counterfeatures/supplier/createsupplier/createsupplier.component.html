@@ -6,7 +6,7 @@
             <div>
               <h1>Supplier Creation</h1>
             </div>
-        <form [formGroup]="createForm" (ngSubmit)="onSubmit()"  >
+        <form [formGroup]="createForm">
             
           <div class="form-group row">
             <label class="col-sm-2 col-form-label" for="vendorCode">Vendor Code<span class="lt-required ml-1">*</span></label>
@@ -15,13 +15,13 @@
             </div>
           </div><br>
             <div class="form-group row">
-              <label class="col-sm-2 col-form-label" for="vendorName">Vendor Name</label>
+              <label class="col-sm-2 col-form-label" for="vendorName">Vendor Name<span class="lt-required ml-1">*</span></label>
               <div class="col-sm-10">
                 <input type="text" class="form-control" id="vendorName" formControlName="vendorName"  placeholder="Vendor Name">
               </div>
             </div><br>
             <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="registrationNo">Registration No</label>
+                <label class="col-sm-2 col-form-label" for="registrationNo">Registration No<span class="lt-required ml-1">*</span></label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="registrationNo" formControlName="registrationNo" placeholder="Registration No">
                 </div>
@@ -47,7 +47,7 @@
                 </div>
               </div><br>
               <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="emailAddress">Email Address</label>
+                <label class="col-sm-2 col-form-label" for="emailAddress">Primary EmailId<span class="lt-required ml-1">*</span></label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="emailAddress" formControlName="emailAddress"placeholder="Email Address">
                 </div>
@@ -67,7 +67,7 @@
               
               
               <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="paymentTerm">Payment Term</label>
+                <label class="col-sm-2 col-form-label" for="paymentTerm">Payment Term<span class="lt-required ml-1">*</span></label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="paymentTerm" formControlName="paymentTerm" placeholder="Payment Term">
                 </div>
@@ -75,7 +75,7 @@
               
               
               <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="primaryContactNumber">Primary ContactNumber</label>
+                <label class="col-sm-2 col-form-label" for="primaryContactNumber">Primary ContactNumber<span class="lt-required ml-1">*</span></label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="primaryContactNumber" formControlName="primaryContactNumber" placeholder="Primary ContactNumber">
                 </div>
@@ -93,7 +93,7 @@
                 </div>
               </div><br>
               <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="address">Address</label>
+                <label class="col-sm-2 col-form-label" for="address">Address<span class="lt-required ml-1">*</span></label>
                 <div class="col-sm-10">
                     <textarea class="form-control" name="address" id="address" formControlName="address" placeholder="Address"></textarea>
                 </div>
