@@ -6,6 +6,17 @@
 .submitEdit{
     margin: 4%;
     text-align: center;
+    width: 10%;
+    display: flex;
+    justify-content: space-between;
+}
+.submitdiv{
+    padding: 4%;
+}
+
+.cancel{
+    font-size: 15px;
+    font-family: var(--bs-body-font-family);
 }
 
 .headingdiv{
@@ -25,4 +36,29 @@ input,label{
 
 .form-group{
     width: 50%;
+}
+
+
+
+/* Custom CSS for form and dynamic fieldsets */
+.container {
+    margin-top: 20px;
+}
+ 
+/* Style the card and its contents */
+.card {
+    margin-bottom: 20px;
+    margin-top: 25px;
+}
+
+/* Styling for the form and controls */
+form {
+    padding: 20px;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+}
+
+.lt-required{
+    color: red;
 }

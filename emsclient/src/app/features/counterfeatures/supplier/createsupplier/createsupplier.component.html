@@ -1,13 +1,19 @@
 <!-- <p>createsupplier works!</p> -->
 <div>
     <div class="container" *ngIf="saveToggle">
-  
-      <div class="headingdiv">
-        <br><br><h1>Supplier Creation</h1><br><br>
-      </div>
+      <div class="card">
+        <div class="card-body bom-config">
+            <div>
+              <h1>Supplier Creation</h1>
+            </div>
         <form [formGroup]="createForm" (ngSubmit)="onSubmit()"  >
             
-            
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="vendorCode">Vendor Code<span class="lt-required ml-1">*</span></label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="vendorCode" formControlName="vendorCode" placeholder="Vendor Code">
+            </div>
+          </div><br>
             <div class="form-group row">
               <label class="col-sm-2 col-form-label" for="vendorName">Vendor Name</label>
               <div class="col-sm-10">
@@ -27,16 +33,17 @@
                 </div>
               </div><br> -->
               
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="address">Address</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="address" formControlName="address" placeholder="Address">
-                </div>
-              </div><br>
-              <div class="form-group row">
+              
+              <!-- <div class="form-group row">
                 <label class="col-sm-2 col-form-label" for="phoneNumber">Phone Number</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="phoneNumber" formControlName="phoneNumber" placeholder="Phone Number">
+                </div>
+              </div><br> -->
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="tax">Tax</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="tax" formControlName="tax" placeholder="Tax">
                 </div>
               </div><br>
               <div class="form-group row">
@@ -46,41 +53,27 @@
                 </div>
               </div><br>
               <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="adminEmailId">Admin EmailId</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="adminEmailId" formControlName="adminEmailId" placeholder="Admin EmailId">
+                </div>
+              </div><br>
+              <div class="form-group row">
                 <label class="col-sm-2 col-form-label" for="shippingCost">Shipping Cost</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="shippingCost" formControlName="shippingCost" placeholder="Shipping Cost">
                 </div>
               </div><br>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="tax">Tax</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="tax" formControlName="tax" placeholder="Tax">
-                </div>
-              </div><br>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="vendorCode">Vendor Code</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="vendorCode" formControlName="vendorCode" placeholder="Vendor Code">
-                </div>
-              </div><br>
+              
+              
               <div class="form-group row">
                 <label class="col-sm-2 col-form-label" for="paymentTerm">Payment Term</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="paymentTerm" formControlName="paymentTerm" placeholder="Payment Term">
                 </div>
               </div><br>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="rmaPolicy">RMA Policy</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="rmaPolicy" formControlName="rmaPolicy" placeholder="RMA Policy">
-                </div>
-              </div><br>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="adminEmailId">Admin EmailId</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="adminEmailId" formControlName="adminEmailId" placeholder="Admin EmailId">
-                </div>
-              </div><br>
+              
+              
               <div class="form-group row">
                 <label class="col-sm-2 col-form-label" for="primaryContactNumber">Primary ContactNumber</label>
                 <div class="col-sm-10">
@@ -92,12 +85,31 @@
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="secondaryContactNumber" formControlName="secondaryContactNumber" placeholder="Secondary ContactNumber">
                 </div>
-              </div>
+              </div><br>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="rmaPolicy">RMA Policy</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="rmaPolicy" formControlName="rmaPolicy" placeholder="RMA Policy">
+                </div>
+              </div><br>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="address">Address</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" name="address" id="address" formControlName="address" placeholder="Address"></textarea>
+                </div>
+              </div><br>
     
               <div class="submitEdit">
-                <button class="submit btn btn-primary">Submit</button>
+                <div class="submitdiv">
+                  <button class="submit btn btn-primary" (click)="onSubmit()" >Submit</button>
+                </div>
+                <div class="submitdiv">
+                  <button class="cancel btn btn-danger" (click)="onCancel()">Cancel</button>
+                </div>
               </div>
           </form>
+      </div>
+      </div>
       </div>
       <section class="bodySection">
       

@@ -23,7 +23,7 @@ export class CreatesupplierComponent {
       registrationNo:[''],
       status:true,
       address:[''],
-      phoneNumber:[''],
+      // phoneNumber:['']      phoneNumber:[''],
       emailAddress:[''],
       shippingCost:[''],
       tax:[''],
@@ -54,7 +54,13 @@ export class CreatesupplierComponent {
  
     }
     })
-    
- 
    }
-}
+
+   onCancel(){
+
+    console.log("Inside onCancel");
+    this.currentChildComponent=SupplierhomeComponent;
+
+   }
+
+  }

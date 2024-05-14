@@ -137,8 +137,13 @@ export class DetailPageComponent {
    onSubmit(){
     
     console.log("this.updateForm.value",this.updateForm.value);
-    
-    
- 
+   
+   }
+
+   onCancel(){
+
+    console.log("Inside onCancel");
+    this.currentChildComponent=SupplierhomeComponent;
+
    }
 }
