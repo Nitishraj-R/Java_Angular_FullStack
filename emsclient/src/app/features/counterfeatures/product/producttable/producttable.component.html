@@ -1,29 +1,26 @@
-<!-- <p>customertable works!</p> -->
 
-<div *ngIf="currentChildComponent === null">
-  <div class="createButton btn btn-primary" (click)="createNewDetails()">
-    <i class="fa-solid fa-plus"></i> New
-  </div>
-
-  <table class="customer-table">
-    <thead>
-      <tr>
-        <th class="text-center" *ngFor="let column of columnss">
-          <b>{{ column | titleCase}}</b>
-        </th>
-        <!-- <th class="text-center" colspan="2"><b>Action</b></th> -->
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of data" (click)="detailspage(item)">
-        <td class="q-td text-left" *ngFor="let column of columnss">
-          <span>{{ item[column] }}</span>
-          <!-- <ng-template #editting>
+<div *ngIf="currentChildComponent===null">
+    <div class="createButton btn btn-primary" (click)="createNewDetails()">
+        <i class="fa-solid fa-plus" ></i> New
+      </div>
+      
+      <table class="q-table">
+          <thead>
+          <tr>
+              <th class="text-center" *ngFor="let column of columnss"><b>{{column | titleCase}}</b></th>
+              <!-- <th class="text-center" colspan="2"><b>Action</b></th> -->
+          </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let item of data" (click)="detailspage(item)">
+                  <td class="q-td text-left" *ngFor="let column of columnss">
+                      <span  >{{item[column]}}</span>
+                      <!-- <ng-template #editting>
                           <input value="{{item[column]}}" type="text">
                       </ng-template> -->
-        </td>
-
-        <!-- <td class="q-td text-left" >
+                  </td>
+      
+                  <!-- <td class="q-td text-left" >
                       <span>
                           <i *ngIf="editCache[item.id].edit!==true; else editting2" class="fa-solid fa-pen-to-square" (click)="edit(item)">Edit</i>
                           <ng-template class="q-td text-left" #editting2>
@@ -39,33 +36,34 @@
                           </ng-template>
                       </span>
                   </td> -->
-      </tr>
-    </tbody>
-  </table>
-  <mat-paginator
-    class="pagination"
-    #paginator
-    [length]="data.length"
-    [pageIndex]="0"
-    [pageSize]="5"
-    [pageSizeOptions]="[5, 10, 20]"
-    aria-label="Select page"
-  >
-  </mat-paginator>
-</div>
-
-<section class="bodySection">
-  <ng-container *ngComponentOutlet="currentChildComponent"
-    ><h1>hii</h1></ng-container
-  >
-</section>
-
-<!-- <igx-grid #grid [data]="data" [height]="'500px'" [width]="'100%'">
+                  
+                  
+              </tr>
+          </tbody>
+      </table>
+      <mat-paginator class="pagination" #paginator (page)="onPageChange($event)"
+            [length]="data.length"
+            [pageIndex]="0"
+            [pageSize]="5"
+            [pageSizeOptions]="[5, 10, 20]"
+            aria-label="Select page" showFirstLastButtons>
+            
+        </mat-paginator>
+    </div>
+    
+        <section class="bodySection">
+          
+            <ng-container *ngComponentOutlet="currentChildComponent"><h1>hii</h1></ng-container>
+            
+      
+          </section>
+    
+        <!-- <igx-grid #grid [data]="data" [height]="'500px'" [width]="'100%'">
           <igx-paginator [perPage]="10">
           </igx-paginator>
       </igx-grid> -->
-
-<!-- <igx-paginator #paginator [totalRecords]="20">
+      
+      <!-- <igx-paginator #paginator [totalRecords]="20">
         <igx-paginator-content>
             <div id="numberPager" style="justify-content: center;">
                 <button [disabled]="paginator.firstPage" (click)="paginator.previousPage()" igxButton="flat">
@@ -80,8 +78,10 @@
             </div>
         </igx-paginator-content>
       </igx-paginator> -->
-
-<!-- <table class="q-table">
+      
+      
+      
+      <!-- <table class="q-table">
           <thead>
              <tr class="q-tr ">
                 <th class="text-left">Goods Code</th>
@@ -160,8 +160,10 @@
              
           </tbody>
        </table> -->
-
-<!-- <nz-table #editRowTable nzBordered [nzData]="listOfData">
+      
+       
+      
+       <!-- <nz-table #editRowTable nzBordered [nzData]="listOfData">
           <thead>
             <tr>
               <th nzWidth="25%">Name</th>
@@ -210,3 +212,5 @@
             </tr>
           </tbody>
         </nz-table> -->
+      
+       

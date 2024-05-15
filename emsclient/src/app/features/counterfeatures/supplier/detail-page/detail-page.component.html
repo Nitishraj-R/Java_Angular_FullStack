@@ -10,6 +10,8 @@
                 <div class="editdetails" >
                   <div class="edit btn btn-primary" title="Edit" (click)="onEdit()" ><i class="fa-solid fa-pen-to-square"></i>Edit</div>
                   <div class="edit btn btn-primary" title="Delete" (click)="onDelete()"><i class="fa-solid fa-trash"></i>Delete</div>
+                  <div class="edit btn btn-danger" title="Back" (click)="onBack()"><i class="fa-solid fa-circle-left"></i>Back</div>
+
                   </div>
                  
               </div>
@@ -65,7 +67,7 @@
                   </div> -->
                 </div><br>
                 <div class="form-group row">
-                  <label class="col-sm-2 col-form-label" for="adminEmailId">Admin EmailId</label> {{data.adminEmailId}}  
+                  <label class="col-sm-2 col-form-label" for="adminEmailId">Admin Email Id</label> {{data.adminEmailId}}  
                   <!-- <div class="col-sm-10">
                      <p> {{data.vendorName}}  </p>
   
@@ -90,14 +92,14 @@
                 
                 
                 <div class="form-group row">
-                  <label class="col-sm-2 col-form-label" for="primaryContactNumber">Primary ContactNumber</label>{{data.primaryContactNumber}}
+                  <label class="col-sm-2 col-form-label" for="primaryContactNumber">Primary Contact Number</label>{{data.primaryContactNumber}}
                   <!-- <div class="col-sm-10">
                      <p> {{data.vendorName}}  </p>
   
                   </div> -->
                 </div><br>
                 <div class="form-group  row">
-                  <label class="col-sm-2 col-form-label" for="secondaryContactNumber">Secondary ContactNumber</label>{{data.secondaryContactNumber}}
+                  <label class="col-sm-2 col-form-label" for="secondaryContactNumber">Secondary Contact Number</label>{{data.secondaryContactNumber}}
                   <!-- <div class="col-sm-10">
                      <p> {{data.vendorName}}  </p>
   
@@ -125,7 +127,7 @@
         
     <ng-template #editDetails> 
       <div class="headingdiv">
-        <br><br><h1>Update Supplier</h1><br>
+        <br><br><h1>Supplier Details</h1><br>
       </div>
       <div class="container">
        
@@ -137,6 +139,13 @@
               </div>
              
             </div><br> -->
+
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="vendorCode">Vendor Code</label>
+              <!-- <div class="col-sm-10"> -->
+                  <input type="text" class="form-control" id="vendorCode" formControlName="vendorCode" readonly>
+              <!-- </div> -->
+            </div><br>
             <div class="form-group row">
               <label class="col-sm-2 col-form-label" for="vendorName">Vendor Name</label>
               <!-- <div class="col-sm-10"> -->
@@ -150,11 +159,67 @@
                 <!-- </div> -->
               </div><br>
               <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="status">Status</label>
+                <label class="col-sm-2 col-form-label" for="tax">Tax</label>
                 <!-- <div class="col-sm-10"> -->
-                    <input type="text" class="form-control" id="status" formControlName="status">
+                    <input type="text" class="form-control" id="tax" formControlName="tax">
                 <!-- </div> -->
               </div><br>
+
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="emailAddress">Primary Email Id</label>
+                <!-- <div class="col-sm-10"> -->
+                    <input type="text" class="form-control" id="emailAddress" formControlName="emailAddress">
+                <!-- </div> -->
+              </div><br>
+
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="adminEmailId">Admin Email Id</label>
+                <!-- <div class="col-sm-10"> -->
+                    <input type="text" class="form-control" id="adminEmailId" formControlName="adminEmailId">
+                <!-- </div> -->
+              </div><br>
+
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="shippingCost">Shipping Cost</label>
+                <!-- <div class="col-sm-10"> -->
+                    <input type="text" class="form-control" id="shippingCost" formControlName="shippingCost">
+                <!-- </div> -->
+              </div><br>
+              
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="paymentTerm">Payment Term</label>
+                <!-- <div class="col-sm-10"> -->
+                    <input type="text" class="form-control" id="paymentTerm" formControlName="paymentTerm">
+                <!-- </div> -->
+              </div><br>
+
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="primaryContactNumber">Primary Contact Number</label>
+                <!-- <div class="col-sm-10"> -->
+                    <input type="text" class="form-control" id="primaryContactNumber" formControlName="primaryContactNumber">
+                <!-- </div> -->
+              </div><br>
+
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="secondaryContactNumber">Secondary Contact Number</label>
+                <!-- <div class="col-sm-10"> -->
+                    <input type="text" class="form-control" id="secondaryContactNumber" formControlName="secondaryContactNumber">
+                <!-- </div> -->
+              </div>
+
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="rmaPolicy">RMA Policy</label>
+                <!-- <div class="col-sm-10"> -->
+                    <input type="text" class="form-control" id="rmaPolicy" formControlName="rmaPolicy">
+                <!-- </div> -->
+              </div><br>
+              
+              
+
+              <!-- <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="status">Status</label>
+                    <input type="text" class="form-control" id="status" formControlName="status">
+              </div><br> -->
              
               <div class="form-group row">
                 <label class="col-sm-2 col-form-label" for="address">Address</label>
@@ -162,66 +227,9 @@
                     <input type="text" class="form-control" id="address" formControlName="address">
                 <!-- </div> -->
               </div><br>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="phoneNumber">Phone Number</label>
-                <!-- <div class="col-sm-10"> -->
-                    <input type="text" class="form-control" id="phoneNumber" formControlName="phoneNumber">
-                <!-- </div> -->
-              </div><br>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="emailAddress">Email Address</label>
-                <!-- <div class="col-sm-10"> -->
-                    <input type="text" class="form-control" id="emailAddress" formControlName="emailAddress">
-                <!-- </div> -->
-              </div><br>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="shippingCost">Shipping Cost</label>
-                <!-- <div class="col-sm-10"> -->
-                    <input type="text" class="form-control" id="shippingCost" formControlName="shippingCost">
-                <!-- </div> -->
-              </div><br>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="tax">Tax</label>
-                <!-- <div class="col-sm-10"> -->
-                    <input type="text" class="form-control" id="tax" formControlName="tax">
-                <!-- </div> -->
-              </div><br>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="vendorCode">Vendor Code</label>
-                <!-- <div class="col-sm-10"> -->
-                    <input type="text" class="form-control" id="vendorCode" formControlName="vendorCode" readonly>
-                <!-- </div> -->
-              </div><br>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="paymentTerm">Payment Term</label>
-                <!-- <div class="col-sm-10"> -->
-                    <input type="text" class="form-control" id="paymentTerm" formControlName="paymentTerm">
-                <!-- </div> -->
-              </div><br>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="rmaPolicy">RMA Policy</label>
-                <!-- <div class="col-sm-10"> -->
-                    <input type="text" class="form-control" id="rmaPolicy" formControlName="rmaPolicy">
-                <!-- </div> -->
-              </div><br>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="adminEmailId">Admin EmailId</label>
-                <!-- <div class="col-sm-10"> -->
-                    <input type="text" class="form-control" id="adminEmailId" formControlName="adminEmailId">
-                <!-- </div> -->
-              </div><br>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="primaryContactNumber">Primary ContactNumber</label>
-                <!-- <div class="col-sm-10"> -->
-                    <input type="text" class="form-control" id="primaryContactNumber" formControlName="primaryContactNumber">
-                <!-- </div> -->
-              </div><br>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="secondaryContactNumber">Secondary ContactNumber</label>
-                <!-- <div class="col-sm-10"> -->
-                    <input type="text" class="form-control" id="secondaryContactNumber" formControlName="secondaryContactNumber">
-                <!-- </div> -->
-              </div>
+              
+              
+              
    
               <div class="submitEdit">
                 <div class="submitdiv">

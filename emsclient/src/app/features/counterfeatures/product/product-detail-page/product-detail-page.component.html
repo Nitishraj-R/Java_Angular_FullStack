@@ -1,169 +1,419 @@
-<div class="layout" *ngIf="currentChildComponent === null">
-    <div class="body" *ngIf="edit;else editForm">
-     
-        <div class="header">
-            <div class="title"></div>
-           <div class="action">
-            <button (click)="editRecord()">Edit</button>
-            <button (click)="deleteRecord()">Delete</button>
-           </div>
-     
-        </div>
-        <div class="main">
-     
-            <ul>
-     
-                <div class="row1" #rowDiv *ngFor="let row of rowData | keyvalue" [style.display]="row.value!==null?'block':'none'"  >
-                    <li  *ngIf="row.value!==null" >
-                        <div class="key">{{row.key}}</div>
-                        <div class="value" *ngIf="row.value!==null">{{row.value}}</div>
-                    </li>
-                </div>
-               
-     
-     
-            </ul>
-     
-        </div>
-     
-    </div>
-
-    <ng-template #editForm>
-    
-        <div class="editmain">
-            <form [formGroup]="editForm1" (ngSubmit)="onSubmit()"  >
-             <div class="form-group row">
-                <label class="col-sm-2 col-form-label " for="skuNumber">SKU Number</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control " id="skuNumber" formControlName="skuNumber">
-                </div>
-              </div><br>
-
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label " for="productShortDesc">Description</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control " id="productShortDesc" formControlName="productShortDesc" >
-                </div>
-              </div><br>
-              <div class="form-group row ">
-                <label class="col-sm-2 col-form-label " for="productId">Product ID</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control " id="productId" formControlName="productId">
-                </div>
-              </div><br>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label " for="productName">Product Name</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control " id="productName" formControlName="productName">
-                </div>
-              </div><br>
-              <div class="form-group row ">
-                <label class="col-sm-2 col-form-label " for="manufacturer">Manufacturer</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control " id="manufacturer" formControlName="manufacturer">
-                </div>
-              </div><br>
-              <div class="form-group row ">
-                <label class="col-sm-2 col-form-label " for="category">Category</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control " id="category" formControlName="category">
-                </div>
-              </div><br>
-              <div class="form-group row ">
-                <label class="col-sm-2 col-form-label " for="subcategory">Sub Category</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control " id="subcategory" formControlName="subcategory" >
-                </div>
-              </div><br>
-              <div class="form-group row ">
-                <label class="col-sm-2 col-form-label " for="material">Material</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control " id="material" formControlName="material">
-                </div>
-              </div><br>
-              <div class="form-group row ">
-                <label class="col-sm-2 col-form-label " for="color">Color</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control " id="color" formControlName="color">
-                </div>
-              </div><br>
-              <div class="form-group row ">
-                <label class="col-sm-2 col-form-label " for="compatibilityNotes">Compatibility Notes</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control " id="compatibilityNotes" formControlName="compatibilityNotes">
-                </div>
-              </div><br>
-              <div class="form-group row ">
-                <label class="col-sm-2 col-form-label " for="warranty">Warranty</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control " id="warranty" formControlName="warranty">
-                </div>
-              </div><br>
-              <div class="form-group  row ">
-                <label class="col-sm-2 col-form-label " for="dimensions">Dimensions</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control " id="dimensions" formControlName="dimensions">
-                </div>
-              </div><br>
-              <div class="form-group  row ">
-                <label class="col-sm-2 col-form-label " for="vendor">Vendor</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control " id="vendor" formControlName="vendor">
-                </div>
-              </div><br>
-              <div class="form-group  row ">
-                <label class="col-sm-2 col-form-label " for="maxOrdQty">maxOrdQty</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control " id="maxOrdQty" formControlName="maxOrdQty">
-                </div>
-              </div><br>
-              <div class="form-group  row ">
-                <label class="col-sm-2 col-form-label " for="isPreOrderAllow">isPreOrderAllow</label>
-                <div class="col-sm-10">
-                    <input type="radio" id="isPreOrderAllow" value="true" formControlName="isPreOrderAllow">true
-                    <input type="radio" id="isPreOrderAllow" value="false" formControlName="isPreOrderAllow">false
-                </div>
-              </div><br>
-              <div class="form-group  row ">
-                <label class="col-sm-2 col-form-label " for="preOrdQty">preOrdQty</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control " id="preOrdQty" formControlName="preOrdQty">
-                </div>
-              </div><br>
-              <div class="form-group  row ">
-                <label class="col-sm-2 col-form-label " for="preOrdRelDt">preOrdRelDt</label>
-                <div class="col-sm-10">
-                    <input type="date" class="form-control " id="preOrdRelDt" formControlName="preOrdRelDt" >
-                </div>
-              </div><br>
-              <div class="form-group  row ">
-                <label class="col-sm-2 col-form-label " for="preOrdEndDt">preOrdEndDt</label>
-                <div class="col-sm-10">
-                    <input type="date" class="form-control " id="preOrdEndDt" formControlName="preOrdEndDt" >
-                </div>
-              </div><br>
-              <div class="form-group  row ">
-                <label class="col-sm-2 col-form-label " for="maxAggShipQty">maxAggShipQty</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control " id="maxAggShipQty" formControlName="maxAggShipQty">
-                </div>
-              </div><br>
+<div *ngIf="currentChildComponent===null">
+  <div class="container" *ngIf="update; else editDetails">
+    <div class="card">
+      <div class="card-body bom-config">
+          <div class="card-header">
+            <h1>Product Details</h1>
+          </div>
+          <div class="user-details card-header">
    
-              <div class="submitEdit">
-                <button class="submit btn btn-primary">Save</button>
+            <div class="editdetails" >
+              <div class="edit btn btn-primary" title="Edit" (click)="onEdit()" ><i class="fa-solid fa-pen-to-square"></i>Edit</div>
+              <div class="edit btn btn-primary" title="Delete" (click)="onDelete()"><i class="fa-solid fa-trash"></i>Delete</div>
+              <div class="edit btn btn-danger" title="Back" (click)="onBack()"><i class="fa-solid fa-circle-left"></i>Back</div>
+
               </div>
+             
+          </div>
+          <form [formGroup]="updateForm" (ngSubmit)="onSubmit()"  >
+        
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label" for="productId">Product Id:</label>
+         
+         {{data.productId}} 
+        </div><br>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label" for="productidType">Productid Type:</label>
+         
+         {{data.productidType}} 
+        </div><br>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label" for="skuNumber">Sku Number:</label>
+         
+         {{data.skuNumber}} 
+        </div><br>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="productName">product Name</label>{{data.productName}} 
+            <!-- <div class="col-sm-10"> -->
+             <!-- <p> {{data.vendorName}}  </p> -->
 
-            </form>
+            <!-- </div> -->
+          </div><br>
+          <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="productShortDesc">Product Short Desc</label> {{data.productShortDesc}}
+              <!-- <div class="col-sm-10">
+                 <p> {{data.vendorName}}  </p>
 
-        </div>
-  
-   
-</ng-template>
-     
-     
-     
+              </div> -->
+            </div><br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="parentSkuId">Parent Sku Id</label>{{data.parentSkuId}}
+              <!-- <div class="col-sm-10">
+                 <p> {{data.parentSkuId}}  </p>
+
+              </div> -->
+            </div><br>
+            
+            
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="isReturnable">Returnable</label>{{data.isReturnable}}
+              <!-- <div class="col-sm-10">
+                  <p> {{data.vendorName}}  </p>
+
+              </div> -->
+            </div><br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="maxOrdQty">Max Order Quantity</label> {{data.maxOrdQty}} 
+              <!-- <div class="col-sm-10">
+                 <p> {{data.vendorName}}  </p>
+
+              </div> -->
+            </div><br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="maxAggShipQty">Max Agg Shipping Qty</label> {{data.maxAggShipQty}} 
+              <!-- <div class="col-sm-10">
+                  <p> {{data.vendorName}}  </p>
+
+              </div> -->
+            </div><br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="preOrdLaunchDt">PreOrder Launch Date</label> {{data.preOrdLaunchDt}}  
+              <!-- <div class="col-sm-10">
+                 <p> {{data.vendorName}}  </p>
+
+              </div> -->
+            </div><br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="preOrdEndDt">PreOrder End Date</label>{{data.preOrdEndDt}} 
+              <!-- <div class="col-sm-10">
+                  <p> {{data.vendorName}}  </p>
+
+              </div> -->
+            </div><br>
+            
+            
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="preOrdQty">PreOrder Quantity</label> {{data.preOrdQty}}  
+              <!-- <div class="col-sm-10">
+                 <p> {{data.vendorName}}  </p>
+
+              </div> -->
+            </div><br>
+            
+            
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="preOrdRelDt">PreOrder Release Date</label>{{data.preOrdRelDt}}
+              <!-- <div class="col-sm-10">
+                 <p> {{data.vendorName}}  </p>
+
+              </div> -->
+            </div><br>
+            <div class="form-group  row">
+              <label class="col-sm-2 col-form-label" for="isBackorder">Backorder</label>{{data.isBackorder}}
+              <!-- <div class="col-sm-10">
+                 <p> {{data.vendorName}}  </p>
+
+              </div> -->
+            </div><br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="backOrderLimit">BackOrder Limit</label>{{data.backOrderLimit}}
+              <!-- <div class="col-sm-10">
+                 <p> {{data.vendorName}}  </p>
+
+              </div> -->
+            </div><br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="shippingOptions">Shipping Options</label> {{data.shippingOptions}}
+              <!-- <div class="col-sm-10">
+                  <p> {{data.vendorName}}  </p>
+
+              </div> -->
+            </div><br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="dimensions">Dimensions</label> {{data.dimensions}}
+              <!-- <div class="col-sm-10">
+                  <p> {{data.vendorName}}  </p>
+
+              </div> -->
+            </div><br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="variantsAttributes">Variants Attributes</label> {{data.variantsAttributes}}
+              <!-- <div class="col-sm-10">
+                  <p> {{data.vendorName}}  </p>
+
+              </div> -->
+            </div><br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="assetAttributes">Asset Attributes</label> {{data.assetAttributes}}
+              <!-- <div class="col-sm-10">
+                  <p> {{data.vendorName}}  </p>
+
+              </div> -->
+            </div><br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="productAttributes">Product Attributes</label> {{data.productAttributes}}
+              <!-- <div class="col-sm-10">
+                  <p> {{data.vendorName}}  </p>
+
+              </div> -->
+            </div><br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="discoveryAttributes">Discovery Attributes</label> {{data.discoveryAttributes}}
+              <!-- <div class="col-sm-10">
+                  <p> {{data.vendorName}}  </p>
+
+              </div> -->
+            </div><br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="othersAttributies">Others Attributies</label> {{data.othersAttributies}}
+              <!-- <div class="col-sm-10">
+                  <p> {{data.vendorName}}  </p>
+
+              </div> -->
+            </div><br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="legalAttributes">Legal Attributes</label> {{data.legalAttributes}}
+              <!-- <div class="col-sm-10">
+                  <p> {{data.vendorName}}  </p>
+
+              </div> -->
+            </div><br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="isPreOrderAllow">PreOrder Allow</label> {{data.isPreOrderAllow}}
+              <!-- <div class="col-sm-10">
+                  <p> {{data.vendorName}}  </p>
+
+              </div> -->
+            </div><br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="lowStockThreshold">Low Stock Threshold</label> {{data.lowStockThreshold}}
+              <!-- <div class="col-sm-10">
+                  <p> {{data.vendorName}}  </p>
+
+              </div> -->
+            </div><br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="percentageType">Percentage Type</label> {{data.percentageType}}
+              <!-- <div class="col-sm-10">
+                  <p> {{data.vendorName}}  </p>
+
+              </div> -->
+            </div><br>
+            
+    </form>
     </div>
-    <section class="bodySection">
-        <ng-container *ngComponentOutlet="currentChildComponent"
-          ><h1>hii</h1></ng-container
-        ></section>
+    </div>
+    </div>
+
+    
+<ng-template #editDetails> 
+  <div class="headingdiv">
+    <br><br><h1>Product Details</h1><br>
+  </div>
+  <div class="container">
+   
+    <form [formGroup]="updateForm" (ngSubmit)="onSubmit()" (change)="formChange()" >
+        <!-- <div class="form-group row">
+          <label class="col-sm-2 col-form-label" for="id">Id</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="id" formControlName="id"  readonly>
+          </div>
+         
+        </div><br> -->
+
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label" for="skuNumber">Sku Number</label>
+          <!-- <div class="col-sm-10"> -->
+              <input type="text" class="form-control" id="skuNumber" formControlName="skuNumber" readonly>
+          <!-- </div> -->
+        </div><br>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label" for="productId">product Id</label>
+          <!-- <div class="col-sm-10"> -->
+            <input type="text" class="form-control" id="productId" formControlName="productId"  placeholder="productId" readonly>
+          <!-- </div> -->
+        </div><br>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="productidType">product Id Type</label>
+            <!-- <div class="col-sm-10"> -->
+                <input type="text" class="form-control" id="productidType" formControlName="productidType">
+            <!-- </div> -->
+          </div><br>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="productName">product Name</label>
+            <!-- <div class="col-sm-10"> -->
+                <input type="text" class="form-control" id="productName" formControlName="productName">
+            <!-- </div> -->
+          </div><br>
+
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="productShortDesc">Product Short Description</label>
+            <!-- <div class="col-sm-10"> -->
+                <input type="text" class="form-control" id="productShortDesc" formControlName="productShortDesc">
+            <!-- </div> -->
+          </div><br>
+
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="parentSkuId">Parent Sku Id</label>
+            <!-- <div class="col-sm-10"> -->
+                <input type="text" class="form-control" id="parentSkuId" formControlName="parentSkuId">
+            <!-- </div> -->
+          </div><br>
+
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="isReturnable">Returnable</label>
+            <!-- <div class="col-sm-10"> -->
+                <input type="text" class="form-control" id="isReturnable" formControlName="isReturnable">
+            <!-- </div> -->
+          </div><br>
+          
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="maxOrdQty">maxOrder Quantity</label>
+            <!-- <div class="col-sm-10"> -->
+                <input type="text" class="form-control" id="maxOrdQty" formControlName="maxOrdQty">
+            <!-- </div> -->
+          </div><br>
+
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="maxAggShipQty">Max Agg Shipping Qty</label>
+            <!-- <div class="col-sm-10"> -->
+                <input type="text" class="form-control" id="maxAggShipQty" formControlName="maxAggShipQty">
+            <!-- </div> -->
+          </div><br>
+
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="preOrdLaunchDt">PreOrder Launch Date</label>
+            <!-- <div class="col-sm-10"> -->
+                <input type="text" class="form-control" id="preOrdLaunchDt" formControlName="preOrdLaunchDt">
+            <!-- </div> -->
+          </div>
+
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="preOrdEndDt">PreOrder End Date</label>
+            <!-- <div class="col-sm-10"> -->
+                <input type="text" class="form-control" id="preOrdEndDt" formControlName="preOrdEndDt">
+            <!-- </div> -->
+          </div><br>
+          
+          
+
+          <!-- <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="status">Status</label>
+                <input type="text" class="form-control" id="status" formControlName="status">
+          </div><br> -->
+         
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="preOrdQty">PreOrder Quantity</label>
+            <!-- <div class="col-sm-10"> -->
+                <input type="text" class="form-control" id="preOrdQty" formControlName="preOrdQty">
+            <!-- </div> -->
+          </div><br>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="preOrdRelDt">PreOrder Release Date</label>
+            <!-- <div class="col-sm-10"> -->
+                <input type="text" class="form-control" id="preOrdRelDt" formControlName="preOrdRelDt">
+            <!-- </div> -->
+          </div><br>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="isBackorder">Backorder</label>
+            <!-- <div class="col-sm-10"> -->
+                <input type="text" class="form-control" id="isBackorder" formControlName="isBackorder">
+            <!-- </div> -->
+          </div><br>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="backOrderLimit">BackOrder Limit</label>
+            <!-- <div class="col-sm-10"> -->
+                <input type="text" class="form-control" id="backOrderLimit" formControlName="backOrderLimit">
+            <!-- </div> -->
+          </div><br>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="shippingOptions">Shipping Options</label>
+            <!-- <div class="col-sm-10"> -->
+                <input type="text" class="form-control" id="shippingOptions" formControlName="shippingOptions">
+            <!-- </div> -->
+          </div><br>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="dimensions">Dimensions</label>
+            <!-- <div class="col-sm-10"> -->
+                <input type="text" class="form-control" id="dimensions" formControlName="dimensions">
+            <!-- </div> -->
+          </div><br>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="variantsAttributes">Variants Attributes</label>
+            <!-- <div class="col-sm-10"> -->
+                <input type="text" class="form-control" id="variantsAttributes" formControlName="variantsAttributes">
+            <!-- </div> -->
+          </div><br>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="assetAttributes">Asset Attributes</label>
+            <!-- <div class="col-sm-10"> -->
+                <input type="text" class="form-control" id="assetAttributes" formControlName="assetAttributes">
+            <!-- </div> -->
+          </div><br>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="productAttributes">Product Attributes</label>
+            <!-- <div class="col-sm-10"> -->
+                <input type="text" class="form-control" id="productAttributes" formControlName="productAttributes">
+            <!-- </div> -->
+          </div><br>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="discoveryAttributes">Discovery Attributes</label>
+            <!-- <div class="col-sm-10"> -->
+                <input type="text" class="form-control" id="discoveryAttributes" formControlName="discoveryAttributes">
+            <!-- </div> -->
+          </div><br>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="othersAttributes">Others Attributes</label>
+            <!-- <div class="col-sm-10"> -->
+                <input type="text" class="form-control" id="othersAttributes" formControlName="othersAttributes">
+            <!-- </div> -->
+          </div><br>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="legalAttributes">Legal Attributes</label>
+            <!-- <div class="col-sm-10"> -->
+                <input type="text" class="form-control" id="legalAttributes" formControlName="legalAttributes">
+            <!-- </div> -->
+          </div><br>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="isPreOrderAllow">PreOrder Allowed</label>
+            <!-- <div class="col-sm-10"> -->
+                <input type="text" class="form-control" id="isPreOrderAllow" formControlName="isPreOrderAllow">
+            <!-- </div> -->
+          </div><br>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="lowStockThreshold">Low Stock Threshold</label>
+            <!-- <div class="col-sm-10"> -->
+                <input type="text" class="form-control" id="lowStockThreshold" formControlName="lowStockThreshold">
+            <!-- </div> -->
+          </div><br>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="percentageType">Percentage Type</label>
+            <!-- <div class="col-sm-10"> -->
+                <input type="text" class="form-control" id="percentageType" formControlName="percentageType">
+            <!-- </div> -->
+          </div><br>
+          
+          
+          
+          
+
+          <div class="submitEdit">
+            <div class="submitdiv">
+              <button class="submit btn btn-primary" (click)="onSubmit()" >Submit</button>
+            </div>
+            <div class="submitdiv">
+              <button class="cancel btn btn-danger" (click)="onCancel()">Cancel</button>
+            </div>
+          </div>
+      </form>
+  </div>
+ 
+</ng-template>
+
+</div>
+<section class="bodySection">
+    
+<ng-container *ngComponentOutlet="currentChildComponent"><h1></h1></ng-container>
+
+
+</section>

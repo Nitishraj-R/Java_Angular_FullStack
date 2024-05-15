@@ -37,6 +37,8 @@ import { ProductDetailPageComponent } from './features/counterfeatures/product/p
 import { ProductdatatableComponent } from './features/counterfeatures/product/productdatatable/productdatatable.component';
 import { ConfigbomlistviewComponent } from './features/counterfeatures/configbom/configbomlistview/configbomlistview.component';
 import { ConfigbomcreationComponent } from './features/counterfeatures/configbomcreation/configbomcreation.component';
+import { TitleCasePipe } from './service/title-case.pipe';
+import { ProducttableComponent } from './features/counterfeatures/product/producttable/producttable.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +67,9 @@ import { ConfigbomcreationComponent } from './features/counterfeatures/configbom
     ProductDetailPageComponent,
     ProductdatatableComponent,
     ConfigbomlistviewComponent,
-    ConfigbomcreationComponent
+    ConfigbomcreationComponent,
+    TitleCasePipe,
+    ProducttableComponent
   ],
   imports: [
     BrowserModule,

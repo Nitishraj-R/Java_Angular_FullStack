@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { CommonService } from '../../service/common.service';
 import { Router } from '@angular/router';
@@ -11,7 +11,7 @@ import { SupplierService } from '../service/supplier.service';
   templateUrl: './detail-page.component.html',
   styleUrls: ['./detail-page.component.css']
 })
-export class DetailPageComponent {
+export class DetailPageComponent implements OnInit{
 
 
  currentChildComponent: any = null;
@@ -23,7 +23,6 @@ export class DetailPageComponent {
       registrationNo:[''],
       status:Boolean,
       address:[''],
-      phoneNumber:[''],
       emailAddress:[''],
       shippingCost:[''],
       tax:[''],
@@ -143,6 +142,13 @@ export class DetailPageComponent {
    onCancel(){
 
     console.log("Inside onCancel");
+    this.currentChildComponent=SupplierhomeComponent;
+
+   }
+
+   onBack(){
+
+    console.log("Inside onBack");
     this.currentChildComponent=SupplierhomeComponent;
 
    }

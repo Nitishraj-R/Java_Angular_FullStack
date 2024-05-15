@@ -21,7 +21,7 @@ export class SupplierhomeComponent implements OnInit{
     // ]
 
     this.columns=[
-      "id","registrationNo","vendorName","status","emailAddress","vendorCode"
+      "vendorCode","registrationNo","vendorName","emailAddress","primaryContactNumber"
     ]
   }
 

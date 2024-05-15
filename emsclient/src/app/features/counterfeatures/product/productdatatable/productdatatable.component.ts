@@ -18,6 +18,7 @@ import { HttpClient } from '@angular/common/http';
 export class ProductdatatableComponent implements AfterViewInit,OnInit{
  
     @Input() columns: any[] = [];
+    @Input() data:any[]=[];
     currentChildComponent:any=null;
     url = 'http://localhost:8080/wms/product/api/getAllProducts';
  

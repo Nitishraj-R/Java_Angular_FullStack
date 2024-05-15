@@ -11,30 +11,71 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class CreateProductComponent implements OnInit{
  
   createForm:FormGroup;
+  
  
   saveToggle:boolean=true;
   currentChildComponent: any = null;
  
   constructor(private builder:FormBuilder,private http:HttpClient){
     this.createForm=this.builder.group({
-      id:[''],
-      skuNumber:[''],
-      productId:[''],
-      productName:[''],
-      productShortDesc:[''],
-      manufacturer:[''],
-      category:[''],
-      subcategory:[''],
-      material:[''],
-      color:[''],
-      compatibilityNotes:[''],
-      warranty:[''],
-      dimensions:[''],
-      status:true,
-      vendor:[]
+      id:[""],
+ 
+	skuNumber:[''],
+ 
+	productId:[""],
+ 
+	productidType:[""],
+ 
+	productName:[""],
+ 
+  productShortDesc:[""],
+ 
+	parentSkuId:[''],
+ 
+	status:[''],
+ 
+	isReturnable:[''],
+ 
+	maxOrdQty:[''],
+ 
+	maxAggShipQty:[''],
+ 
+	preOrdLaunchDt:[''],
+ 
+	preOrdEndDt:[''],
+ 
+	preOrdQty:[''],
+ 
+	preOrdRelDt:[''],
+ 
+	isBackorder:[''],
+ 
+	backOrderLimit:[''],
+ 
+	shippingOptions:[""],
+ 
+	dimensions:[""],
+ 
+	variantsAttributes:[""],
+ 
+	assetAttributes:[""],
+ 
+	productAttributes:[""],
+ 
+	discoveryAttributes:[""],
+ 
+	othersAttributies:[""],
+ 
+	legalAttributes:[""],
+ 
+	isPreOrderAllow:[''],
+ 
+	lowStockThreshold:[''],
+	percentageType:[""]
     })
   }
 httpHeaders:HttpHeaders=new HttpHeaders();
+
   ngOnInit(): void {
     this.httpHeaders = new HttpHeaders ({
       'Content-Type':'application/json',
@@ -43,7 +84,7 @@ httpHeaders:HttpHeaders=new HttpHeaders();
   }
  
   onSubmit(){
-   
+    if(this.createForm.valid){
     this.http.post('http://localhost:8080/wms/product/api/saveProduct',this.createForm.value,{ headers:this.httpHeaders}).subscribe((res:any)=>{
       console.log("result",res);
      
@@ -59,7 +100,21 @@ httpHeaders:HttpHeaders=new HttpHeaders();
  
     }
     })
-   
+  }
+  else{
+    console.log("invalid form");
+      
+      alert("Mandatory Fields should be filled");
+  }
  
    }
+
+   onCancel(){
+
+    console.log("Inside onCancel");
+    this.currentChildComponent=ProducthomeComponent;
+
+    this.saveToggle=false;
+   }
+
 }

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CommonService } from '../../service/common.service';
 import { Router } from '@angular/router';
 import { CustomerService } from '../service/customer.service';
@@ -25,9 +25,11 @@ export class CustomerDetailPageComponent {
       lastName:[''],
       midddleName:[''],
       gender:[''],
-      email:[''],
-      mobileNum:[''],
-      phoneNum:[''],
+      primaryEmailId:['',[Validators.email]],
+      secondaryEmailId:['',[Validators.email]],
+      primaryContactNumber:['',Validators.pattern("[8-9]{1}[0-9]{9}")],
+      secondaryContactNumber:['',Validators.pattern("[8-9]{1}[0-9]{9}")],
+      taxExempt:[''],
       dob:[],
       source:[''],
       defaultPaymentGateway:['']
@@ -132,5 +134,19 @@ export class CustomerDetailPageComponent {
     
     console.log("this.updateForm.value",this.updateForm.value);
     this.update=true;
+   }
+
+   onCancel(){
+
+    console.log("Inside onCancel");
+    this.currentChildComponent=CustomerhomeComponent;
+
+   }
+
+   onBack(){
+
+    console.log("Inside onBack");
+    this.currentChildComponent=CustomerhomeComponent;
+
    }
 }

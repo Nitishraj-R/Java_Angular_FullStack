@@ -20,7 +20,7 @@ export class CustomerhomeComponent {
     // ]
 
     this.columns=[
-      "id","customerCode","email","status","firstName","lastName"
+      "customerCode","firstName","lastName","primaryEmailId","primaryContactNumber","gender"
     ]
   }
 

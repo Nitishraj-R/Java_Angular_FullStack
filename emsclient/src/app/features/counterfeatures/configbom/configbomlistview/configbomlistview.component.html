@@ -1,49 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+<div  class="container" *ngIf="getState()">
  
-  <div  class="container" >
- 
-    <div class="new-button-container">
-      <button  class="btn btn-primary" id="new-Button" (click)="createNewBom()" >New Config Bom Creation</button>
-  </div>
-    <div class="card" style="width: auto">
-     
-    <table class="table table-hover">
-        <thead >
-          <tr >
-            <th scope="col">Code</th>
-            <th scope="col">Product Name</th>
-            <th scope="col">Description</th>
-            <th scope="col">Reserve Capacity</th>
-            <th scope="col">Modify</th>
-            <th scope="col">Remove</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let config of listConfigData">
-            <td>{{config.code}}</td>
-            <td>{{config.productName}}</td>
-            <td>{{config.productShortDesc}}</td>
-            <td>{{config.lowStockThreshold}}</td>
-            <td><button class="btn btn-primary">Edit</button></td>
-            <td><button class="btn btn-danger">Remove</button></td>
-          </tr>
-         
-        </tbody>
-      </table>
-    </div>
- 
+  <div class="new-button-container">
+    <button  class="btn btn-primary" id="new-Button" (click)="createNewBom()" >New Config Bom Creation</button>
+</div>
+  <div class="card" style="width: auto">
+   
+  <table class="table table-hover">
+      <thead >
+        <tr >
+          <th scope="col">Code</th>
+          <th scope="col">Product Name</th>
+          <th scope="col">Description</th>
+          <th scope="col">Reserve Capacity</th>
+          <th scope="col">Detail's</th>
+                  </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let config of listConfigData">
+          <td>{{config.code}}</td>
+          <td>{{config.productName}}</td>
+          <td>{{config.productShortDesc}}</td>
+          <td>{{config.lowStockThreshold}}</td>
+          <td><button class="btn btn-primary">more..</button></td>
+        </tr>
+       
+      </tbody>
+    </table>
   </div>
  
-  <section class="bodySection">
-    <ng-container *ngComponentOutlet="currentChildComponent"></ng-container>
-  </section>
+</div>
  
-</body>
-</html>
+<section class="bodySection">
+  <ng-container *ngComponentOutlet="currentChildComponent"></ng-container>
+</section>

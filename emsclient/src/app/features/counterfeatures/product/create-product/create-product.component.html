@@ -1,100 +1,208 @@
+<!-- <p>createsupplier works!</p> -->
 <div>
-    <div class="container" *ngIf="saveToggle">
- 
-        <form [formGroup]="createForm" (ngSubmit)="onSubmit()"  >
-           
-            <div class="headingdiv">
-              <h1>Product</h1>
-            </div>
+  <div class="container" *ngIf="saveToggle">
+    <div class="card">
+      <div class="card-body bom-config">
+          <div>
+            <h1>Product Creation</h1>
+          </div>
+      <form [formGroup]="createForm">
+          
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label" for="productId">product Id<span class="lt-required ml-1">*</span></label>
+          <!-- <div class="col-sm-10"> -->
+              <input type="text" class="form-control" id="productId" formControlName="productId" placeholder="product Id" required>
+          <!-- </div> -->
+        </div><br>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="skuNumber">sku Number<span class="lt-required ml-1">*</span></label>
+            <!-- <div class="col-sm-10"> -->
+              <input type="text" class="form-control" id="skuNumber" formControlName="skuNumber"  placeholder="sku Number" required>
+            <!-- </div> -->
+          </div><br>
+          <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="productidType">productid Type<span class="lt-required ml-1">*</span></label>
+              <!-- <div class="col-sm-10"> -->
+                  <input type="text" class="form-control" id="productidType" formControlName="productidType" placeholder="productid Type" required>
+              <!-- </div> -->
+            </div><br>
             <div class="form-group row">
-              <label class="col-sm-2 col-form-label" for="skuNumber">SKU Number</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" id="skuNumber" formControlName="skuNumber"  placeholder="SKU Number">
-              </div>
+              <label class="col-sm-2 col-form-label" for="productName">productName<span class="lt-required ml-1">*</span></label>
+              <!-- <div class="col-sm-10"> -->
+                  <input type="text" class="form-control" id="productName" formControlName="productName" required>
+              <!-- </div> -->
             </div><br>
             
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="productShortDesc">Description</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="productShortDesc" formControlName="productShortDesc" placeholder="Description">
-                </div>
-              </div><br>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="productId">Product ID</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="productId" formControlName="productId"placeholder="Product ID">
-                </div>
-              </div><br>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="productName">Product Name</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="productName" formControlName="productName"placeholder="Product Name">
-                </div>
-              </div><br>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="manufacturer">Manufacturer</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="manufacturer" formControlName="manufacturer" placeholder="Manufacturer">
-                </div>
-              </div><br>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="category">Category</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="category" formControlName="category" placeholder="Category">
-                </div>
-              </div><br>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="subcategory">Sub Category</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="subcategory" formControlName="subcategory" placeholder="Sub Category">
-                </div>
-              </div><br>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="material">Material</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="material" formControlName="material" placeholder="Material">
-                </div>
-              </div><br>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="color">Color</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="color" formControlName="color" placeholder="Color">
-                </div>
-              </div><br>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="compatibilityNotes">Compatibility Notes</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="compatibilityNotes" formControlName="compatibilityNotes" placeholder="Compatibility Notes">
-                </div>
-              </div><br>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="warranty">Warranty</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="warranty" formControlName="warranty" placeholder="Warranty">
-                </div>
-              </div><br>
-              <div class="form-group  row">
-                <label class="col-sm-2 col-form-label" for="dimensions">Dimensions</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="dimensions" formControlName="dimensions" placeholder="Dimensions">
-                </div>
-              </div><br>
-              <div class="form-group  row">
-                <label class="col-sm-2 col-form-label" for="vendor">Vendor</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="vendor" formControlName="vendor" placeholder="Vendor">
-                </div>
+            
+            
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="parentSkuId">parentSkuId</label>
+              <!-- <div class="col-sm-10"> -->
+                  <input type="text" class="form-control" id="parentSkuId" formControlName="parentSkuId" placeholder="parentSkuId" >
+              <!-- </div> -->
+            </div><br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="isReturnable">isReturnable<span class="lt-required ml-1">*</span></label>
+              <div class="col-sm-10 radio">
+                  <!-- <input type="text" class="form-control" id="isReturnable" formControlName="isReturnable"placeholder="isReturnable" required> -->
+                  <input type="radio" class="" id="isReturnable_true" name="isReturnable" formControlName="isReturnable" value="True">
+                    <label class="isReturnable" for="isReturnable_true">True</label><br>
+                    <input type="radio" class="" id="isReturnable_false" name="isReturnable" formControlName="isReturnable" value="False">
+                    <label class="isReturnable" for="isReturnable_false">False</label><br>
               </div>
-   
-              <div class="submitEdit">
-                <button class="submit btn btn-primary">Submit</button>
+            </div><br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="maxOrdQty">maxOrdQty</label>
+              <!-- <div class="col-sm-10"> -->
+                  <input type="text" class="form-control" id="maxOrdQty" formControlName="maxOrdQty" placeholder="maxOrdQty">
+              <!-- </div> -->
+            </div><br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="maxAggShipQty">maxAggShipQty</label>
+              <!-- <div class="col-sm-10"> -->
+                  <input type="text" class="form-control" id="maxAggShipQty" formControlName="maxAggShipQty" placeholder="maxAggShipQty">
+              <!-- </div> -->
+            </div><br>
+            
+            
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="preOrdLaunchDt">preOrdLaunchDt</label>
+              <!-- <div class="col-sm-10"> -->
+                  <input type="date" class="form-control" id="preOrdLaunchDt" formControlName="preOrdLaunchDt" placeholder="preOrdLaunchDt" >
+              <!-- </div> -->
+            </div><br>
+            
+            
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="preOrdEndDt">preOrdEndDt</label>
+              <!-- <div class="col-sm-10"> -->
+                  <input type="date" class="form-control" id="preOrdEndDt" formControlName="preOrdEndDt" placeholder="preOrdEndDt" >
+              <!-- </div> -->
+            </div><br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="preOrdQty">preOrdQty</label>
+              <!-- <div class="col-sm-10"> -->
+                  <input type="text" class="form-control" id="preOrdQty" formControlName="preOrdQty" placeholder="preOrdQty">
+              <!-- </div> -->
+            </div><br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="preOrdRelDt">preOrdRelDt</label>
+              <!-- <div class="col-sm-10"> -->
+                  <input type="date" class="form-control" id="preOrdRelDt" formControlName="preOrdRelDt" placeholder="preOrdRelDt">
+              <!-- </div> -->
+            </div><br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="isBackorder">isBackorder</label>
+              
+                  <!-- <input class="form-control" name="isBackorder" id="isBackorder" formControlName="isBackorder" placeholder="isBackorder"> -->
+                  <div class="col-sm-10 radio">
+                    <input type="radio" class="" id="isBackorder_true" name="isBackorder" formControlName="isBackorder" value="True">
+                      <label class="isBackorder" for="isBackorder_true">True</label><br>
+                      <input type="radio" class="" id="isBackorder_false" name="isBackorder" formControlName="isBackorder" value="False">
+                      <label class="isBackorder" for="isBackorder_false">False</label><br>
+                </div>
+            </div><br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="backOrderLimit">backOrderLimit</label>
+              <!-- <div class="col-sm-10"> -->
+                  <input class="form-control" name="backOrderLimit" id="backOrderLimit" formControlName="backOrderLimit" placeholder="backOrderLimit">
+              <!-- </div> -->
+            </div><br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="shippingOptions">shippingOptions</label>
+              <!-- <div class="col-sm-10"> -->
+                  <input class="form-control" name="shippingOptions" id="shippingOptions" formControlName="shippingOptions" placeholder="shippingOptions">
+              <!-- </div> -->
+            </div><br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="dimensions">dimensions</label>
+              <!-- <div class="col-sm-10"> -->
+                  <input class="form-control" name="dimensions" id="dimensions" formControlName="dimensions" placeholder="dimensions">
+              <!-- </div> -->
+            </div><br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="variantsAttributes">variantsAttributes</label>
+              <!-- <div class="col-sm-10"> -->
+                  <input class="form-control" name="variantsAttributes" id="variantsAttributes" formControlName="variantsAttributes" placeholder="variantsAttributes">
+              <!-- </div> -->
+            </div><br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="assetAttributes">assetAttributes</label>
+              <!-- <div class="col-sm-10"> -->
+                  <input class="form-control" name="assetAttributes" id="assetAttributes" formControlName="assetAttributes" placeholder="assetAttributes">
+              <!-- </div> -->
+            </div><br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="productAttributes">productAttributes</label>
+              <!-- <div class="col-sm-10"> -->
+                  <input class="form-control" name="productAttributes" id="productAttributes" formControlName="productAttributes" placeholder="productAttributes">
+              <!-- </div> -->
+            </div><br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="discoveryAttributes">discoveryAttributes</label>
+              <!-- <div class="col-sm-10"> -->
+                  <input class="form-control" name="discoveryAttributes" id="discoveryAttributes" formControlName="discoveryAttributes" placeholder="discoveryAttributes">
+              <!-- </div> -->
+            </div><br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="othersAttributies">othersAttributies</label>
+              <!-- <div class="col-sm-10"> -->
+                  <input class="form-control" name="othersAttributies" id="othersAttributies" formControlName="othersAttributies" placeholder="othersAttributies">
+              <!-- </div> -->
+            </div><br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="legalAttributes">legalAttributes</label>
+              <!-- <div class="col-sm-10"> -->
+                  <input class="form-control" name="legalAttributes" id="legalAttributes" formControlName="legalAttributes" placeholder="legalAttributes">
+              <!-- </div> -->
+            </div><br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="isPreOrderAllow">isPreOrderAllow</label>
+              
+                  <!-- <input class="form-control" name="isPreOrderAllow" id="isPreOrderAllow" formControlName="isPreOrderAllow" placeholder="isPreOrderAllow"> -->
+                  <div class="col-sm-10 radio">
+                    <input type="radio" class="" id="isPreOrderAllow_true" formControlName="isPreOrderAllow" name="isPreOrderAllow" value="True">
+                      <label class="isPreOrderAllow" for="isPreOrderAllow_true">True</label><br>
+                      <input type="radio" class="" id="isPreOrderAllow_false" formControlName="isPreOrderAllow" name="isPreOrderAllow" value="False">
+                      <label class="isPreOrderAllow" for="isPreOrderAllow_false">False</label><br>
+                </div>
+            </div><br>
+            
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="lowStockThreshold">lowStockThreshold</label>
+              <!-- <div class="col-sm-10"> -->
+                  <input class="form-control" name="lowStockThreshold" id="lowStockThreshold" formControlName="lowStockThreshold" placeholder="lowStockThreshold">
+              <!-- </div> -->
+            </div><br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="percentageType">percentageType</label>
+              <!-- <div class="col-sm-10"> -->
+                  <input class="form-control" name="percentageType" id="percentageType" formControlName="percentageType" placeholder="percentageType" >
+              <!-- </div> -->
+            </div><br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="productShortDesc">Product Short Desc</label>
+              <!-- <div class="col-sm-10"> -->
+                  <textarea type="text" class="form-control" id="productShortDesc" formControlName="productShortDesc" placeholder="productShortDesc"></textarea>
+              <!-- </div> -->
+            </div><br>
+  
+            <div class="submitEdit">
+              <div class="submitdiv">
+                <button class="submit btn btn-primary" [disabled]="createForm.invalid" (click)="onSubmit()" >Submit</button>
               </div>
-          </form>
-      </div>
-      <section class="bodySection">
-     
-        <ng-container *ngComponentOutlet="currentChildComponent"><h1></h1></ng-container>
-       
- 
-      </section>
-</div>
+              <div class="submitdiv">
+                <button class="cancel btn btn-danger" (click)="onCancel()">Cancel</button>
+              </div>
+            </div>
+        </form>
+    </div>
+    </div>
+    </div>
+    <section class="bodySection">
+    
+      <ng-container *ngComponentOutlet="currentChildComponent"><h1></h1></ng-container>
+      
+
+    </section>
+</div>  

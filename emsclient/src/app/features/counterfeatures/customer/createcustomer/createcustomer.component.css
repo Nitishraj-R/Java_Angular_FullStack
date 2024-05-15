@@ -4,8 +4,11 @@
 }
 
 .submitEdit{
-    margin: 4%;
+    margin: 4% 0%;
     text-align: center;
+    width: 10%;
+    display: flex;
+    justify-content: space-between;
 }
 
 .submitdiv{
@@ -29,7 +32,11 @@
     flex-wrap: wrap;
 }
 input,label{
-    width: 50%;
+    width: 45%;
+}
+
+input[type=radio]{
+    width: 20%;
 }
 
 .form-group{
@@ -57,4 +64,13 @@ form {
 
 .lt-required{
     color: red;
+}
+
+label[class="gender"]{
+    width: 40%;
+}
+
+div[class~="radio"]{
+
+    width: 55%;
 }

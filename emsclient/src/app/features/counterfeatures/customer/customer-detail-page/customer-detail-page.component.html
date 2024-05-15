@@ -1,105 +1,129 @@
 
 <div *ngIf="currentChildComponent===null">
     <div class="container" *ngIf="update; else editDetails">
-        <div class="main">
+      <div class="card">
+        <div class="card-body bom-config">
+            <div class="card-header">
+              <h1>Customer Details</h1>
+            </div>  
+      <!-- <div class="main">
           <div class="headingdiv">
             <br><br><h1>Editing Details</h1><br><br>
-          </div>
-          <div class="user-details">
+          </div> -->
+          <div class="user-details card-header">
            
             <div class="editdetails" >
               <div class="edit btn btn-primary" title="Edit" (click)="onEdit()" ><i class="fa-solid fa-pen-to-square"></i>Edit</div>
               <div class="edit btn btn-primary" title="Delete" (click)="onDelete()"><i class="fa-solid fa-trash"></i>Delete</div>
-              </div>
+              <div class="edit btn btn-danger" title="Back" (click)="onBack()"><i class="fa-solid fa-circle-left"></i>Back</div>
+            </div>
              
           </div>
-      
-          <div class="about">
-            <ul class="about-list">
-              
-              <li>
-                <div class="valuepair">
-                  <p>Customer Code</p>
-                  <p>{{data.customerCode}}</p>
-                </div>
-              </li>
-      
-              <li>
-                <div class="valuepair">
-                  <p>Customer First Name</p>
-                  <p>{{data.firstName}} </p>
-                </div>
-              </li>
-              <li>
-                <div class="valuepair">
-                  <p>Customer Last Name</p>
-                  <p>{{data.lastName}}</p>
-                </div>
-              </li>
-              <li>
-                <div class="valuepair">
-                  <p>Status</p>
-                  <p>{{data.status}}</p>
-                </div>
-              </li>
-              <li>
-                <div class="valuepair">
-                  <p>title</p>
-                  <p>{{data.title}}</p>
-                </div>
-              </li>
-              <li>
-                <div class="valuepair">
-                  <p>Customer midddle Name</p>
-                  <p>{{data.midddleName}}</p>
-                </div>
-              </li>
-              <li>
-                <div class="valuepair">
-                  <p>gender</p>
-                  <p>{{data.gender}}</p>
-                </div>
-              </li>
-              <li>
-                <div class="valuepair">
-                  <p>Email</p>
-                  <p>{{data.email}}</p>
-                </div>
-              </li>
-              <li>
-                <div class="valuepair">
-                  <p>Mobile Number</p>
-                  <p>{{data.mobileNum}}</p>
-                </div>
-              </li>
-              <li>
-                <div class="valuepair">
-                  <p>Phone Number</p>
-                  <p>{{data.phoneNum}}</p>
-                </div>
-              </li>
-              <li>
-                <div class="valuepair">
-                  <p>DOB</p>
-                  <p>{{data.dob}}</p>
-                </div>
-              </li>
-              <li>
-                <div class="valuepair">
-                  <p>Source</p>
-                  <p>{{data.source}}</p>
-                </div>
-              </li>
-              <li>
-                <div class="valuepair">
-                  <p>Default Payment Gateway</p>
-                  <p>{{data.defaultPaymentGateway}}</p>
-                </div>
-              </li>
-              
-              
-            </ul>
-          </div>
+          <form [formGroup]="updateForm" (ngSubmit)="onSubmit()"  >
+            
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="customerCode">Customer Code:</label>
+             
+             {{data.customerCode}} 
+            </div><br>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="title">Title:</label> {{data.title}} 
+              <!-- <div class="col-sm-10">
+                 <p> {{data.vendorName}}  </p>
+
+              </div> -->
+            </div><br>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="firstName">First Name:</label>{{data.firstName}} 
+                <!-- <div class="col-sm-10"> -->
+                 <!-- <p> {{data.vendorName}}  </p> -->
+  
+                <!-- </div> -->
+              </div><br>
+              <div class="form-group row">
+                  <label class="col-sm-2 col-form-label" for="lastName">Last Name</label> {{data.lastName}}
+                  <!-- <div class="col-sm-10">
+                     <p> {{data.vendorName}}  </p>
+  
+                  </div> -->
+                </div><br>
+                <!-- <div class="form-group row">
+                  <label class="col-sm-2 col-form-label" for="status">Status</label>
+                  <div class="col-sm-10">
+                     <p> {{data.vendorName}}  </p>
+  
+                  </div>
+                </div><br> -->
+                
+                
+                <!-- <div class="form-group row">
+                  <label class="col-sm-2 col-form-label" for="phoneNumber">Phone Number</label>
+                  <div class="col-sm-10">
+                      <p> {{data.vendorName}}  </p>
+  
+                  </div>
+                </div><br> -->
+                
+                <!-- <div class="form-group row">
+                  <label class="col-sm-2 col-form-label" for="midddleName">Midddle Name:</label> {{data.midddleName}} 
+                  
+                </div><br> -->
+               
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label" for="primaryEmailId">Primary EmailId:</label>{{data.primaryEmailId}} 
+                  <!-- <div class="col-sm-10">
+                      <p> {{data.vendorName}}  </p>
+  
+                  </div> -->
+                </div><br>
+                
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label" for="secondaryEmailId">Secondary EmailId:</label>{{data.secondaryEmailId}} 
+                  <!-- <div class="col-sm-10">
+                      <p> {{data.vendorName}}  </p>
+  
+                  </div> -->
+                </div><br>
+                
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label" for="primaryContactNumber">Primary Contact Number:</label> {{data.primaryContactNumber}}  
+                  
+                </div><br>
+                
+                
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label" for="secondaryContactNumber">Secondary Contact Number:</label>{{data.secondaryContactNumber}}
+                 
+                </div><br>
+                <!-- <div class="form-group  row">
+                  <label class="col-sm-2 col-form-label" for="dob">DOB:</label>{{data.dob}}
+                  
+                </div><br> -->
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label" for="gender">Gender:</label> {{data.gender}}  
+                 
+                </div><br>
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label" for="taxExempt">Tax Exempt:</label>{{data.taxExempt}}
+                  
+                </div><br>
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label" for="source">Source:</label>{{data.source}}
+                  <!-- <div class="col-sm-10">
+                     <p> {{data.vendorName}}  </p>
+  
+                  </div> -->
+                </div><br>
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label" for="defaultPaymentGateway">Default Payment Gateway:</label> {{data.defaultPaymentGateway}}
+                  <!-- <div class="col-sm-10">
+                      <p> {{data.vendorName}}  </p>
+  
+                  </div> -->
+                </div><br>
+        </form>
+          
+        </div>
         </div>
         <!-- <div class="main">
           <div class="user-details">
@@ -220,7 +244,7 @@
         </div>  -->
     
         <div class="headingdiv">
-          <br><br><h1>Update Customer</h1><br>
+          <br><br><h1>Customer Details</h1><br>
         </div>
         <div class="container">
          
@@ -233,88 +257,115 @@
                 
               </div><br> -->
               <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="firstName">Customer First Name</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="firstName" formControlName="firstName"  placeholder="First Name">
-                </div>
+                <label class="col-sm-2 col-form-label" for="customerCode">Customer Code</label>
+                <!-- <div class="col-sm-10"> -->
+                    <input type="text" class="form-control" id="customerCode" formControlName="customerCode">
+                <!-- </div> -->
               </div><br>
               <div class="form-group row">
-                  <label class="col-sm-2 col-form-label" for="customerCode">Customer Code</label>
-                  <div class="col-sm-10">
-                      <input type="text" class="form-control" id="customerCode" formControlName="customerCode">
-                  </div>
-                </div><br>
-                <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="title">Title</label>
+                <!-- <div class="col-sm-10"> -->
+                    <input type="text" class="form-control" id="title" formControlName="title">
+                <!-- </div> -->
+              </div><br>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="firstName">First Name</label>
+                <!-- <div class="col-sm-10"> -->
+                  <input type="text" class="form-control" id="firstName" formControlName="firstName"  placeholder="First Name">
+                <!-- </div> -->
+              </div><br>
+              
+                <!-- <div class="form-group row">
                   <label class="col-sm-2 col-form-label" for="status">Status</label>
                   <div class="col-sm-10">
                       <input type="text" class="form-control" id="status" formControlName="status">
                   </div>
-                </div><br>
+                </div><br> -->
+                
                 
                 <div class="form-group row">
-                  <label class="col-sm-2 col-form-label" for="title">Title</label>
-                  <div class="col-sm-10">
-                      <input type="text" class="form-control" id="title" formControlName="title">
-                  </div>
-                </div><br>
-                <div class="form-group row">
                   <label class="col-sm-2 col-form-label" for="lastName">Last Name</label>
-                  <div class="col-sm-10">
+                  <!-- <div class="col-sm-10"> -->
                       <input type="text" class="form-control" id="lastName" formControlName="lastName">
-                  </div>
+                  <!-- </div> -->
                 </div><br>
-                <div class="form-group row">
+                <!-- <div class="form-group row">
                   <label class="col-sm-2 col-form-label" for="midddleName">Midddle Name</label>
                   <div class="col-sm-10">
                       <input type="text" class="form-control" id="midddleName" formControlName="midddleName">
                   </div>
+                </div><br> -->
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label" for="primaryEmailId">Primary EmailId</label>
+                  <!-- <div class="col-sm-10"> -->
+                      <input type="text" class="form-control" id="primaryEmailId" formControlName="primaryEmailId">
+                  <!-- </div> -->
+                </div><br>
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label" for="secondaryEmailId">Secondary EmailId</label>
+                  <!-- <div class="col-sm-10"> -->
+                      <input type="text" class="form-control" id="secondaryEmailId" formControlName="secondaryEmailId">
+                  <!-- </div> -->
+                </div><br>
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label" for="primaryContactNumber">Primary Contact Number</label>
+                  <!-- <div class="col-sm-10"> -->
+                      <input type="text" class="form-control" id="primaryContactNumber" formControlName="primaryContactNumber">
+                  <!-- </div> -->
+                </div><br>
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label" for="secondaryContactNumber">Secondary Contact Number</label>
+                  <!-- <div class="col-sm-10"> -->
+                      <input type="text" class="form-control" id="secondaryContactNumber" formControlName="secondaryContactNumber">
+                  <!-- </div> -->
                 </div><br>
                 <div class="form-group row">
                   <label class="col-sm-2 col-form-label" for="gender">Gender</label>
-                  <div class="col-sm-10">
-                      <input type="text" class="form-control" id="gender" formControlName="gender">
-                  </div>
+                  <!-- <div class="col-sm-10"> -->
+                    <input type="radio" class="" id="gender" formControlName="gender" value="Male">
+                    <label for="male">Male</label><br>
+                    <input type="radio" class="" id="gender" formControlName="gender" value="Female">
+                    <label for="female">Female</label><br>
+                    <input type="radio" class="" id="gender" formControlName="gender" value="Other">
+                    <label for="other">Other</label><br>
+                <!-- </div> -->
                 </div><br>
-                <div class="form-group row">
-                  <label class="col-sm-2 col-form-label" for="email">Email</label>
-                  <div class="col-sm-10">
-                      <input type="text" class="form-control" id="email" formControlName="email">
-                  </div>
-                </div><br>
-                <div class="form-group row">
-                  <label class="col-sm-2 col-form-label" for="mobileNum">Mobile Number</label>
-                  <div class="col-sm-10">
-                      <input type="text" class="form-control" id="mobileNum" formControlName="mobileNum">
-                  </div>
-                </div><br>
-                <div class="form-group row">
-                  <label class="col-sm-2 col-form-label" for="phoneNum">Phone Number</label>
-                  <div class="col-sm-10">
-                      <input type="text" class="form-control" id="phoneNum" formControlName="phoneNum">
-                  </div>
-                </div><br>
-                <div class="form-group row">
+                
+                
+                <!-- <div class="form-group row">
                   <label class="col-sm-2 col-form-label" for="dob">DOB</label>
                   <div class="col-sm-10">
                       <input type="date" class="form-control" id="dob" formControlName="dob">
                   </div>
-                </div><br>
+                </div><br> -->
                 <div class="form-group row">
                   <label class="col-sm-2 col-form-label" for="source">source</label>
-                  <div class="col-sm-10">
+                  <!-- <div class="col-sm-10"> -->
                       <input type="text" class="form-control" id="source" formControlName="source">
-                  </div>
+                  <!-- </div> -->
                 </div><br>
                 <div class="form-group row">
                   <label class="col-sm-2 col-form-label" for="defaultPaymentGateway">Default Payment Gateway</label>
-                  <div class="col-sm-10">
+                  <!-- <div class="col-sm-10"> -->
                       <input type="text" class="form-control" id="defaultPaymentGateway" formControlName="defaultPaymentGateway">
-                  </div>
+                  <!-- </div> -->
+                </div><br>
+
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label" for="taxExempt">Tax Exempt</label>
+                  <!-- <div class="col-sm-10"> -->
+                      <input type="text" class="form-control" id="taxExempt" formControlName="taxExempt">
+                  <!-- </div> -->
                 </div><br>
                 
       
                 <div class="submitEdit">
-                  <button class="submit btn btn-primary">Submit</button>
+                  <div class="submitdiv">
+                    <button class="submit btn btn-primary" (click)="onSubmit()" >Submit</button>
+                  </div>
+                  <div class="submitdiv">
+                    <button class="cancel btn btn-danger" (click)="onCancel()">Cancel</button>
+                  </div>
                 </div>
             </form>
         </div>

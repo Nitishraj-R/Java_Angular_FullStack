@@ -7,7 +7,7 @@
   <table class="q-table">
       <thead>
       <tr>
-          <th class="text-center" *ngFor="let column of columnss"><b>{{column}}</b></th>
+          <th class="text-center" *ngFor="let column of columnss"><b>{{column | titleCase}}</b></th>
           <!-- <th class="text-center" colspan="2"><b>Action</b></th> -->
       </tr>
       </thead>
