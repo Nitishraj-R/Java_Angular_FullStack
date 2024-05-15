@@ -46,9 +46,9 @@ public class ProductMasterController {
 	}
 	
 	@DeleteMapping("deleteProduct")
-	public ProductMaster deleteProduct(@RequestParam String productId) {
+	public void deleteProduct(@RequestParam String productId) {
 		
-		return service.deleteProduct(productId);	
+		 service.deleteProduct(productId);	
 	}
 	
 	@PutMapping("updateProduct")

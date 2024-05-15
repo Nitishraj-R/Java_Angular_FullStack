@@ -27,11 +27,13 @@ public class CustomerMasterDto {
 	
 	private String gender;
 	
-	private String email;
+	private String primaryEmailId;
 	
-	private String mobileNum;
+	private String secondaryEmailId;
 	
-	private String phoneNum;
+	private String primaryContactNumber;
+	
+	private String secondaryContactNumber;
 	
 	private Date dob;
 	

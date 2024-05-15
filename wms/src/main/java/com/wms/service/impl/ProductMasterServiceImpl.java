@@ -24,6 +24,7 @@ public class ProductMasterServiceImpl implements ProductMasterService {
  
 	@Override
 	public ProductMaster createProduct(ProductMaster productMaster) {
+		productMaster.setStatus(true);
 		return productMasterRepository.save(productMaster);
  
 	}
@@ -69,7 +70,7 @@ public class ProductMasterServiceImpl implements ProductMasterService {
  
 	private String[] getNullPropertyNames(ProductMaster product) {
 		final BeanWrapper src = new BeanWrapperImpl(product);
-		Set<String> emptyNames = new HashSet<String>();
+		Set<String> emptyNames = new HashSet<>();
 		for (PropertyDescriptor pd : src.getPropertyDescriptors()) {
 			Object srcValue = src.getPropertyValue(pd.getName());
 			if (srcValue == null)

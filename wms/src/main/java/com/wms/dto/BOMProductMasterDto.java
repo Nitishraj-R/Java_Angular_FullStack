@@ -1,22 +1,26 @@
 package com.wms.dto;
-
-import com.wms.model.ConfigBOMProductMaster;
-import com.wms.model.ProductMaster;
-
-import lombok.AllArgsConstructor;
+ 
+import java.util.List;
+ 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+ 
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-
+ 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class BOMProductMasterDto {
-
-private Long id;
-	
+ 
+	private Long id;
 	private Integer qty;
-	
-	private ProductMaster productMaster;
-	
-	private ConfigBOMProductMaster configMaster;
+ 
+	@ManyToMany
+	private List<ProductMasterDto> productMasterDto;
+ 
+	@ManyToOne
+	@JoinColumn
+	@JsonIgnore
+	private ConfigBOMProductMasterDto configMasterDto;
+ 
 }

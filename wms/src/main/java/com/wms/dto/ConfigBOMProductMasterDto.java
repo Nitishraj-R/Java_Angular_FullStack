@@ -1,21 +1,31 @@
 package com.wms.dto;
-
-import com.wms.model.ProductMaster;
-
-import lombok.AllArgsConstructor;
+ 
+import java.util.List;
+ 
+import com.wms.model.BOMProductMaster;
+ 
+import jakarta.persistence.OneToMany;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-
+ 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class ConfigBOMProductMasterDto {
-
 	private Long id;
-	
-	private Integer qty;
-	
-	private ProductMaster productMaster;
-	
-	private ConfigBOMProductMasterDto configMaster;
+ 
+	private String code;
+ 
+	private String productidType;
+ 
+	private String productName;
+ 
+	private String productShortDesc;
+ 
+	private Long parentSkuId;
+ 
+	private String status;
+ 
+	private Long lowStockThreshold;
+ 
+	@OneToMany(mappedBy = "configMaster")
+	private List<BOMProductMasterDto> bomProductsList;
+ 
 }
