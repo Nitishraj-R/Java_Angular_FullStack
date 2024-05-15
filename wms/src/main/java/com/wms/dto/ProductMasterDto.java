@@ -67,7 +67,7 @@ public class ProductMasterDto {
 	private Boolean isPreOrderAllow;
  
 	private Long lowStockThreshold;
-	private String parentageType;
+	private String percentageType;
  
 	
  
