@@ -18,15 +18,19 @@ import com.wms.service.impl.ProductMasterServiceImpl;
 
 @RestController
 @RequestMapping("/wms/product/api/")
-@CrossOrigin(originPatterns="*",methods = {RequestMethod.POST,RequestMethod.GET,RequestMethod.PUT,RequestMethod.DELETE},allowedHeaders = "Content-type")
-public class ProductMasterController {
 
+@CrossOrigin(originPatterns="*",methods = {RequestMethod.POST,RequestMethod.GET,RequestMethod.PUT,RequestMethod.PATCH,RequestMethod.DELETE},allowedHeaders = {"Content-type"})
+
+public class ProductMasterController {
+ 
 	private ProductMasterServiceImpl service;
+ 
 
 	public ProductMasterController(ProductMasterServiceImpl service) {
 		super();
 		this.service = service;
 	}
+
 
 	@PostMapping("saveProduct")
 	public ProductMaster saveProduct(@RequestBody ProductMaster product) {
@@ -53,6 +57,8 @@ public class ProductMasterController {
 		
 		return service.deleteProduct(productId);	
 	}
+ 
+
 	
 	@PutMapping("updateProduct")
 	public ProductMaster updateProduct(@RequestBody ProductMaster product) {

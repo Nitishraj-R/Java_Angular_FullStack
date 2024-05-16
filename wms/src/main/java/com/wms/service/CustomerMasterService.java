@@ -2,14 +2,19 @@ package com.wms.service;
 
 import java.util.List;
 
+import com.wms.dto.CustomerMasterDto;
 import com.wms.model.CustomerMaster;
 
 public interface CustomerMasterService {
 
-	void createCustomer(CustomerMaster customerMaster);
+	CustomerMasterDto createCustomer(CustomerMasterDto customerMasterDto);
 
-	List<CustomerMaster> getCustomers();
+	List<CustomerMasterDto> getCustomers();
 
-	CustomerMaster getCustomerByCode(String code);
+	CustomerMasterDto getCustomerByCode(String customerCode);
+
+	CustomerMasterDto updateCustomer(CustomerMasterDto customerMasterDto);
+
+	String deleteCustomer(String customerCode);
 
 }

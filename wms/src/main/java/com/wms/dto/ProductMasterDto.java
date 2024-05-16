@@ -1,37 +1,15 @@
-package com.wms.model;
+package com.wms.dto;
  
 import java.util.Date;
-
-import org.hibernate.annotations.DynamicUpdate;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
+ 
 import lombok.Data;
-import lombok.NoArgsConstructor;
  
-@Entity
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
-@DynamicUpdate
-public class ProductMaster {
- 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+public class ProductMasterDto {
 	private Long id;
  
 	private String skuNumber;
-
-
-	@Column(unique = true)
-
+ 
 	private String productId;
  
 	private String productidType;
@@ -39,29 +17,11 @@ public class ProductMaster {
 	private String productName;
  
 	private String productShortDesc;
-
-	
-	private String manufacturer;
-	
-	private String category;
-	
-	private String subcategory;
-	
-	private String material;
-	
-	private String color;
-	
-	private String compatibilityNotes;
-	
-	private String warranty;
-
-	private Long parentSkuId;
-
-	private Boolean status;
-
-
  
-
+	private Long parentSkuId;
+ 
+	private Boolean status;
+ 
 	private Boolean isReturnable;
  
 	private Long maxOrdQty;
@@ -95,28 +55,20 @@ public class ProductMaster {
 	private String othersAttributes;
  
 	private String legalAttributes;
-
-
-	
+ 
 	private String createdBy;
-
-
+ 
 	private Date createdDate;
-
-	
+ 
 	private String modifiedBy;
-
-
-
+ 
 	private Date lastmodifiedDate;
  
 	private Boolean isPreOrderAllow;
  
 	private Long lowStockThreshold;
 	private String percentageType;
-
+ 
 	
-	@OneToOne
-	private VendorMaster vendor;
-
+ 
 }

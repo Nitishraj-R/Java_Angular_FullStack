@@ -21,40 +21,48 @@ public class ProductMasterServiceImpl implements ProductMasterService {
 
 	@Autowired
 	private ProductMasterRepository productMasterRepository;
-
+ 
 	@Override
 	public ProductMaster createProduct(ProductMaster productMaster) {
+
+		productMaster.setStatus(true);
 		return productMasterRepository.save(productMaster);
 
 	}
-
+ 
 	@Override
 	public List<ProductMaster> getProducts() {
 		return  productMasterRepository.findByStatusTrue();
 	}
-
+ 
 	@Override
 	public ProductMaster getProductByProductId(String productId) {
+
 
 		return productMasterRepository.findByProductId(productId);
 	}
 
+	
+ 
 	@Override
 	public ProductMaster deleteProduct(String id) {
+ 
 
 		ProductMaster productByCode = getProductByProductId(id);
 		ProductMaster productMaster = new ProductMaster();
 		BeanUtils.copyProperties(productByCode, productMaster);
 		productMaster.setStatus(false);
 
+ 
 		return productMasterRepository.save(productMaster);
 	}
-
+ 
 	@Override
 	public ProductMaster updateProduct(ProductMaster product) {
-
+ 
 		ProductMaster existingProduct = productMasterRepository.findById(product.getId())
 				.orElseThrow(NoSuchElementException::new);
+ 
 
 		try {
 			BeanUtils.copyProperties(product, existingProduct, getNullPropertyNames(product));
@@ -63,9 +71,10 @@ public class ProductMasterServiceImpl implements ProductMasterService {
 			e.printStackTrace();
 
 		}
-
+ 
 		return productMasterRepository.save(existingProduct);
 	}
+ 
 
 	private String[] getNullPropertyNames(ProductMaster product) {
 		final BeanWrapper src = new BeanWrapperImpl(product);
