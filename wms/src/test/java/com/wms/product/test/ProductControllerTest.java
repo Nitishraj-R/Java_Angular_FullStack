@@ -1,4 +1,4 @@
-package com.wms.product.controllertest;
+package com.wms.product.test;
 
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;

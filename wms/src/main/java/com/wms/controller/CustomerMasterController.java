@@ -19,12 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wms.dto.CustomerMasterDto;
-import com.wms.dto.VendorMasterDto;
-import com.wms.model.CustomerMaster;
-import com.wms.model.VendorMaster;
 import com.wms.service.CustomerMasterService;
-
-import jakarta.websocket.server.PathParam;
 
 @RestController
 @RequestMapping("/wms/customer/api")
