@@ -1,12 +1,23 @@
 package com.wms.repository;
 
-import org.springframework.data.repository.CrudRepository;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import com.wms.model.ProductMaster;
 
 
-public interface ProductMasterRepository extends CrudRepository<ProductMaster, Long> {
+@Repository
+public interface ProductMasterRepository extends JpaRepository<ProductMaster, Long> {
+
+	ProductMaster findByProductId(String productCode);
+
+	Optional<ProductMaster>  findBySkuNumber(String skuNumber);
+
+	List<ProductMaster> findByStatusTrue();	
 	
-//	ProductMaster getCode(String vendorCode);
+
 
 }
