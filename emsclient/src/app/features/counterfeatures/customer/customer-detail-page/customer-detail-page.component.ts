@@ -92,48 +92,92 @@ export class CustomerDetailPageComponent {
    }
 
    formChange(){
+    // if(this.updateForm.valid){
+    //   this.customerService.updateCustomer(this.updateForm.value).subscribe((res:any)=>{
+    //     if(res!=null){
+    //       console.log("Inside formchange");
+    //       console.log("res->",res);
+          
+    //       this.updateForm.patchValue(res);
+    //       alert("Updated Successful");
+    //       console.log("updateForm.value",this.updateForm.value);
+          
+     
+    //     }
+    //     })
     
-    this.customerService.updateCustomer(this.updateForm.value).subscribe((res:any)=>{
-    if(res!=null){
-      console.log("Inside formchange");
-      console.log("res->",res);
+    //     this.customerService.fetchByCustomerCode(this.updateForm.value.customerCode).subscribe((res:any)=>{
+    //     if(res!=null){
+    //       console.log("Inside formchange");
+    //       console.log("res->",res);
+          
+    //       this.updateForm.patchValue(res);
+    //       // alert("Updated Succesful");
+    //       console.log("updateForm.value",this.updateForm.value);
+    //       // this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+    //       //   this.router.navigate([this.router.url]);
+    //       // });
+          
+    //       // this.update=true;this.router.navigate(['/features/supplierhome']);
+    //       this.currentChildComponent=CustomerhomeComponent;
+    
+     
+    //     }
+    //     })
+    // }
+    // else{
+    //   console.log("Mandatory Fields should be filled");
       
-      this.updateForm.patchValue(res);
-      alert("Updated Successful");
-      console.log("updateForm.value",this.updateForm.value);
-      
- 
-    }
-    })
-
-    this.customerService.fetchByCustomerCode(this.updateForm.value.customerCode).subscribe((res:any)=>{
-    if(res!=null){
-      console.log("Inside formchange");
-      console.log("res->",res);
-      
-      this.updateForm.patchValue(res);
-      // alert("Updated Succesful");
-      console.log("updateForm.value",this.updateForm.value);
-      // this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      //   this.router.navigate([this.router.url]);
-      // });
-      
-      // this.update=true;this.router.navigate(['/features/supplierhome']);
-      this.currentChildComponent=CustomerhomeComponent;
-
- 
-    }
-    })
-    // this.location.reload();
-    // window.location.reload();
+    //   alert("Mandatory Fields should be filled")
+    // }
+    
+  
  
    }
    
  
    onSubmit(){
-    
-    console.log("this.updateForm.value",this.updateForm.value);
+    if(this.updateForm.valid){
+      console.log("this.updateForm.value",this.updateForm.value);
     this.update=true;
+      this.customerService.updateCustomer(this.updateForm.value).subscribe((res:any)=>{
+        if(res!=null){
+          console.log("Inside formchange");
+          console.log("res->",res);
+          
+          this.updateForm.patchValue(res);
+          alert("Updated Successful");
+          console.log("updateForm.value",this.updateForm.value);
+          
+     
+        }
+        })
+    
+        this.customerService.fetchByCustomerCode(this.updateForm.value.customerCode).subscribe((res:any)=>{
+        if(res!=null){
+          console.log("Inside formchange");
+          console.log("res->",res);
+          
+          this.updateForm.patchValue(res);
+          // alert("Updated Succesful");
+          console.log("updateForm.value",this.updateForm.value);
+          // this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+          //   this.router.navigate([this.router.url]);
+          // });
+          
+          // this.update=true;this.router.navigate(['/features/supplierhome']);
+          this.currentChildComponent=CustomerhomeComponent;
+    
+     
+        }
+        })
+    }
+    else{
+      console.log("Mandatory Fields should be filled");
+      
+      alert("Mandatory Fields should be filled")
+    }
+    
    }
 
    onCancel(){

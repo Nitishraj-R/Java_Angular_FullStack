@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CommonService } from '../../service/common.service';
 import { Router } from '@angular/router';
 import { SupplierhomeComponent } from '../supplierhome/supplierhome.component';
@@ -23,15 +23,15 @@ export class DetailPageComponent implements OnInit{
       registrationNo:[''],
       status:Boolean,
       address:[''],
-      emailAddress:[''],
+      emailAddress:['',[Validators.email]],
       shippingCost:[''],
       tax:[''],
       vendorCode:[''],
       paymentTerm:[''],
       rmaPolicy:[''],
-      adminEmailId:[''],
-      primaryContactNumber:[''],
-      secondaryContactNumber:['']
+      adminEmailId:['',[Validators.email]],
+      primaryContactNumber:['',[Validators.pattern("[8-9]{1}[0-9]{9}")]],
+      secondaryContactNumber:['',[Validators.pattern("[8-9]{1}[0-9]{9}")]]
     })
   }
   columns:string[]=["sd","sf"];
@@ -94,20 +94,24 @@ export class DetailPageComponent implements OnInit{
    }
 
    formChange(){
-    
-    this.supplierService.updateSupplier(this.updateForm.value).subscribe((res:any)=>{
-    if(res!=null){
-      console.log("Inside formchange");
-      console.log("res->",res);
+  //   if(this.updateForm.valid){
+  //   this.supplierService.updateSupplier(this.updateForm.value).subscribe((res:any)=>{
+  //   if(res!=null){
+  //     console.log("Inside formchange");
+  //     console.log("res->",res);
       
-      this.updateForm.patchValue(res);
-      alert("Updated Successful");
-      console.log("updateForm.value",this.updateForm.value);
-      this.currentChildComponent=SupplierhomeComponent;
-
+  //     this.updateForm.patchValue(res);
+  //     alert("Updated Successful");
+  //     console.log("updateForm.value",this.updateForm.value);
+  //     this.currentChildComponent=SupplierhomeComponent;
  
-    }
-    })
+  //   }
+  //   })
+  // }
+  // else{
+  //   alert("Mandatory fields should be filled")
+  // }
+
 
   //   this.supplierService.fetchByVendorCode(this.updateForm.value.vendorCode).subscribe((res:any)=>{
   //   if(res!=null){
@@ -134,9 +138,23 @@ export class DetailPageComponent implements OnInit{
    
  
    onSubmit(){
-    
-    console.log("this.updateForm.value",this.updateForm.value);
-   
+    if(this.updateForm.valid){
+    this.supplierService.updateSupplier(this.updateForm.value).subscribe((res:any)=>{
+    if(res!=null){
+      console.log("Inside formchange");
+      console.log("res->",res);
+      
+      this.updateForm.patchValue(res);
+      alert("Updated Successful");
+      console.log("updateForm.value",this.updateForm.value);
+      this.currentChildComponent=SupplierhomeComponent;
+ 
+    }
+    })
+  }
+  else{
+    alert("Mandatory fields should be filled")
+  }
    }
 
    onCancel(){

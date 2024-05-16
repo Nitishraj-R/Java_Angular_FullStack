@@ -170,14 +170,14 @@
 .bomIcon{
    /* border: 2px solid green; */
    height: 27px;
-   width: 30px;
+   /* width: 30px; */
    text-align: center;
    margin-left: 6px;
 }
 .salesAnchor{
    /* border: 2px solid green; */
-   text-decoration: none;
-   color: aliceblue;
+   display: block;
+   width: 80px;
    font-size: 1.30rem;
    padding-left: 3px;
 

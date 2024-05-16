@@ -222,36 +222,31 @@
         </div><br> -->
 
         <div class="form-group row">
-          <label class="col-sm-2 col-form-label" for="skuNumber">Sku Number</label>
+          <label class="col-sm-2 col-form-label" for="skuNumber">Sku Number<span class="lt-required ml-1">*</span></label>
           <!-- <div class="col-sm-10"> -->
               <input type="text" class="form-control" id="skuNumber" formControlName="skuNumber" readonly>
           <!-- </div> -->
         </div><br>
         <div class="form-group row">
-          <label class="col-sm-2 col-form-label" for="productId">product Id</label>
+          <label class="col-sm-2 col-form-label" for="productId">product Id<span class="lt-required ml-1">*</span></label>
           <!-- <div class="col-sm-10"> -->
             <input type="text" class="form-control" id="productId" formControlName="productId"  placeholder="productId" readonly>
           <!-- </div> -->
         </div><br>
         <div class="form-group row">
-            <label class="col-sm-2 col-form-label" for="productidType">product Id Type</label>
+            <label class="col-sm-2 col-form-label" for="productidType">product Id Type<span class="lt-required ml-1">*</span></label>
             <!-- <div class="col-sm-10"> -->
-                <input type="text" class="form-control" id="productidType" formControlName="productidType">
+                <input type="text" class="form-control" id="productidType" formControlName="productidType" required>
             <!-- </div> -->
           </div><br>
           <div class="form-group row">
-            <label class="col-sm-2 col-form-label" for="productName">product Name</label>
+            <label class="col-sm-2 col-form-label" for="productName">product Name<span class="lt-required ml-1">*</span></label>
             <!-- <div class="col-sm-10"> -->
-                <input type="text" class="form-control" id="productName" formControlName="productName">
+                <input type="text" class="form-control" id="productName" formControlName="productName" required>
             <!-- </div> -->
           </div><br>
 
-          <div class="form-group row">
-            <label class="col-sm-2 col-form-label" for="productShortDesc">Product Short Description</label>
-            <!-- <div class="col-sm-10"> -->
-                <input type="text" class="form-control" id="productShortDesc" formControlName="productShortDesc">
-            <!-- </div> -->
-          </div><br>
+          
 
           <div class="form-group row">
             <label class="col-sm-2 col-form-label" for="parentSkuId">Parent Sku Id</label>
@@ -261,10 +256,15 @@
           </div><br>
 
           <div class="form-group row">
-            <label class="col-sm-2 col-form-label" for="isReturnable">Returnable</label>
-            <!-- <div class="col-sm-10"> -->
-                <input type="text" class="form-control" id="isReturnable" formControlName="isReturnable">
-            <!-- </div> -->
+            <!-- <label class="col-sm-2 col-form-label" for="isReturnable">Returnable</label> -->
+            <label class="col-sm-2 col-form-label" for="isReturnable">isReturnable<span class="lt-required ml-1">*</span></label>
+            <div class="col-sm-10 radio">
+                <!-- <input type="text" class="form-control" id="isReturnable" formControlName="isReturnable"placeholder="isReturnable" required> -->
+                <input type="radio" class="" id="isReturnable_true" name="isReturnable" formControlName="isReturnable" value="True" required>
+                  <label class="isReturnable" for="isReturnable_true">True</label><br>
+                  <input type="radio" class="" id="isReturnable_false" name="isReturnable" formControlName="isReturnable" value="False">
+                  <label class="isReturnable" for="isReturnable_false">False</label><br>
+            </div>
           </div><br>
           
           <div class="form-group row">
@@ -284,14 +284,14 @@
           <div class="form-group row">
             <label class="col-sm-2 col-form-label" for="preOrdLaunchDt">PreOrder Launch Date</label>
             <!-- <div class="col-sm-10"> -->
-                <input type="text" class="form-control" id="preOrdLaunchDt" formControlName="preOrdLaunchDt">
+                <input type="datetime-local" class="form-control" id="preOrdLaunchDt" formControlName="preOrdLaunchDt">
             <!-- </div> -->
           </div>
 
           <div class="form-group row">
             <label class="col-sm-2 col-form-label" for="preOrdEndDt">PreOrder End Date</label>
             <!-- <div class="col-sm-10"> -->
-                <input type="text" class="form-control" id="preOrdEndDt" formControlName="preOrdEndDt">
+                <input type="datetime-local" class="form-control" id="preOrdEndDt" formControlName="preOrdEndDt">
             <!-- </div> -->
           </div><br>
           
@@ -311,14 +311,17 @@
           <div class="form-group row">
             <label class="col-sm-2 col-form-label" for="preOrdRelDt">PreOrder Release Date</label>
             <!-- <div class="col-sm-10"> -->
-                <input type="text" class="form-control" id="preOrdRelDt" formControlName="preOrdRelDt">
+                <input type="datetime-local" class="form-control" id="preOrdRelDt" formControlName="preOrdRelDt">
             <!-- </div> -->
           </div><br>
           <div class="form-group row">
             <label class="col-sm-2 col-form-label" for="isBackorder">Backorder</label>
-            <!-- <div class="col-sm-10"> -->
-                <input type="text" class="form-control" id="isBackorder" formControlName="isBackorder">
-            <!-- </div> -->
+            <div class="col-sm-10 radio">
+              <input type="radio" class="" id="isBackorder_true" name="isBackorder" formControlName="isBackorder" value="True">
+                <label class="isBackorder" for="isBackorder_true">True</label><br>
+                <input type="radio" class="" id="isBackorder_false" name="isBackorder" formControlName="isBackorder" value="False">
+                <label class="isBackorder" for="isBackorder_false">False</label><br>
+          </div>
           </div><br>
           <div class="form-group row">
             <label class="col-sm-2 col-form-label" for="backOrderLimit">BackOrder Limit</label>
@@ -376,9 +379,12 @@
           </div><br>
           <div class="form-group row">
             <label class="col-sm-2 col-form-label" for="isPreOrderAllow">PreOrder Allowed</label>
-            <!-- <div class="col-sm-10"> -->
-                <input type="text" class="form-control" id="isPreOrderAllow" formControlName="isPreOrderAllow">
-            <!-- </div> -->
+            <div class="col-sm-10 radio">
+              <input type="radio" class="" id="isPreOrderAllow_true" formControlName="isPreOrderAllow" name="isPreOrderAllow" value="True">
+                <label class="isPreOrderAllow" for="isPreOrderAllow_true">True</label><br>
+                <input type="radio" class="" id="isPreOrderAllow_false" formControlName="isPreOrderAllow" name="isPreOrderAllow" value="False">
+                <label class="isPreOrderAllow" for="isPreOrderAllow_false">False</label><br>
+          </div>
           </div><br>
           <div class="form-group row">
             <label class="col-sm-2 col-form-label" for="lowStockThreshold">Low Stock Threshold</label>
@@ -392,14 +398,19 @@
                 <input type="text" class="form-control" id="percentageType" formControlName="percentageType">
             <!-- </div> -->
           </div><br>
-          
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="productShortDesc">Product Short Description</label>
+            <!-- <div class="col-sm-10"> -->
+                <textarea type="text" class="form-control" id="productShortDesc" formControlName="productShortDesc"></textarea>
+            <!-- </div> -->
+          </div><br>
           
           
           
 
           <div class="submitEdit">
             <div class="submitdiv">
-              <button class="submit btn btn-primary" (click)="onSubmit()" >Submit</button>
+              <button class="submit btn btn-primary" [disabled]="updateForm.invalid" (click)="onSubmit()" >Submit</button>
             </div>
             <div class="submitdiv">
               <button class="cancel btn btn-danger" (click)="onCancel()">Cancel</button>

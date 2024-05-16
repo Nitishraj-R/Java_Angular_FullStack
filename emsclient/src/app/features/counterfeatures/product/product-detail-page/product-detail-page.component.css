@@ -33,6 +33,10 @@
 input,label{
     width: 40%;
 }
+input[type=radio]{
+    width: 20%;
+}
+
 
 .form-group{
     width: 50%;
@@ -96,4 +100,13 @@ form {
            
         }
     }
+}
+
+label[class="isReturnable"]{
+    width: 40%;
+}
+
+div[class~="radio"]{
+
+    width: 55%;
 }

@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ProducthomeComponent } from '../producthome/producthome.component';
 import { DataService } from '../../service/dataservice';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -17,7 +17,7 @@ export class ProductDetailPageComponent implements OnInit{
   currentChildComponent: any = null;
   updateForm:FormGroup;
   httpHeaders:HttpHeaders=new HttpHeaders();
-  constructor(private http:HttpClient,private builder:FormBuilder,private commonService:CommonService,private router:Router,private supplierService:SupplierService){
+  constructor(private http:HttpClient,private builder:FormBuilder,private commonService:CommonService,private router:Router,private supplierService:SupplierService,private cdr:ChangeDetectorRef){
     this.updateForm=this.builder.group({
       id:[""],
  
@@ -31,27 +31,27 @@ export class ProductDetailPageComponent implements OnInit{
  
   productShortDesc:[""],
  
-	parentSkuId:[Number],
+	parentSkuId:[""],
  
-	status:[Boolean],
+	status:[""],
  
-	isReturnable:[Boolean],
+	isReturnable:[""],
  
-	maxOrdQty:[Number],
+	maxOrdQty:[""],
  
-	maxAggShipQty:[Number],
+	maxAggShipQty:[""],
  
-	preOrdLaunchDt:[Date],
+	preOrdLaunchDt:[""],
  
-	preOrdEndDt:[Date],
+	preOrdEndDt:[""],
  
-	preOrdQty:[Number],
+	preOrdQty:[""],
  
-	preOrdRelDt:[Date],
+	preOrdRelDt:[""],
  
-	isBackorder:[Boolean],
+	isBackorder:[""],
  
-	backOrderLimit:[Number],
+	backOrderLimit:[""],
  
 	shippingOptions:[""],
  
@@ -69,9 +69,9 @@ export class ProductDetailPageComponent implements OnInit{
  
 	legalAttributes:[""],
  
-	isPreOrderAllow:[Boolean],
+	isPreOrderAllow:[""],
  
-	lowStockThreshold:[Number],
+	lowStockThreshold:[""],
 	percentageType:[""]
     })
   }
@@ -95,12 +95,14 @@ export class ProductDetailPageComponent implements OnInit{
   this.commonService.commonmsg.subscribe(m=>{
     console.log("m->",m);
     this.data=m;
+    this.data.preOrdRelDt="19-05-2024 11:15";
     this.updateForm.patchValue(this.data);
+    this.cdr.detectChanges();
   })
-  this.commonService.commonmsg.subscribe(m=>{
-    console.log("m->",m);
-    // this.columns=m;
-  })
+  // this.commonService.commonmsg.subscribe(m=>{
+  //   console.log("m->",m);
+  //   // this.columns=m;
+  // })
  
    
    }
@@ -138,20 +140,27 @@ export class ProductDetailPageComponent implements OnInit{
    }
 
    formChange(){
-    
-    this.http.put(`http://localhost:8080/wms/product/api/updateProduct`,this.updateForm.value,{ headers:this.httpHeaders}).subscribe((res:any)=>{
-    if(res!=null){
-      console.log("Inside formchange");
-      console.log("res->",res);
+    // if(this.updateForm.valid){
+    //   this.http.put(`http://localhost:8080/wms/product/api/updateProduct`,this.updateForm.value,{ headers:this.httpHeaders}).subscribe((res:any)=>{
+    // if(res!=null){
+    //   console.log("Inside formchange");
+    //   console.log("res->",res);
       
-      this.updateForm.patchValue(res);
-      alert("Updated Successful");
-      console.log("updateForm.value",this.updateForm.value);
-      this.currentChildComponent=ProducthomeComponent;
+    //   this.updateForm.patchValue(res);
+    //   alert("Updated Successful");
+    //   console.log("updateForm.value",this.updateForm.value);
+    //   this.currentChildComponent=ProducthomeComponent;
 
  
-    }
-    })
+    // }
+    // })
+    // }
+    // else{
+    //   console.log("Mandatory fields must be filled");
+    //   alert("Mandatory fields must be filled");
+      
+    // }
+    
 
   //   this.supplierService.fetchByVendorCode(this.updateForm.value.vendorCode).subscribe((res:any)=>{
   //   if(res!=null){
@@ -178,8 +187,28 @@ export class ProductDetailPageComponent implements OnInit{
    
  
    onSubmit(){
+    if(this.updateForm.valid){
+      console.log("this.updateForm.value",this.updateForm.value);
+      this.http.put(`http://localhost:8080/wms/product/api/updateProduct`,this.updateForm.value,{ headers:this.httpHeaders}).subscribe((res:any)=>{
+    if(res!=null){
+      console.log("Inside formchange");
+      console.log("res->",res);
+      
+      this.updateForm.patchValue(res);
+      alert("Updated Successful");
+      console.log("updateForm.value",this.updateForm.value);
+      this.currentChildComponent=ProducthomeComponent;
+
+ 
+    }
+    })
+    }
+    else{
+      console.log("Mandatory fields must be filled");
+      alert("Mandatory fields must be filled");
+      
+    }
     
-    console.log("this.updateForm.value",this.updateForm.value);
    
    }
 
