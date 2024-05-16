@@ -1,216 +1,44 @@
-
 <div *ngIf="currentChildComponent===null">
-    <div class="createButton btn btn-primary" (click)="createNewDetails()">
-        <i class="fa-solid fa-plus" ></i> New
+  <div class="container-noproduct">
+    <div *ngIf="data.length ===0">
+      <div class="d-flex justify-content-center lt-box-asset">
+        <i class='fas fa-box fa-4x'></i>
       </div>
-      
-      <table class="q-table">
-          <thead>
-          <tr>
-              <th class="text-center" *ngFor="let column of columnss"><b>{{column | titleCase}}</b></th>
-              <!-- <th class="text-center" colspan="2"><b>Action</b></th> -->
-          </tr>
-          </thead>
-          <tbody>
-              <tr *ngFor="let item of data" (click)="detailspage(item)">
-                  <td class="q-td text-left" *ngFor="let column of columnss">
-                      <span  >{{item[column]}}</span>
-                      <!-- <ng-template #editting>
-                          <input value="{{item[column]}}" type="text">
-                      </ng-template> -->
-                  </td>
-      
-                  <!-- <td class="q-td text-left" >
-                      <span>
-                          <i *ngIf="editCache[item.id].edit!==true; else editting2" class="fa-solid fa-pen-to-square" (click)="edit(item)">Edit</i>
-                          <ng-template class="q-td text-left" #editting2>
-                              <i class="fa-solid fa-floppy-disk" (click)="save(item)">Save</i>
-                          </ng-template>
-                      </span>
-                  </td>
-                  <td class="q-td text-left" >
-                      <span>
-                          <i *ngIf="editCache[item.id].edit!==true; else editting" class="fa-solid fa-trash" (click)="delete(item.id)">Delete</i>
-                          <ng-template class="q-td text-left" #editting>
-                              <i class="fa-solid fa-xmark" (click)="cancel(item)">Cancel</i>
-                          </ng-template>
-                      </span>
-                  </td> -->
-                  
-                  
-              </tr>
-          </tbody>
-      </table>
-      <mat-paginator class="pagination" #paginator (page)="onPageChange($event)"
-            [length]="data.length"
-            [pageIndex]="0"
-            [pageSize]="5"
-            [pageSizeOptions]="[5, 10, 20]"
-            aria-label="Select page" showFirstLastButtons>
-            
-        </mat-paginator>
+      <div class="d-flex justify-content-center xl-font fw-500 title-color pb-50 ng-star-inserted">
+        <span class="lt-noproduct-txt">No Product(s) Added, Add Product.</span>
+      </div>
+      <div class="lt-noproduct-txt d-flex flex-wrap justify-content-center pb-2 1 ">Click 'Add Item' to begin.</div>
+      <div class="createButton btn btn-primary" style="margin-left: 70px;" (click)="createNewDetails()">
+        <Span><i class="fa-solid fa-plus"></i>&nbsp;Product</Span>
+      </div>
     </div>
-    
-        <section class="bodySection">
-          
-            <ng-container *ngComponentOutlet="currentChildComponent"><h1>hii</h1></ng-container>
-            
-      
-          </section>
-    
-        <!-- <igx-grid #grid [data]="data" [height]="'500px'" [width]="'100%'">
-          <igx-paginator [perPage]="10">
-          </igx-paginator>
-      </igx-grid> -->
-      
-      <!-- <igx-paginator #paginator [totalRecords]="20">
-        <igx-paginator-content>
-            <div id="numberPager" style="justify-content: center;">
-                <button [disabled]="paginator.firstPage" (click)="paginator.previousPage()" igxButton="flat">
-                    PREV
-                </button>
-                <span>
-                   Page {{paginator.page}} of {{paginator.pageSize}}
-                </span>
-                <button [disabled]="paginator.lastPage" (click)="paginator.nextPage()" igxButton="flat">
-                    NEXT
-                </button>
-            </div>
-        </igx-paginator-content>
-      </igx-paginator> -->
-      
-      
-      
-      <!-- <table class="q-table">
-          <thead>
-             <tr class="q-tr ">
-                <th class="text-left">Goods Code</th>
-                <th class="text-center">Goods Desc</th>
-                <th class="text-center">Goods Supplier</th>
-                <th class="text-center">Goods Weight(Unit:g)</th>
-                <th class="text-center">Goods Width(Unit:mm)</th>
-                <th class="text-center">Goods Depth(Unit:mm)</th>
-                <th class="text-center">Goods Height(Unit:mm)</th>
-                <th class="text-center">Unit Volume</th>
-                <th class="text-center">Goods Unit</th>
-                <th class="text-center">Goods Class</th>
-                <th class="text-center">Goods Brand</th>
-                <th class="text-center">Goods Color</th>
-                <th class="text-center">Goods Shape</th>
-                <th class="text-center">Goods Specs</th>
-                <th class="text-center">Goods Origin</th>
-                <th class="text-center">Goods Cost</th>
-                <th class="text-center">Goods Price</th>
-                <th class="text-center">Creater</th>
-                <th class="text-center">Cteate Time</th>
-                <th class="text-center">Update Time</th>
-                <th class="text-right">Action</th>
-             </tr>
-          </thead>
-          <tbody>
-             <tr class="q-tr ">
-                <td class="q-td text-left">A000041</td>
-                <td class="q-td text-center">Goods Desc-41</td>
-                <td class="q-td text-center">Supplier Name-40</td>
-                <td class="q-td text-center">308</td>
-                <td class="q-td text-center">970.27</td>
-                <td class="q-td text-center">781.08</td>
-                <td class="q-td text-center">490.12</td>
-                <td class="q-td text-center">0.3712</td>
-                <td class="q-td text-center">Package</td>
-                <td class="q-td text-center">Smart Home</td>
-                <td class="q-td text-center">Brand Name-19</td>
-                <td class="q-td text-center">Purple</td>
-                <td class="q-td text-center">Cylinder</td>
-                <td class="q-td text-center">5 x 5</td>
-                <td class="q-td text-center">chongqing</td>
-                <td class="q-td text-center">294.58</td>
-                <td class="q-td text-center">974.39</td>
-                <td class="q-td text-center">DemoData</td>
-                <td class="q-td text-center">2024-05-07 15:11:12</td>
-                <td class="q-td text-center">2024-05-07 15:11:12</td>
-                <td class="q-td text-right" style="width: 100px;">
-                   <button tabindex="0" type="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round text-info q-btn--actionable q-focusable q-hoverable q-btn--wrap">
-                      <span class="q-focus-helper"></span>
-                      <span class="q-btn__wrapper col row q-anchor--skip">
-                         <span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
-                            <i aria-hidden="true" role="img" class="q-icon notranslate material-icons">print</i>
-                         </span>
-                      </span>
-                   </button>
-                   <button tabindex="0" type="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round text-purple q-btn--actionable q-focusable q-hoverable q-btn--wrap">
-                      <span class="q-focus-helper"></span>
-                      <span class="q-btn__wrapper col row q-anchor--skip">
-                         <span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
-                          <i class="fa-solid fa-pen-to-square">Edit</i>
-                         </span>
-                      </span>
-                   </button>
-                   <button tabindex="0" type="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round text-dark q-btn--actionable q-focusable q-hoverable q-btn--wrap">
-                      <span class="q-focus-helper"></span>
-                      <span class="q-btn__wrapper col row q-anchor--skip">
-                         <span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
-                          <i class="fa-solid fa-trash">delete</i>
-                         </span>
-                      </span>
-                   </button>
-                </td>
-             </tr>
-             
-             
-          </tbody>
-       </table> -->
-      
-       
-      
-       <!-- <nz-table #editRowTable nzBordered [nzData]="listOfData">
-          <thead>
-            <tr>
-              <th nzWidth="25%">Name</th>
-              <th nzWidth="15%">Age</th>
-              <th nzWidth="40%">Address</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let datas of data">
-              <td>
-                <ng-container *ngIf="!editCache[datas.id].edit; else nameInputTpl">
-                  {{ datas.name }}
-                </ng-container>
-                <ng-template #nameInputTpl>
-                  <input type="text" nz-input [(ngModel)]="editCache[datas.id].datas.name" />
-                </ng-template>
-              </td>
-              <td>
-                <ng-container *ngIf="!editCache[datas.id].edit; else ageInputTpl">
-                  {{ datas.age }}
-                </ng-container>
-                <ng-template #ageInputTpl>
-                  <input type="text" nz-input [(ngModel)]="editCache[datas.id].datas.age" />
-                </ng-template>
-              </td>
-              <td>
-                <ng-container *ngIf="!editCache[datas.id].edit; else addressInputTpl">
-                  {{ datas.address }}
-                </ng-container>
-                <ng-template #addressInputTpl>
-                  <input type="text" nz-input [(ngModel)]="editCache[datas.id].datas.address" />
-                </ng-template>
-              </td>
-              <td>
-                <div class="editable-row-operations">
-                  <ng-container *ngIf="!editCache[datas.id].edit; else saveTpl">
-                    <a (click)="startEdit(datas.id)">Edit</a>
-                  </ng-container>
-                  <ng-template #saveTpl>
-                    <a (click)="saveEdit(datas.id)">Save</a>
-                    <a nz-popconfirm nzTitle="Sure to cancel?" (nzOnConfirm)="cancelEdit(datas.id)">Cancel</a>
-                  </ng-template>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </nz-table> -->
-      
-       
+  </div>
+  <div *ngIf="data.length > 0">
+    <div class="createButton btn btn-primary" (click)="createNewDetails()">
+      <i class="fa-solid fa-plus"></i>Product
+    </div>
+    <table class="q-table">
+      <thead>
+        <tr>
+          <th class="text-center" *ngFor="let column of columnss"><b>{{column | titleCase}}</b></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of data" (click)="detailspage(item)">
+          <td class="q-td text-left" *ngFor="let column of columnss">
+            <span>{{item[column]}}</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <mat-paginator class="pagination" #paginator (page)="onPageChange($event)" [length]="data.length" [pageIndex]="0"
+      [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" aria-label="Select page" showFirstLastButtons>
+
+    </mat-paginator>
+  </div>
+</div>
+<section class="bodySection">
+  <ng-container *ngComponentOutlet="currentChildComponent">
+    <h1>hii</h1>
+  </ng-container>
+</section>
