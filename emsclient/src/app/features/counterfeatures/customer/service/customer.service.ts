@@ -48,4 +48,10 @@ export class CustomerService implements OnInit{
     return this.http.get(`${this.baseUrl}/wms/customer/api/fetch/${customerCode}`,{headers:this.httpHeaders})
   }
 
+  search(searchValue:string){
+    console.log("Inside Search method of Customer service");
+    return this.http.get<any[]>(`${this.baseUrl}/wms/customer/api/search?search=${searchValue}`,{headers:this.httpHeaders});
+    
+  }
+
 }

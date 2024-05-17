@@ -36,7 +36,7 @@ export class ProducthomeComponent implements OnInit{
     // ]
 
     this.columns=[
-      "skuNumber","productId","productName","productShortDesc"
+      "skuNumber","productId","productName","productidType","manufacturer","category"
     ]
   }
  datatableDisplay:boolean=false;

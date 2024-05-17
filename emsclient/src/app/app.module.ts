@@ -40,6 +40,7 @@ import { ConfigbomcreationComponent } from './features/counterfeatures/configbom
 import { TitleCasePipe } from './service/title-case.pipe';
 import { ProducttableComponent } from './features/counterfeatures/product/producttable/producttable.component';
 import { DatePipe } from '@angular/common';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -85,8 +86,8 @@ import { DatePipe } from '@angular/common';
     NgbModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
-   
+    MatSortModule,
+    MatFormFieldModule
    
   ],
   providers: [

@@ -5,6 +5,7 @@ import { CommonService } from '../../service/common.service';
 import { Router } from '@angular/router';
 import { CreatecustomerComponent } from '../createcustomer/createcustomer.component';
 import { CustomerDetailPageComponent } from '../customer-detail-page/customer-detail-page.component';
+import { CustomerService } from '../service/customer.service';
 
 @Component({
   selector: 'app-customertable',
@@ -23,8 +24,9 @@ export class CustomertableComponent {
   editable=false;
   editCache: { [key: number]: {data:any,edit:any} } = {};
   editData:any;
+  searchValue:string="";
 
-  constructor(private commonService:CommonService,private router:Router){}
+  constructor(private commonService:CommonService,private router:Router,private customerService:CustomerService){}
   
   ngAfterViewInit(): void {
     // this.dataSource.sort = this.sort;
@@ -72,6 +74,25 @@ export class CustomertableComponent {
     this.editData=item;
     console.log("this.editCache[item.id].data",this.editCache[item.id].data);
     console.log("this.editCache[item.id].data",this.editCache[item.id].data.id);
+  }
+
+  search(){
+    console.log("Inside search button");
+    console.log("searchValue is",this.searchValue);
+    this.customerService.search(this.searchValue).subscribe((res:any[])=>{
+      if(res){
+
+        console.log("res->",res);
+        this.data=res;
+      }
+      else{
+        alert("No Record is found")
+        console.log("No Record is found");
+      }
+     
+      
+    })
+    
   }
 
   private getPagedData(data: any[]): any[] {

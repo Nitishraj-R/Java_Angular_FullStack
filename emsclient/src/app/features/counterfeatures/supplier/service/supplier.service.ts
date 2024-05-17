@@ -46,4 +46,10 @@ export class SupplierService implements OnInit {
     console.log("inside fetchsupplierByVendorCode method of supplier service");
     return this.http.get(`${this.baseUrl}/wms/vendor/api/fetch/vendorCode=${vendorCode}`,{ headers:this.httpHeaders});
   }
+
+  search(searchValue:string){
+    console.log("Inside Search method of Supplier service");
+    return this.http.get<any[]>(`${this.baseUrl}/wms/vendor/api/search?search=${searchValue}`,{headers:this.httpHeaders});
+    
+  }
 }

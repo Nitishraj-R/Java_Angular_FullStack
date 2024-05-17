@@ -17,6 +17,19 @@
     <div class="createButton btn btn-primary" (click)="createNewDetails()">
       <i class="fa-solid fa-plus"></i>Product
     </div>
+
+    <div class="search-div">
+      
+        <div class="example-full-width input-box">
+          <input type="text" matInput placeholder="Search" [(ngModel)]="searchValue" name= "search">
+          <label >Search</label>
+          <button class="search-button" (click)="search()">
+            
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>  
+    </div>
+
     <table class="q-table">
       <thead>
         <tr>

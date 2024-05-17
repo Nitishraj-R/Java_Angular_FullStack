@@ -7,6 +7,7 @@ import { SupplierhomeComponent } from '../supplierhome/supplierhome.component';
 import { CreatesupplierComponent } from '../createsupplier/createsupplier.component';
 import { DetailPageComponent } from '../detail-page/detail-page.component';
 import { MatTableDataSource } from '@angular/material/table';
+import { SupplierService } from '../service/supplier.service';
 
 @Component({
   selector: 'app-general-table',
@@ -27,8 +28,9 @@ export class GeneralTableComponent {
   editable=false;
   editCache: { [key: number]: {data:any,edit:any} } = {};
   editData:any;
+  searchValue:string="";
 
-  constructor(private commonService:CommonService,private router:Router){}
+  constructor(private commonService:CommonService,private router:Router,private supplierService:SupplierService){}
   
   ngAfterViewInit(): void {
     // this.dataSource.sort = this.sort;
@@ -86,6 +88,25 @@ export class GeneralTableComponent {
     this.editData=item;
     console.log("this.editCache[item.id].data",this.editCache[item.id].data);
     console.log("this.editCache[item.id].data",this.editCache[item.id].data.id);
+  }
+
+  search(){
+    console.log("Inside search button");
+    console.log("searchValue is",this.searchValue);
+    this.supplierService.search(this.searchValue).subscribe((res:any[])=>{
+      if(res){
+
+        console.log("res->",res);
+        this.data=res;
+      }
+      else{
+        alert("No Record is found")
+        console.log("No Record is found");
+      }
+     
+      
+    })
+    
   }
 
   private getPagedData(data: any[]): any[] {

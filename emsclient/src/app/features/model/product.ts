@@ -9,7 +9,21 @@ export class Product {
  
 	productName:string="";
  
-  productShortDesc:string="";
+  	productShortDesc:string="";
+
+  	manufacturer:string="";
+	
+	category:string="";
+	
+	subcategory:string="";
+	
+	material:string="";
+	
+	color:string="";
+	
+	compatibilityNotes:string="";
+	
+	warranty:string="";
  
 	parentSkuId:Number | null=null;
  

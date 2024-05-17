@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
 import { ProducthomeComponent } from '../producthome/producthome.component';
 import { ProductDetailPageComponent } from '../product-detail-page/product-detail-page.component';
 import { CreateProductComponent } from '../create-product/create-product.component';
+import { ProductService } from '../service/product.service';
+import { Product } from 'src/app/features/model/product';
 
 @Component({
   selector: 'app-producttable',
@@ -23,12 +25,13 @@ export class ProducttableComponent {
 
   dataSource = new MatTableDataSource<any>(this.data);
   currentChildComponent: any = null;
+  searchValue:string="";
 
   editable=false;
   editCache: { [key: number]: {data:any,edit:any} } = {};
   editData:any;
 
-  constructor(private commonService:CommonService,private router:Router){}
+  constructor(private commonService:CommonService,private router:Router,private productService:ProductService){}
   
   ngAfterViewInit(): void {
     // this.dataSource.sort = this.sort;
@@ -86,6 +89,25 @@ export class ProducttableComponent {
     this.editData=item;
     console.log("this.editCache[item.id].data",this.editCache[item.id].data);
     console.log("this.editCache[item.id].data",this.editCache[item.id].data.id);
+  }
+
+  search(){
+    console.log("Inside search button");
+    console.log("searchValue is",this.searchValue);
+    this.productService.search(this.searchValue).subscribe((res:any[])=>{
+      if(res){
+
+        console.log("res->",res);
+        this.data=res;
+      }
+      else{
+        alert("No Record is found")
+        console.log("No Record is found");
+      }
+     
+      
+    })
+    
   }
 
   private getPagedData(data: any[]): any[] {

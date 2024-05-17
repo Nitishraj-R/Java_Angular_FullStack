@@ -29,6 +29,20 @@ export class CreateProductComponent implements OnInit{
 	productName:[""],
  
   productShortDesc:[""],
+
+  manufacturer:[""],
+	
+	category:[""],
+	
+	subcategory:[""],
+	
+	material:[""],
+	
+	color:[""],
+	
+	compatibilityNotes:[""],
+	
+	warranty:[""],
  
 	parentSkuId:[''],
  

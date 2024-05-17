@@ -33,6 +33,20 @@ export class ProductDetailPageComponent implements OnInit{
 	productName:[""],
  
   productShortDesc:[""],
+
+  manufacturer:[""],
+	
+	category:[""],
+	
+	subcategory:[""],
+	
+	material:[""],
+	
+	color:[""],
+	
+	compatibilityNotes:[""],
+	
+	warranty:[""],
  
 	parentSkuId:[""],
  
@@ -250,7 +264,7 @@ export class ProductDetailPageComponent implements OnInit{
 
     console.log("Inside onCancel");
     this.currentChildComponent=ProducthomeComponent;
-
+    
    }
 
    onBack(){
