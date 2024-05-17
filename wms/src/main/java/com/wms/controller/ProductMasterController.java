@@ -25,7 +25,7 @@ import com.wms.service.impl.ProductMasterServiceImpl;
 
 public class ProductMasterController {
  
-	private ProductMasterServiceImpl service;
+	private ProductMasterServiceImpl service; 
 	
 	Logger log=LoggerFactory.getLogger(ProductMasterController.class);
  

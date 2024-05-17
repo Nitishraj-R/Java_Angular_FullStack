@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wms.dto.VendorMasterDto;
-import com.wms.model.VendorMaster;
 import com.wms.service.VendorMasterService;
 
 @RestController
@@ -37,7 +36,7 @@ public class VendorMasterController {
 		log.info("Vendor code is {}",vendorMasterDto.getVendorCode());
 		try {
 			return vendorMasterService.createVendor(vendorMasterDto);
-		}catch(Exception e) {
+		}catch(Exception e) { 
 			log.error(e.getMessage());
 //			throw new BadRequestException(e.getMessage());
 			return null;
@@ -97,4 +96,17 @@ public class VendorMasterController {
 		}
 		
 	}
+	
+	@GetMapping("search")
+	public List<VendorMasterDto> searchProduct(@RequestParam String search){
+		
+		log.info("ProductMaster Controller search method");
+		log.info("ProductMaster Controller search String is {}",search);
+		
+		
+		return vendorMasterService.searchVendor(search);
+		
+		
+	}
+
 }

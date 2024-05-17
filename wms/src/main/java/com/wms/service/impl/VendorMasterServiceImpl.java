@@ -10,7 +10,9 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.wms.dto.CustomerMasterDto;
 import com.wms.dto.VendorMasterDto;
+import com.wms.model.CustomerMaster;
 import com.wms.model.VendorMaster;
 import com.wms.repository.VendorMasterRepository;
 import com.wms.service.VendorMasterService;
@@ -87,6 +89,24 @@ public class VendorMasterServiceImpl implements VendorMasterService{
 		return "Not able to delete because invalid id";
 	}
 
+
+	@Override
+	public List<VendorMasterDto> searchVendor(String search) {
+		log.info("ProductMaster service Implementation class searchCustomer method");
+
+	 List<VendorMaster> vendorMaster = vendorMasterRepository.findByVendorCodeOrVendorNameOrEmailAddressOrPrimaryContactNumberOrRegistrationNo(search, search, search,search,search);
+	 
+	 List<VendorMasterDto> vendorMasterDto=new ArrayList<>();
+	 for (VendorMaster vendorMaster1 : vendorMaster) {
+		 
+		 VendorMasterDto customerDto=new VendorMasterDto();
+		 BeanUtils.copyProperties(vendorMaster1, customerDto);
+		 
+		 vendorMasterDto.add(customerDto);
+		
+	}
 	
+	 return vendorMasterDto;
+	}
 
 }

@@ -32,7 +32,7 @@ public class VendorMaster {
 
 	private String vendorName;
 
-	private String registrationNo;
+	private String registrationNo; 
 
 	private Boolean status;
 

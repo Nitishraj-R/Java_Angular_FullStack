@@ -23,7 +23,7 @@ public class CustomerMaster {
 	private Long id;
 	
 	private String customerCode;
-	
+	 
 	private Boolean status;
 	
 	private String title;
