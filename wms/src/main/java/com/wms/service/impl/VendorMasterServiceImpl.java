@@ -92,7 +92,7 @@ public class VendorMasterServiceImpl implements VendorMasterService{
 
 	@Override
 	public List<VendorMasterDto> searchVendor(String search) {
-		log.info("ProductMaster service Implementation class searchCustomer method");
+		log.info("VendorMaster service Implementation class searchCustomer method");
 
 	 List<VendorMaster> vendorMaster = vendorMasterRepository.findByVendorCodeOrVendorNameOrEmailAddressOrPrimaryContactNumberOrRegistrationNo(search, search, search,search,search);
 	 

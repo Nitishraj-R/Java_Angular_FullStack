@@ -91,7 +91,7 @@ public class CustomerMasterServiceImpl implements CustomerMasterService{
 
 	@Override
 	public List<CustomerMasterDto> searchCustomer(String search) {
-		log.info("ProductMaster service Implementation class searchCustomer method");
+		log.info("CustomerMaster service Implementation class searchCustomer method");
 
 	 List<CustomerMaster> customerMaster = customerMasterRepository.findByCustomerCodeOrFirstNameOrLastNameOrPrimaryEmailIdOrPrimaryContactNumber(search, search, search,search,search);
 	 

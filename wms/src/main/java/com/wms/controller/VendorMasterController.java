@@ -100,8 +100,8 @@ public class VendorMasterController {
 	@GetMapping("search")
 	public List<VendorMasterDto> searchProduct(@RequestParam String search){
 		
-		log.info("ProductMaster Controller search method");
-		log.info("ProductMaster Controller search String is {}",search);
+		log.info("VendorMaster Controller search method");
+		log.info("VendorMaster Controller search String is {}",search);
 		
 		
 		return vendorMasterService.searchVendor(search);

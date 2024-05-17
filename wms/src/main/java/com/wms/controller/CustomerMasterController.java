@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wms.dto.CustomerMasterDto;
+import com.wms.model.ProductMaster;
 import com.wms.service.CustomerMasterService;
 
 @RestController
@@ -32,7 +33,7 @@ public class CustomerMasterController {
 	
 	@Autowired
 	protected CustomerMasterService customerMasterService;
-
+ 
 	@PostMapping("/create")
 	public CustomerMasterDto create(@RequestBody CustomerMasterDto customerMasterDto) {
 		log.info("customerMaster Controller create method");
@@ -99,6 +100,18 @@ public class CustomerMasterController {
 //			throw new BadRequestException(e.getMessage());
 			return null;
 		}
+		
+	}
+	
+	@GetMapping("search")
+	public List<CustomerMasterDto> searchCustomer(@RequestParam String search){
+		
+		log.info("CustomerMaster Controller search method");
+		log.info("CustomerMaster Controller search String is {}",search);
+		
+		
+		return customerMasterService.searchCustomer(search);
+		
 		
 	}
 }
