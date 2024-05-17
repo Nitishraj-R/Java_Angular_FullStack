@@ -25,31 +25,40 @@ public class ProductMasterController {
  
 	private ProductMasterServiceImpl service;
  
+
 	public ProductMasterController(ProductMasterServiceImpl service) {
 		super();
 		this.service = service;
 	}
- 
+
+
 	@PostMapping("saveProduct")
 	public ProductMaster saveProduct(@RequestBody ProductMaster product) {
- 
+
 		return service.createProduct(product);
- 
+
 	}
- 
+
 	@GetMapping("getAllProducts")
 	public List<ProductMaster> getAllProduct() {
- 
+
 		return service.getProducts();
 		
- 
+
+	}
+	
+	@GetMapping("getProduct")
+	public ProductMaster getProduct(@RequestParam String productId) {
+		return service.getProductByProductId(productId);
 	}
 	
 	@DeleteMapping("deleteProduct")
-	public void deleteProduct(@RequestParam String productId) {
+	public ProductMaster deleteProduct(@RequestParam String productId) {
 		
-		 service.deleteProduct(productId);	
+		return service.deleteProduct(productId);	
 	}
+ 
+
 	
 	@PutMapping("updateProduct")
 	public ProductMaster updateProduct(@RequestBody ProductMaster product) {
@@ -58,3 +67,5 @@ public class ProductMasterController {
 		
 	}
 }
+
+

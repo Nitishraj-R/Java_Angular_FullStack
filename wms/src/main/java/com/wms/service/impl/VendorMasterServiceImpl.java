@@ -68,7 +68,7 @@ public class VendorMasterServiceImpl implements VendorMasterService{
 		Optional<VendorMaster> findByVendorCode = vendorMasterRepository.findByVendorCode(code);
 		if(findByVendorCode.isPresent()) {
 			VendorMasterDto vendorMasterDto=new VendorMasterDto();
-			BeanUtils.copyProperties(findByVendorCode, vendorMasterDto);
+			BeanUtils.copyProperties(findByVendorCode.get(), vendorMasterDto);
 			return vendorMasterDto;
 		}
 		return null;

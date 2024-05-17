@@ -18,15 +18,16 @@ import com.wms.service.ProductMasterService;
 
 @Service
 public class ProductMasterServiceImpl implements ProductMasterService {
- 
+
 	@Autowired
 	private ProductMasterRepository productMasterRepository;
  
 	@Override
 	public ProductMaster createProduct(ProductMaster productMaster) {
+
 		productMaster.setStatus(true);
 		return productMasterRepository.save(productMaster);
- 
+
 	}
  
 	@Override
@@ -36,17 +37,22 @@ public class ProductMasterServiceImpl implements ProductMasterService {
  
 	@Override
 	public ProductMaster getProductByProductId(String productId) {
- 
+
+
 		return productMasterRepository.findByProductId(productId);
 	}
+
+	
  
 	@Override
 	public ProductMaster deleteProduct(String id) {
  
+
 		ProductMaster productByCode = getProductByProductId(id);
 		ProductMaster productMaster = new ProductMaster();
 		BeanUtils.copyProperties(productByCode, productMaster);
 		productMaster.setStatus(false);
+
  
 		return productMasterRepository.save(productMaster);
 	}
@@ -57,17 +63,19 @@ public class ProductMasterServiceImpl implements ProductMasterService {
 		ProductMaster existingProduct = productMasterRepository.findById(product.getId())
 				.orElseThrow(NoSuchElementException::new);
  
+
 		try {
 			BeanUtils.copyProperties(product, existingProduct, getNullPropertyNames(product));
 		    
 		} catch (Exception e) {
 			e.printStackTrace();
- 
+
 		}
  
 		return productMasterRepository.save(existingProduct);
 	}
  
+
 	private String[] getNullPropertyNames(ProductMaster product) {
 		final BeanWrapper src = new BeanWrapperImpl(product);
 		Set<String> emptyNames = new HashSet<>();
@@ -79,5 +87,5 @@ public class ProductMasterServiceImpl implements ProductMasterService {
 		String[] result = new String[emptyNames.size()];
 		return emptyNames.toArray(result);
 	}
- 
+
 }

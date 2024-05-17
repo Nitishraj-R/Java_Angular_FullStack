@@ -62,7 +62,7 @@ public class CustomerMasterServiceImpl implements CustomerMasterService{
 		Optional<CustomerMaster> findByCustomerCode = customerMasterRepository.findByCustomerCode(customerCode);
 		if(findByCustomerCode.isPresent()) {
 			CustomerMasterDto customerMasterDto=new CustomerMasterDto();
-			BeanUtils.copyProperties(findByCustomerCode, customerMasterDto);
+			BeanUtils.copyProperties(findByCustomerCode.get(), customerMasterDto);
 			return customerMasterDto;
 		}
 		return null;
