@@ -11,27 +11,26 @@ export class Product {
  
   productShortDesc:string="";
  
-	parentSkuId:Number=0;
+	parentSkuId:Number | null=null;
  
-	status:Boolean=true;
+	status:Boolean | null=null;
  
-	isReturnable:Boolean=true;
+	isReturnable:Boolean | null=null;
  
-	maxOrdQty:Number=0;
+	maxOrdQty:Number | null=null;
  
-	maxAggShipQty:Number=0;
+	maxAggShipQty:Number | null=null;
+	preOrdLaunchDt:Date | null=null;
  
-	preOrdLaunchDt:Date=new Date();
+	preOrdEndDt:Date | null=null;
  
-	preOrdEndDt:Date=new Date();
+	preOrdQty:Number | null=null;
  
-	preOrdQty:Number=0;
- 
-	preOrdRelDt:Date=new Date();
+	preOrdRelDt:Date | null=null;
  
 	isBackorder:Boolean=true;
  
-	backOrderLimit:Number=0;
+	backOrderLimit:Number | null=null;
  
 	shippingOptions:string="";
  
@@ -49,8 +48,8 @@ export class Product {
  
 	legalAttributes:string="";
  
-	isPreOrderAllow:Boolean=true;
+	isPreOrderAllow:Boolean | null=null;
  
-	lowStockThreshold:Number=0;
+	lowStockThreshold:Number | null=null;
 	percentageType:string="";
 }

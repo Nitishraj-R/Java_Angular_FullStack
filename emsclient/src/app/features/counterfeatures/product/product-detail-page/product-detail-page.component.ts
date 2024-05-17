@@ -2,10 +2,11 @@ import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, OnInit, ViewCh
 import { ProducthomeComponent } from '../producthome/producthome.component';
 import { DataService } from '../../service/dataservice';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { CommonService } from '../../service/common.service';
 import { Router } from '@angular/router';
 import { SupplierService } from '../../supplier/service/supplier.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-product-detail-page',
@@ -17,7 +18,9 @@ export class ProductDetailPageComponent implements OnInit{
   currentChildComponent: any = null;
   updateForm:FormGroup;
   httpHeaders:HttpHeaders=new HttpHeaders();
-  constructor(private http:HttpClient,private builder:FormBuilder,private commonService:CommonService,private router:Router,private supplierService:SupplierService,private cdr:ChangeDetectorRef){
+
+  theDate = new Date('2020/03/15');
+  constructor(private http:HttpClient,private builder:FormBuilder,private commonService:CommonService,private router:Router,private supplierService:SupplierService,private cdr:ChangeDetectorRef,private datePipe: DatePipe){
     this.updateForm=this.builder.group({
       id:[""],
  
@@ -41,7 +44,7 @@ export class ProductDetailPageComponent implements OnInit{
  
 	maxAggShipQty:[""],
  
-	preOrdLaunchDt:[""],
+	preOrdLaunchDt:new Date(),
  
 	preOrdEndDt:[""],
  
@@ -49,7 +52,7 @@ export class ProductDetailPageComponent implements OnInit{
  
 	preOrdRelDt:[""],
  
-	isBackorder:[""],
+	isBackorder:false,
  
 	backOrderLimit:[""],
  
@@ -95,8 +98,19 @@ export class ProductDetailPageComponent implements OnInit{
   this.commonService.commonmsg.subscribe(m=>{
     console.log("m->",m);
     this.data=m;
-    this.data.preOrdRelDt="19-05-2024 11:15";
+    // this.data.preOrdRelDt="19-05-2024 11:15";
+    console.log("this.updateForm.value",this.updateForm.value);
+    
     this.updateForm.patchValue(this.data);
+    // this.updateForm.value.preOrdLaunchDt=this.theDate;
+    // this.updateForm.value.isBackorder=false;
+    // this.updateForm.controls['isBackorder'].setValue(false);
+    
+    // this.updateForm.value.preOrdLaunchDt=new Date()
+    // this.updateForm.controls['preOrdLaunchDt'].setValue("19-05-2024 11:15");
+    console.log("this.updateForm.value",this.updateForm.value);
+    console.log("this.updateForm.value.isBackorder",this.updateForm.value.isBackorder);
+    
     this.cdr.detectChanges();
   })
   // this.commonService.commonmsg.subscribe(m=>{
@@ -188,6 +202,7 @@ export class ProductDetailPageComponent implements OnInit{
  
    onSubmit(){
     if(this.updateForm.valid){
+      // this.updateForm.value.isBackorder=
       console.log("this.updateForm.value",this.updateForm.value);
       this.http.put(`http://localhost:8080/wms/product/api/updateProduct`,this.updateForm.value,{ headers:this.httpHeaders}).subscribe((res:any)=>{
     if(res!=null){
@@ -210,6 +225,25 @@ export class ProductDetailPageComponent implements OnInit{
     }
     
    
+   }
+
+   selectRadioButton(key:string,value:Boolean){
+    switch(key){
+      case "isBackorder":
+        this.updateForm.value.isBackorder=value;
+        console.log(this.updateForm.value.isBackorder);
+        break;
+      
+      case 'isPreOrderAllow':
+        this.updateForm.value.isPreOrderAllow=value;
+        console.log(this.updateForm.value.isPreOrderAllow);
+        break;
+      case 'isReturnable':
+        this.updateForm.value.isReturnable=value;
+        console.log(this.updateForm.value.isReturnable);
+        break;
+    }
+    
    }
 
    onCancel(){

@@ -1,4 +1,30 @@
 .card{
     /* align-self: center; */
     margin-top: 20px;
+    font-size: 15px;
 }
+
+.container-noproduct{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+  }
+
+  .lt-noproduct-txt{
+   font-weight: 600;
+   font-size: small;
+  }
+
+  .configIcon{
+    height: 20px;
+    transform: scale(1.5);
+  }
+
+  .ls-noproduct-add-button{
+    font-size: 15px;
+  }
+  i{
+    color: rgb(43, 147, 182);
+  }

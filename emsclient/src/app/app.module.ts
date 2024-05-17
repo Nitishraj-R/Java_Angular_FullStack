@@ -39,6 +39,7 @@ import { ConfigbomlistviewComponent } from './features/counterfeatures/configbom
 import { ConfigbomcreationComponent } from './features/counterfeatures/configbomcreation/configbomcreation.component';
 import { TitleCasePipe } from './service/title-case.pipe';
 import { ProducttableComponent } from './features/counterfeatures/product/producttable/producttable.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -88,7 +89,9 @@ import { ProducttableComponent } from './features/counterfeatures/product/produc
    
    
   ],
-  providers: [],
+  providers: [
+    DatePipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

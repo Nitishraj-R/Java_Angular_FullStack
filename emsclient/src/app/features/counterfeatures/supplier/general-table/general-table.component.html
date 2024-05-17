@@ -1,7 +1,22 @@
 
 <div *ngIf="currentChildComponent===null">
+  <div class="container-noproduct">
+    <div *ngIf="data.length ===0">
+      <div class="d-flex justify-content-center lt-box-asset">
+        <i class="fa-solid fa-boxes-packing fa-2xl supplierIcon" ></i>
+      </div>
+      <div class="d-flex justify-content-center xl-font fw-500 title-color pb-50 ng-star-inserted">
+        <span class="lt-noproduct-txt">No Supplier(s) Added, Add Supplier.</span>
+      </div>
+      <div class="lt-noproduct-txt d-flex flex-wrap justify-content-center pb-2 1 ">Click 'Add Item' to begin.</div>
+      <div class="createButton btn btn-primary" style="margin-left: 70px;" (click)="createNewDetails()">
+        <Span><i class="fa-solid fa-plus"></i>&nbsp;Add Item</Span>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="data.length > 0">
 <div class="createButton btn btn-primary" (click)="createNewDetails()">
-    <i class="fa-solid fa-plus" ></i> New
+    <i class="fa-solid fa-plus" ></i> Supplier
   </div>
   
   <table class="q-table">
@@ -49,6 +64,7 @@
         aria-label="Select page" showFirstLastButtons>
         
     </mat-paginator>
+</div>
 </div>
 
     <section class="bodySection">

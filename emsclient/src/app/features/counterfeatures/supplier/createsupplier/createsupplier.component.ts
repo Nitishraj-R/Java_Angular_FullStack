@@ -21,7 +21,7 @@ export class CreatesupplierComponent {
       id:[''],
       vendorName:[''],
       registrationNo:[''],
-      status:true,
+      status:[''],
       address:[''],
       // phoneNumber:['']      phoneNumber:[''],
       emailAddress:['',[Validators.email]],

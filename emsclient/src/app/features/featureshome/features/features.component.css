@@ -37,6 +37,7 @@
 }
 .dashboardContainer{
     /* border:2px solid red ; */
+    height: 60px;
     width: 80px;
     color: aliceblue;
     padding-top: 23px;
@@ -74,6 +75,7 @@
  
 .customerContainer{
     /* border:2px solid red ; */
+    height: 60px;
     width: 80px;
     color: aliceblue;
     padding-top: 23px;
@@ -113,6 +115,7 @@
 
 .productContainer{
     /* border:2px solid red ; */
+    height: 60px;
     width: 70px;
     color: aliceblue;
     padding-top: 23px;
@@ -147,6 +150,7 @@
 }
 .bomContainer{
     /* border:2px solid red ; */
+    height: 60px;
     width: fit-content;
     color: aliceblue;
     padding-top: 23px;
@@ -187,6 +191,7 @@
 .supplierContainer{
 
     /* border:2px solid red ; */
+    height: 60px;
     width: 80px;
     color: aliceblue;
     padding-top: 23px;

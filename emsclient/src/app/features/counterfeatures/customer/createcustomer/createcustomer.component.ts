@@ -22,7 +22,7 @@ export class CreatecustomerComponent {
       id:[''],
       customerCode:[''],
       title:[''],
-      status:true,
+      status:[''],
       firstName:[''],
       lastName:[''],
       midddleName:[''],

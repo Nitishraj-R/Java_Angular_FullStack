@@ -1,5 +1,22 @@
 <div  class="container" *ngIf="getState()">
  
+  <div class="container-noproduct">
+    <div *ngIf="listConfigData.length ===0">
+      <div class="d-flex justify-content-center lt-box-asset">
+        <i class="fa-solid fa-sliders fa-2xl configIcon
+        " ></i>
+      </div>
+      <div class="d-flex justify-content-center xl-font fw-500 title-color pb-50 ng-star-inserted">
+        <span class="lt-noproduct-txt">No ConfigBom(s) Added, Add ConfigBom.</span>
+      </div>
+      <div class="lt-noproduct-txt d-flex flex-wrap justify-content-center pb-2 1 ">Click 'Add Item' to begin.</div>
+      <div class="createButton btn btn-primary" style="margin-left: 70px;" (click)="createNewBom()">
+        <Span class="ls-noproduct-add-button"><i class="fa-solid fa-plus"></i>&nbsp;Add Item</Span>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="listConfigData.length > 0">
   <div class="new-button-container">
     <button  class="btn btn-primary" id="new-Button" (click)="createNewBom()" >New Config Bom Creation</button>
 </div>
@@ -27,7 +44,7 @@
       </tbody>
     </table>
   </div>
- 
+ </div>
 </div>
  
 <section class="bodySection">
