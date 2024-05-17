@@ -17,4 +17,6 @@ public interface CustomerMasterService {
 
 	String deleteCustomer(String customerCode);
 
+	List<CustomerMasterDto> searchCustomer(String search);
+
 }

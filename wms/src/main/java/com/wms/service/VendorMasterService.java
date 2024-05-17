@@ -17,4 +17,6 @@ public interface VendorMasterService {
 
 	String deleteVendor(String vendorCode);
 
+	List<VendorMasterDto> searchVendor(String search);
+
 }

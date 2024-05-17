@@ -11,12 +11,12 @@ public interface ProductMasterService {
 
 	List<ProductMaster> getProducts();
 
-
-
 	ProductMaster getProductByProductId(String productId);
 	
 	ProductMaster updateProduct(ProductMaster product);
 	
 	ProductMaster deleteProduct(String id);
+	
+	List<ProductMaster> searchProduct(String search);
 
 }
