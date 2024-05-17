@@ -27,6 +27,7 @@ public class VendorMasterServiceImpl implements VendorMasterService{
 	public VendorMasterDto createVendor(VendorMasterDto vendorMasterDto) {
 		log.info("vendor service Implementation class createVendor method");
 		VendorMaster vendorMaster=new VendorMaster();
+		vendorMasterDto.setStatus(STATUS);
 		BeanUtils.copyProperties(vendorMasterDto, vendorMaster);
 		vendorMaster=vendorMasterRepository.save(vendorMaster);
 		vendorMasterDto.setId(vendorMaster.getId());

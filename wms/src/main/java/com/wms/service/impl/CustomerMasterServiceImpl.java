@@ -30,6 +30,7 @@ public class CustomerMasterServiceImpl implements CustomerMasterService{
 	public CustomerMasterDto createCustomer(CustomerMasterDto customerMasterDto) {
 		log.info("Customer service Implementation class createCustomer method");
 		CustomerMaster customerMaster=new CustomerMaster();
+		customerMasterDto.setStatus(STATUS);
 		BeanUtils.copyProperties(customerMasterDto, customerMaster);
 		customerMaster=customerMasterRepository.save(customerMaster);
 		customerMasterDto.setId(customerMaster.getId());
