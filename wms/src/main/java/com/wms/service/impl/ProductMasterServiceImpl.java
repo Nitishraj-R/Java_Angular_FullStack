@@ -32,7 +32,7 @@ public class ProductMasterServiceImpl implements ProductMasterService {
  
 	@Override
 	public List<ProductMaster> getProducts() {
-		return  productMasterRepository.findByStatusTrue();
+		return  productMasterRepository.findByStatusTrue(); 
 	}
  
 	@Override
@@ -86,6 +86,10 @@ public class ProductMasterServiceImpl implements ProductMasterService {
 		}
 		String[] result = new String[emptyNames.size()];
 		return emptyNames.toArray(result);
+	}
+
+	public List<ProductMaster> searchProduct(String search) {
+		return productMasterRepository.findByProductIdOrProductNameOrColor(search,search,search);
 	}
 
 }

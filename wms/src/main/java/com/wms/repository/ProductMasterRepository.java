@@ -19,6 +19,8 @@ public interface ProductMasterRepository extends JpaRepository<ProductMaster, Lo
 
 	List<ProductMaster> findByStatusTrue();	
 	
+	List<ProductMaster> findByProductIdOrProductNameOrColor(String productId,String productName,String color);
+	
 
 
 
